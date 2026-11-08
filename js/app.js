@@ -711,8 +711,6 @@ function closeAllSearchUI() {
     renderCategories(document.getElementById("searchInput")?.value.trim().toLowerCase());
 }
 
-// সার্বজনীন ফ্লেক্সিবল ম্যাচিং ফাংশনটি নিচের BILINGUAL/OFFLINE SEARCH অংশে সংজ্ঞায়িত করা হয়েছে।
-
 function renderAllSearch() {
     const container = document.getElementById("allSearchContainer");
     if (!container) return;
@@ -887,7 +885,7 @@ function editCategory(id) {
 }
 
 async function deleteCategory(id) {
-    const isConfirmed = await customConfirm("আপনি কি নিশ্চিত এই Category মুছে ফেলতে চান?");
+    const isConfirmed = await customConfirm("আপনি কি এই Category মুছে ফেলতে চান?");
     if (!isConfirmed) return;
 
     database.categories = database.categories.filter(c => c.id !== id && c.parentId !== id);
@@ -1383,6 +1381,7 @@ function renderCategoryDetails(searchVal = "") {
 
     if (subCategories.length > 0) {
         const subWrapper = document.createElement("div");
+        subWrapper.className = "category-list"; // Sub-categories rendered in grid layout
         subWrapper.style.marginBottom = "20px";
 
         subCategories.forEach(sub => {
@@ -1395,7 +1394,7 @@ function renderCategoryDetails(searchVal = "") {
 
             const adminActions = isAdmin
                 ? `
-                    <div>
+                    <div class="action-btn-group">
                         <button class="btn-pin-sub custom-action-btn" title="পিন">${pinIcon}</button>
                         <button class="btn-edit-sub custom-action-btn">✏️</button>
                         <button class="btn-del-sub custom-action-btn" style="color:#ef4444">🗑️</button>
@@ -1802,18 +1801,6 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove("show"), 2500);
 }
 
-/* ============================================================
-   BILINGUAL / OFFLINE LANGUAGE + SEARCH SUPPORT - FINAL
-   ------------------------------------------------------------
-   • Language selection is stored locally and does NOT depend on
-     Google Translate for the basic English/Bengali UI.
-   • English search can match Bengali Firebase records offline.
-   • Dynamic UI created later by render functions is translated too.
-   • Firebase data is never changed by the language engine.
-   • A page reload is used after changing language so switching
-     English <-> Bengali works reliably even without internet.
-   ============================================================ */
-
 const APP_LANGUAGE_KEY = "selected_app_language";
 
 const OFFLINE_TRANSLATIONS = {
@@ -1950,7 +1937,6 @@ const OFFLINE_TRANSLATIONS = {
     "নাম": "Name"
 };
 
-/* English -> Bengali aliases used ONLY by the search engine. */
 const OFFLINE_SEARCH_ALIASES = {
     "constable": ["কনস্টেবল"],
     "female constable": ["মহিলা কনস্টেবল", "ফিমেল কনস্টেবল"],
@@ -1990,8 +1976,6 @@ const OFFLINE_SEARCH_ALIASES = {
     "notification": ["নোটিফিকেশন", "বিজ্ঞপ্তি"]
 };
 
-/* Common Bengali name/word aliases. This also makes Latin-name searches
-   useful when the stored Firebase name is Bengali. */
 const BENGALI_LATIN_ALIASES = {
     "জুয়েল": "jewel", "জুয়েল": "jewel", "রানা": "rana",
     "রহমান": "rahman", "হোসেন": "hossain", "হোসাইন": "hossain",
@@ -2017,9 +2001,6 @@ function setLanguage(lang) {
     localStorage.setItem(APP_LANGUAGE_KEY, lang);
     setLanguageCookie(lang);
 
-    /* IMPORTANT: reload in BOTH online and offline modes.
-       This prevents translated English text from being mixed with
-       newly-rendered Bengali text and makes BN <-> EN reversible. */
     try {
         document.documentElement.lang = lang === "en" ? "en" : "bn";
     } catch (_) {}
@@ -2095,7 +2076,6 @@ function getSearchVariants(query) {
         });
     });
 
-    /* For multi-word English queries, also add aliases for each token. */
     q.split(/\s+/).filter(Boolean).forEach(token => {
         if (OFFLINE_SEARCH_ALIASES[token]) {
             OFFLINE_SEARCH_ALIASES[token].forEach(v => variants.add(String(v).toLowerCase()));
@@ -2128,13 +2108,10 @@ function isMatch(sourceText, query) {
     const sourceLatin = bengaliToSearchLatin(sourceLower);
     const variants = getSearchVariants(q);
 
-    /* Direct phrase match first. */
     if (variants.some(v => v && (sourceLower.includes(v) || sourceLatin.includes(v)))) {
         return true;
     }
 
-    /* Multi-word search: every meaningful word must be found.
-       This fixes searches such as "jewel rana" against Bengali data. */
     const words = q.split(/\s+/).filter(w => w.length > 1);
     if (words.length > 1) {
         return words.every(word => {
@@ -2177,7 +2154,6 @@ function initOfflineLanguageSystem() {
     if (radioBn) radioBn.checked = savedLang !== "en";
 
     document.querySelectorAll('input[name="appLanguage"]').forEach(input => {
-        /* Avoid duplicate listeners if this function is ever called again. */
         if (input.dataset.offlineLangBound === "1") return;
         input.dataset.offlineLangBound = "1";
         input.addEventListener("change", () => setLanguage(input.value));
@@ -2202,4 +2178,3 @@ function initOfflineLanguageSystem() {
         }
     }
 }
-
