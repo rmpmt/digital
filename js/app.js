@@ -784,7 +784,7 @@ function renderCategories(searchVal = "") {
             : "";
 
         const pinBadge = (isAdmin && category.pinned)
-            ? '<span class="pinned-badge">Pinned</span>'
+            ? '<span class="pinned-badge" style="font-size:9px;">Pinned</span>'
             : "";
 
         card.innerHTML = `
@@ -885,7 +885,7 @@ function editCategory(id) {
 }
 
 async function deleteCategory(id) {
-    const isConfirmed = await customConfirm("আপনি কি এই Category মুছে ফেলতে চান?");
+    const isConfirmed = await customConfirm("আপনি কি নিশ্চিত এই Category মুছে ফেলতে চান?");
     if (!isConfirmed) return;
 
     database.categories = database.categories.filter(c => c.id !== id && c.parentId !== id);
@@ -1365,6 +1365,9 @@ function refreshCurrentView() {
     }
 }
 
+/* =========================================================
+   সাব-ক্যাটাগরি রেন্ডারিং (২য় ছবির ৩ কলামের স্কয়ার গ্রিড ডিজাইনে)
+========================================================= */
 function renderCategoryDetails(searchVal = "") {
     const container = document.getElementById("detailsContent");
     if (!container) return;
@@ -1381,7 +1384,7 @@ function renderCategoryDetails(searchVal = "") {
 
     if (subCategories.length > 0) {
         const subWrapper = document.createElement("div");
-        subWrapper.className = "category-list"; // Sub-categories rendered in grid layout
+        subWrapper.className = "category-list"; // ৩ কলাম গ্রিড লেআউট ক্লাস
         subWrapper.style.marginBottom = "20px";
 
         subCategories.forEach(sub => {
@@ -1402,7 +1405,7 @@ function renderCategoryDetails(searchVal = "") {
                 `
                 : "";
 
-            const subPinBadge = (isAdmin && sub.pinned) ? '<span class="pinned-badge">Pinned</span>' : "";
+            const subPinBadge = (isAdmin && sub.pinned) ? '<span class="pinned-badge" style="font-size:9px;">Pinned</span>' : "";
 
             item.innerHTML = `
                 <div class="sub-click">
