@@ -177,15 +177,49 @@ document.addEventListener("DOMContentLoaded", () => {
     setupEvents();
     initTheme();
     updateAdminUI();
+    initImageSlider();
 
     checkDeviceVerificationStatus();
     loadLocalCache();
     checkOnlineStatus();
-    initNotificationSystem();
 
     history.replaceState({ page: "home" }, "");
     window.addEventListener("popstate", handlePopState);
 });
+
+/* ==========================================
+   AUTOMATIC IMAGE SLIDER BANNER
+========================================== */
+function initImageSlider() {
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    if (!slides.length) return;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        showSlide(currentSlideIndex);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            currentSlideIndex = index;
+            showSlide(currentSlideIndex);
+        });
+    });
+
+    setInterval(nextSlide, 3500);
+}
 
 function setNavState(searchOrSubPageActive) {
     isSearchMode = searchOrSubPageActive;
@@ -224,7 +258,14 @@ function closeHeaderSearch() {
     if (searchBox && appTitle) {
         searchBox.classList.add("hidden");
         appTitle.classList.remove("hidden");
-        if (searchBtn) searchBtn.classList.remove("hidden");
+        
+        // প্রথম পেজে থাকলে সার্চ বাটন সম্পূর্ণ হাইড থাকবে
+        if (currentCategoryId || currentDataId || isAllSearchActive || isFavoriteActive) {
+            if (searchBtn) searchBtn.classList.remove("hidden");
+        } else {
+            if (searchBtn) searchBtn.classList.add("hidden");
+        }
+
         if (input) input.value = "";
         
         if (!currentCategoryId && !currentDataId && !isAllSearchActive && !isFavoriteActive) {
@@ -330,49 +371,6 @@ async function saveDatabase() {
     });
 }
 
-function initNotificationSystem() {
-    const notificationBtn = document.getElementById("notificationBtn");
-    
-    if (notificationBtn) {
-        notificationBtn.addEventListener("click", () => {
-            showToast("নোটিফিকেশন প্যানেল ওপেন করা হয়েছে");
-        });
-    }
-
-    const publishSlidingBtn = document.getElementById("publishSlidingNoticeBtn");
-    if (publishSlidingBtn) {
-        publishSlidingBtn.addEventListener("click", async () => {
-            if (window.currentUserRole !== "admin") {
-                return showToast("শুধুমাত্র অ্যাডমিন নোটিশ প্রকাশ করতে পারবেন");
-            }
-
-            const title = document.getElementById("slidingTitleInput")?.value.trim();
-            const message = document.getElementById("slidingMessageInput")?.value.trim();
-
-            if (!title || !message) {
-                return showToast("শিরোনাম এবং বিস্তারিত উভয়ই পূরণ করুন");
-            }
-
-            try {
-                const noticesRef = ref(db, "webapp/notices");
-                await push(noticesRef, {
-                    type: "sliding",
-                    title: title,
-                    message: message,
-                    time: Date.now()
-                });
-                
-                showToast("✅ স্লাইডিং নোটিশ সফলভাবে সেভ হয়েছে!");
-                document.getElementById("slidingTitleInput").value = "";
-                document.getElementById("slidingMessageInput").value = "";
-            } catch (error) {
-                console.error("Notice save error:", error);
-                showToast("❌ নোটিশ সেভ করতে ব্যর্থ হয়েছে");
-            }
-        });
-    }
-}
-
 function generateId(prefix) {
     return prefix + "_" + Date.now() + "_" + Math.random().toString(36).substring(2, 8);
 }
@@ -440,11 +438,6 @@ function setupEvents() {
     });
 
     document.getElementById("searchInput")?.addEventListener("input", handleSearch);
-
-    document.getElementById("allSearchBtn")?.addEventListener("click", () => {
-        history.pushState({ page: "allSearch" }, "");
-        activateAllSearchUI();
-    });
 
     document.getElementById("adminLoginBtn")?.addEventListener("click", () => openModal("loginModal"));
 
@@ -674,37 +667,9 @@ function handleSearch() {
     }
 }
 
-function activateAllSearchUI() {
-    isAllSearchActive = true;
-    isFavoriteActive = false;
-    const container = document.getElementById("allSearchContainer");
-    const list = document.getElementById("categoryList");
-    const emptyState = document.getElementById("emptyState");
-    const allSearchBtn = document.getElementById("allSearchBtn");
-    const adminContainer = document.getElementById("adminActionContainer");
-
-    allSearchBtn?.classList.add("hidden");
-    list?.classList.add("hidden");
-    emptyState?.classList.add("hidden");
-    container?.classList.remove("hidden");
-    
-    if (adminContainer) {
-        adminContainer.classList.add("hidden");
-        adminContainer.style.display = "none";
-    }
-
-    document.getElementById("verifiedBadge")?.classList.add("hidden");
-
-    openHeaderSearch();
-    renderAllSearch();
-}
-
 function closeAllSearchUI() {
     isAllSearchActive = false;
     const container = document.getElementById("allSearchContainer");
-    const allSearchBtn = document.getElementById("allSearchBtn");
-
-    allSearchBtn?.classList.remove("hidden");
     container?.classList.add("hidden");
     updateAdminUI();
     
@@ -1003,8 +968,7 @@ function renderFavoriteView(pushHistory = true) {
     document.getElementById("verifiedBadge")?.classList.add("hidden");
     setNavState(true);
 
-    const subToolbar = document.querySelector(".sub-toolbar") || document.getElementById("subToolbar") || document.getElementById("allSearchBtn");
-    if (subToolbar) subToolbar.classList.add("hidden");
+    document.getElementById("searchBtn")?.classList.remove("hidden");
 
     document.getElementById("mainDashboardView")?.classList.remove("hidden");
     document.getElementById("categoryDetailsView")?.classList.add("hidden");
@@ -1305,8 +1269,7 @@ function showCategoryView(id) {
     document.getElementById("verifiedBadge")?.classList.add("hidden");
     setNavState(true);
 
-    const subToolbar = document.querySelector(".sub-toolbar") || document.getElementById("subToolbar") || document.getElementById("allSearchBtn");
-    if (subToolbar) subToolbar.classList.add("hidden");
+    document.getElementById("searchBtn")?.classList.remove("hidden");
 
     document.getElementById("mainDashboardView")?.classList.add("hidden");
     document.getElementById("dataDetailsView")?.classList.add("hidden");
@@ -1335,8 +1298,8 @@ function showMainDashboardView() {
 
     setNavState(false);
 
-    const subToolbar = document.querySelector(".sub-toolbar") || document.getElementById("subToolbar") || document.getElementById("allSearchBtn");
-    if (subToolbar) subToolbar.classList.remove("hidden");
+    // প্রথম পেজে সার্চ অপশন লুকানো থাকবে
+    document.getElementById("searchBtn")?.classList.add("hidden");
 
     document.getElementById("categoryDetailsView")?.classList.add("hidden");
     document.getElementById("dataDetailsView")?.classList.add("hidden");
@@ -1365,9 +1328,6 @@ function refreshCurrentView() {
     }
 }
 
-/* =========================================================
-   সাব-ক্যাটাগরি রেন্ডারিং (২য় ছবির ৩ কলামের স্কয়ার গ্রিড ডিজাইনে)
-========================================================= */
 function renderCategoryDetails(searchVal = "") {
     const container = document.getElementById("detailsContent");
     if (!container) return;
@@ -1384,7 +1344,7 @@ function renderCategoryDetails(searchVal = "") {
 
     if (subCategories.length > 0) {
         const subWrapper = document.createElement("div");
-        subWrapper.className = "category-list"; // ৩ কলাম গ্রিড লেআউট ক্লাস
+        subWrapper.className = "category-list";
         subWrapper.style.marginBottom = "20px";
 
         subCategories.forEach(sub => {
@@ -1533,6 +1493,8 @@ function showDataPage(dataId) {
     isFavoriteActive = false;
     document.getElementById("verifiedBadge")?.classList.add("hidden");
     setNavState(true);
+
+    document.getElementById("searchBtn")?.classList.remove("hidden");
 
     document.getElementById("mainDashboardView")?.classList.add("hidden");
     document.getElementById("categoryDetailsView")?.classList.add("hidden");
@@ -1896,11 +1858,6 @@ const OFFLINE_TRANSLATIONS = {
     "ক্লাউডে সিঙ্ক করতে সমস্যা হয়েছে": "Cloud sync failed",
     "ইন্টারনেট সংযোগ নেই!": "No internet connection!",
     "🟢 অনলাইন মোডে আছেন ": "🟢 You are online ",
-    "স্লাইডিং নোটিশ সফলভাবে সেভ হয়েছে!": "Sliding notice saved successfully!",
-    "স্লাইডিং নোটিশ সফলভাবে সেভ হয়েছে!": "Sliding notice saved successfully!",
-    "নোটিফিকেশন প্যানেল ওপেন করা হয়েছে": "Notification panel opened",
-    "নোটিফিকেশন প্যানেল ওপেন করা হয়েছে": "Notification panel opened",
-    "শুধুমাত্র অ্যাডমিন নোটিশ প্রকাশ করতে পারবেন": "Only Admin can publish notices",
     "শিরোনাম এবং বিস্তারিত উভয়ই পূরণ করুন": "Please fill in both title and details",
     "শিরোনাম এবং বিস্তারিত উভয়ই পূরণ করুন": "Please fill in both title and details",
     "নাম প্রদান করুন": "Enter a name",
@@ -1974,9 +1931,7 @@ const OFFLINE_SEARCH_ALIASES = {
     "sub category": ["সাব-ক্যাটাগরি", "সাব ক্যাটাগরি"],
     "admin": ["অ্যাডমিন", "এডমিন"],
     "verified": ["ভেরিফাইড", "অনুমোদিত"],
-    "verification": ["ভেরিফিকেশন", "যাচাই"],
-    "notice": ["নোটিশ", "বিজ্ঞপ্তি"],
-    "notification": ["নোটিফিকেশন", "বিজ্ঞপ্তি"]
+    "verification": ["ভেরিফিকেশন", "যাচাই"]
 };
 
 const BENGALI_LATIN_ALIASES = {
@@ -2181,4 +2136,3 @@ function initOfflineLanguageSystem() {
         }
     }
 }
-
