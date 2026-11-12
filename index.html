@@ -53,9 +53,9 @@
             box-shadow: none !important;
         }
 
-        /* আধুনিক ডার্ক হেডার এবং গ্রিড স্টাইল */
+        /* মূল বডি ও হেডার স্টাইল */
         body {
-            background-color: #020624 !important;
+            background-color: var(--bg-color, #f8fafc) !important;
             padding-bottom: 0 !important;
         }
         .modern-top-wrapper {
@@ -128,7 +128,7 @@
             margin-left: 4px;
         }
 
-        /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে দেখাবে) */
+        /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) */
         .hero-slider-container {
             position: relative;
             margin: 4px 14px 0;
@@ -216,15 +216,15 @@
 
         /* সাদা বাঁকানো মূল শিট */
         .curved-main-sheet {
-            background-color: var(--bg-color);
+            background-color: var(--bg-color, #f8fafc);
             border-top-left-radius: 28px;
             border-top-right-radius: 28px;
-            min-height: calc(100vh - 230px);
+            min-height: calc(100vh - 120px);
             padding: 18px 14px 40px;
-            margin-top: -8px;
+            margin-top: -10px;
             position: relative;
             z-index: 5;
-            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
         }
 
         /* ৩-কলাম গ্রিড ক্যাটাগরি লিস্ট */
@@ -282,41 +282,41 @@
             transform: scale(0.75);
         }
 
-        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (দ্বিতীয় ছবির মতো - স্লাইডার ছাড়া) */
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (সাদা ব্যাকগ্রাউন্ড ও একক সার্চ বার) */
         #categoryDetailsView {
-            background-color: #020624 !important;
-            margin: -18px -14px -40px -14px;
-            padding: 16px 14px 40px 14px;
-            min-height: 100vh;
+            background-color: transparent !important;
+            padding: 0;
+            min-height: auto;
         }
         #categoryDetailsView .dashboard-header {
             background: transparent !important;
-            padding: 0 0 12px 0;
-            margin-bottom: 10px;
+            padding: 0 0 10px 0;
+            margin-bottom: 8px;
             border: none;
         }
         #categoryDetailsView .dashboard-header h1 {
-            color: #ffffff !important;
+            color: var(--text-main, #0f172a) !important;
             font-size: 20px;
             font-weight: 700;
         }
         #categoryDetailsView .dashboard-header p {
-            color: #cbd5e1 !important;
+            color: var(--text-muted, #64748b) !important;
             font-size: 13px;
         }
         #categoryDetailsView .header-search-box, 
         #categoryDetailsView input[type="search"] {
-            background: rgba(255, 255, 255, 0.08) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            background: var(--card-bg, #ffffff) !important;
+            border: 1px solid var(--border-color, #cbd5e1) !important;
             border-radius: 50px !important;
-            color: #ffffff !important;
-            padding: 8px 16px;
-            height: 42px;
+            color: var(--text-main, #0f172a) !important;
+            padding: 0 18px;
+            height: 44px;
             width: 100%;
             margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
         }
         #categoryDetailsView input[type="search"]::placeholder {
-            color: #94a3b8 !important;
+            color: var(--text-muted, #94a3b8) !important;
         }
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
@@ -324,7 +324,7 @@
             border-radius: 20px !important;
             padding: 14px 16px !important;
             margin-bottom: 12px !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
             display: flex !important;
             align-items: center !important;
             position: relative;
@@ -428,7 +428,7 @@
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
         </div>
 
-        <!-- ইমেজ স্লাইডার (শুধু প্রথম পেজে দেখানোর জন্য ডিভ) -->
+        <!-- ইমেজ স্লাইডার (শুধু প্রথম পেজে দেখানোর জন্য) -->
         <div class="hero-slider-container" id="heroSlider">
             <div class="slider-track" id="sliderTrack">
                 <div class="slide-item">
@@ -495,11 +495,6 @@
                         </div>
                     </div>
                 </section>
-                
-                <!-- সাব-পেজ সার্চ বার -->
-                <div class="header-search-box">
-                    <input type="search" id="subPageSearchInput" placeholder="Search Your Contact..." autocomplete="off">
-                </div>
 
                 <div class="section-toolbar admin-only hidden">
                     <button id="addSubCategoryBtn" class="primary-btn" type="button">＋ Sub-Category</button>
