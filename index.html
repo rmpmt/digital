@@ -408,8 +408,8 @@
         }
 
         /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — ছবির হুবহু CSS ডিজাইন 
-           (কোনো জাভাস্ক্রিপ্ট DOM পরিবর্তন বা অ্যাপ লজিক নষ্ট করা হয়নি)
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — মার্ক করা অংশ বাদ দিয়ে 
+           এবং মোবাইল, টেলিফোন, ইমেইল ও শেয়ার কন্টাক্ট আলাদা ঘর/বাটন স্টাইল
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
@@ -420,22 +420,20 @@
         }
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
-        body.is-data-details-mode #subPageHeaderSearchWrapper {
+        body.is-data-details-mode #subPageHeaderSearchWrapper,
+        body.is-data-details-mode #slidingNoticeContainer {
             display: none !important;
         }
         body.is-data-details-mode .curved-main-sheet {
             background-color: #ffffff !important;
             border-top-left-radius: 26px !important;
             border-top-right-radius: 26px !important;
-            padding: 0 0 40px 0 !important;
+            padding: 16px 16px 40px 16px !important;
             margin-top: 4px !important;
             box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25) !important;
         }
         body.dark-mode.is-data-details-mode .curved-main-sheet {
             background-color: #0f172a !important;
-        }
-        body.is-data-details-mode #slidingNoticeContainer {
-            margin: 10px 14px 4px 14px !important;
         }
         body.is-data-details-mode .container {
             padding: 0 !important;
@@ -451,31 +449,32 @@
             border-radius: 0 !important;
         }
 
-        /* উপরের ডার্ক প্রোফাইল ব্যানার এবং গোল ছবি */
+        /* কন্টাক্ট ডিটেইলস পেজের ভেতরের এলিমেন্টগুলো স্ট্যান্ডার্ড মার্জিন প্যাডিং ও গ্রিড বিন্যাস */
         #dataPageContent {
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        /* অ্যাপের জেনারেট করা হেডার অংশকে ডার্ক নেভি স্টাইল দেওয়া */
+
+        /* প্রোফাইল কার্ড হেডার অংশ */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
             padding: 16px 18px 24px 18px !important;
-            border-bottom-left-radius: 26px !important;
-            border-bottom-right-radius: 26px !important;
+            border-radius: 20px !important;
             text-align: center !important;
-            margin-bottom: 14px !important;
             box-shadow: 0 6px 18px rgba(2, 6, 36, 0.22) !important;
+            margin-bottom: 4px;
         }
-        /* সেভ কন্টাক্ট এবং প্রোফাইল টেক্সট পজিশনিং যদি থাকে */
         #dataPageContent img {
-            width: 125px !important;
-            height: 125px !important;
+            width: 110px !important;
+            height: 110px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             background: #111b2b !important;
             border: 3px solid rgba(255, 255, 255, 0.14) !important;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
-            margin: 6px auto 14px auto !important;
+            margin: 4px auto 12px auto !important;
             display: block !important;
         }
         #dataPageContent h1,
@@ -484,15 +483,14 @@
         #dataPageContent .detail-name,
         #dataPageContent .profile-name {
             color: #ffffff !important;
-            font-size: 18.5px !important;
+            font-size: 18px !important;
             font-weight: 700 !important;
-            margin: 0 auto !important;
+            margin: 0 auto 6px auto !important;
             text-align: center !important;
             background: #020624 !important;
             padding: 8px 14px !important;
             border-radius: 12px !important;
-            max-width: 90% !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+            max-width: 95% !important;
             border: 1px solid rgba(255,255,255,0.08) !important;
         }
         #dataPageContent .detail-designation,
@@ -501,29 +499,56 @@
             color: #cbd5e1 !important;
             font-size: 13.5px !important;
             font-weight: 500 !important;
-            margin: 6px 0 0 0 !important;
+            margin: 0 !important;
             text-align: center !important;
         }
 
-        /* নিচের ইনফো ফিল্ডগুলো (সাদা ব্যাকগ্রাউন্ড ও নিচে চিকন বর্ডার) */
+        /* অ্যাকশন বাটন গ্রিড (মোবাইল, টেলিফোন, ইমেইল এবং আলাদা শেয়ার কন্টাক্ট ঘর) */
+        #dataPageContent .action-buttons,
+        #dataPageContent .detail-actions,
+        #dataPageContent .btn-group,
+        #dataPageContent .quick-actions {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+            margin: 6px 0 12px 0 !important;
+        }
+        #dataPageContent .action-buttons a,
+        #dataPageContent .action-buttons button,
+        #dataPageContent .detail-actions a,
+        #dataPageContent .detail-actions button,
+        #dataPageContent .btn-group a,
+        #dataPageContent .btn-group button {
+            border-radius: 14px !important;
+            padding: 12px 14px !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+            border: none !important;
+            text-decoration: none !important;
+        }
+
+        /* ডেটা ফিল্ড রো (স্ট্যান্ডার্ড কার্ড ও প্যাডিং) */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
         #dataPageContent .detail-box,
         #dataPageContent .info-card,
         #dataPageContent .contact-detail-item {
-            background: transparent !important;
-            border: none !important;
-            border-bottom: 1px solid #cbd5e1 !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            padding: 14px 6px 12px 6px !important;
-            margin: 0 18px !important;
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 14px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+            padding: 12px 16px !important;
+            margin-bottom: 8px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
             text-align: left !important;
-            position: relative !important;
         }
         body.dark-mode #dataPageContent .info-row,
         body.dark-mode #dataPageContent .detail-row,
@@ -531,22 +556,30 @@
         body.dark-mode #dataPageContent .detail-box,
         body.dark-mode #dataPageContent .info-card,
         body.dark-mode #dataPageContent .contact-detail-item {
-            border-bottom-color: #334155 !important;
+            background: #1e293b !important;
+            border-color: #334155 !important;
         }
 
-        /* লেবেল ও ভ্যালু ডিজাইন */
+        /* লেবেল ও ভ্যালু স্টাইল */
         #dataPageContent .info-row .label,
         #dataPageContent .detail-row .label,
         #dataPageContent .field-label,
         #dataPageContent .detail-label,
         #dataPageContent .info-card > span:first-child,
         #dataPageContent .detail-box > span:first-child {
-            font-size: 13.5px !important;
-            font-weight: 500 !important;
-            color: #8b95a1 !important;
-            margin-bottom: 5px !important;
+            font-size: 12.5px !important;
+            font-weight: 600 !important;
+            color: #64748b !important;
+            margin-bottom: 3px !important;
             display: block !important;
         }
+        body.dark-mode #dataPageContent .info-row .label,
+        body.dark-mode #dataPageContent .detail-row .label,
+        body.dark-mode #dataPageContent .field-label,
+        body.dark-mode #dataPageContent .detail-label {
+            color: #94a3b8 !important;
+        }
+
         #dataPageContent .info-row .value,
         #dataPageContent .detail-row .value,
         #dataPageContent .field-value,
@@ -555,21 +588,16 @@
         #dataPageContent .info-card > p,
         #dataPageContent .detail-box > div,
         #dataPageContent .detail-box > p {
-            font-size: 16px !important;
+            font-size: 15.5px !important;
             font-weight: 700 !important;
-            color: #1e293b !important;
-            padding-left: 8px !important;
+            color: #0f172a !important;
             margin: 0 !important;
             word-break: break-word !important;
         }
         body.dark-mode #dataPageContent .info-row .value,
         body.dark-mode #dataPageContent .detail-row .value,
         body.dark-mode #dataPageContent .field-value,
-        body.dark-mode #dataPageContent .detail-value,
-        body.dark-mode #dataPageContent .info-card > div,
-        body.dark-mode #dataPageContent .info-card > p,
-        body.dark-mode #dataPageContent .detail-box > div,
-        body.dark-mode #dataPageContent .detail-box > p {
+        body.dark-mode #dataPageContent .detail-value {
             color: #f1f5f9 !important;
         }
     </style>
