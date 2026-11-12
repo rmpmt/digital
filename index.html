@@ -41,13 +41,6 @@
         }
         body {
             top: 0px !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            background-color: #020624 !important;
-        }
-        html {
-            margin: 0 !important;
-            padding: 0 !important;
         }
         .goog-tooltip {
             display: none !important;
@@ -61,6 +54,16 @@
         }
 
         /* আধুনিক ডার্ক হেডার এবং গ্রিড স্টাইল */
+        body {
+            background-color: #020624 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
         .modern-top-wrapper {
             background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
             color: #ffffff;
@@ -462,7 +465,7 @@
             padding: 0 !important;
         }
 
-        /* ১. একদম ওপরের প্রোফাইল অংশ (ডার্ক ব্যাকগ্রাউন্ড) */
+        /* ১. একদম ওপরের প্রোফাইল অংশ (সাদা অংশ বাদ দিয়ে ডার্ক ব্যাকগ্রাউন্ড ফিক্সড) */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
@@ -511,41 +514,7 @@
             text-align: center !important;
         }
 
-        /* ২. পুরোনো বড় বাটনগুলো (মোবাইল, টেলিফোন, ইমেইল) টোটাল হাইড করা */
-        #dataPageContent .quick-action-grid {
-            display: none !important;
-        }
-
-        /* ৩. শেয়ার কন্টাক্ট-এর জন্য আলাদা স্বতন্ত্র ঘর এবং আইকন */
-        #dataPageContent .share-contact-card,
-        #dataPageContent a[href*="share"],
-        #dataPageContent button[id*="share"],
-        #dataPageContent .share-btn-wrapper,
-        #dataPageContent #btnShareContact,
-        #dataPageContent .btn-share-round {
-            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
-            color: #ffffff !important;
-            border-radius: 14px !important;
-            height: 48px !important;
-            padding: 0 16px !important;
-            margin: 6px 16px 10px 16px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 8px !important;
-            font-size: 14.5px !important;
-            font-weight: 700 !important;
-            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
-            border: none !important;
-            text-decoration: none !important;
-            position: static !important;
-            transform: none !important;
-            width: calc(100% - 32px) !important;
-            box-sizing: border-box !important;
-            cursor: pointer !important;
-        }
-
-        /* ৪. ইনফো কার্ডগুলো এবং ডানপাশে নির্দিষ্ট মার্কিং স্থানে আইকন বাটন */
+        /* ইনফো কার্ডগুলোর পারফেক্ট মার্জিন ও প্যাডিং */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
@@ -621,49 +590,95 @@
             color: #f1f5f9 !important;
         }
 
-        /* ৫. আপনার স্ক্রিনশটের লাল মার্কিং করা নির্দিষ্ট স্থানে আইকন বাটন বসানোর স্টাইল */
-        #dataPageContent .info-row a,
-        #dataPageContent .detail-row a,
-        #dataPageContent .data-field a,
-        #dataPageContent .detail-box a,
-        #dataPageContent .info-card a,
-        #dataPageContent .contact-detail-item a,
-        #dataPageContent .details-info-box a,
-        #dataPageContent .info-row button,
-        #dataPageContent .detail-row button,
-        #dataPageContent .data-field button,
-        #dataPageContent .detail-box button,
-        #dataPageContent .info-card button,
-        #dataPageContent .contact-detail-item button,
-        #dataPageContent .details-info-box button {
-            position: absolute !important;
-            right: 14px !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            padding: 6px 12px !important;
-            font-size: 12px !important;
-            font-weight: 600 !important;
-            border-radius: 8px !important;
-            border: none !important;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.12) !important;
-            cursor: pointer !important;
-            display: inline-flex !important;
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন — ৩ কলাম গ্রিড আকারে এক সারিতে সুবিন্যস্ত */
+        #dataPageContent .action-buttons,
+        #dataPageContent .detail-actions,
+        #dataPageContent .btn-group,
+        #dataPageContent .quick-actions,
+        #dataPageContent .quick-action-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 8px !important;
+            margin: 10px 16px !important;
+            padding: 0 !important;
+            width: auto !important;
+        }
+        #dataPageContent .action-buttons a,
+        #dataPageContent .detail-actions a,
+        #dataPageContent .btn-group a,
+        #dataPageContent .quick-actions a,
+        #dataPageContent .quick-action-grid a,
+        #dataPageContent .action-buttons button,
+        #dataPageContent .detail-actions button,
+        #dataPageContent .btn-group button,
+        #dataPageContent .quick-actions button,
+        #dataPageContent .quick-action-grid button {
+            position: static !important;
+            transform: none !important;
+            width: 100% !important;
+            height: 44px !important;
+            padding: 0 4px !important;
+            display: flex !important;
             align-items: center !important;
+            justify-content: center !important;
             gap: 5px !important;
+            font-size: 12.5px !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            border: none !important;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12) !important;
             color: #ffffff !important;
             text-decoration: none !important;
+            cursor: pointer !important;
+            box-sizing: border-box !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+        /* মোবাইল বাটন (নীল) */
+        #dataPageContent .quick-action-grid > :nth-child(1),
+        #dataPageContent .quick-actions > :nth-child(1) {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+        }
+        /* টেলিফোন বাটন (স্লেট) */
+        #dataPageContent .quick-action-grid > :nth-child(2),
+        #dataPageContent .quick-actions > :nth-child(2) {
+            background: linear-gradient(135deg, #4b5563, #374151) !important;
+        }
+        /* ইমেইল বাটন (লাল) */
+        #dataPageContent .quick-action-grid > :nth-child(3),
+        #dataPageContent .quick-actions > :nth-child(3) {
+            background: linear-gradient(135deg, #ea4335, #c5221f) !important;
         }
 
-        /* আলাদা আলাদা রঙের আইকন বাটন */
-        #dataPageContent a[href^="tel:"],
-        #dataPageContent button.btn-call,
-        #dataPageContent .details-info-box:nth-of-type(1) a,
-        #dataPageContent .details-info-box:nth-of-type(2) a {
-            background-color: #2563eb !important;
-        }
-        #dataPageContent a[href^="mailto:"],
-        #dataPageContent button.btn-email {
-            background-color: #dc2626 !important;
+        /* ৩. শেয়ার কন্টাক্ট — নিচে আলাদা পূর্ণ প্রস্থের (Full-width) স্বতন্ত্র ঘর ও আইকন */
+        #dataPageContent .share-contact-card,
+        #dataPageContent a[href*="share"],
+        #dataPageContent button[id*="share"],
+        #dataPageContent .share-btn-wrapper,
+        #dataPageContent #btnShareContact,
+        #dataPageContent .btn-share-round {
+            grid-column: 1 / -1 !important;
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
+            color: #ffffff !important;
+            border-radius: 14px !important;
+            height: 48px !important;
+            padding: 0 16px !important;
+            margin: 4px 16px 10px 16px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            font-size: 14.5px !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
+            border: none !important;
+            text-decoration: none !important;
+            position: static !important;
+            transform: none !important;
+            width: calc(100% - 32px) !important;
+            box-sizing: border-box !important;
+            cursor: pointer !important;
         }
     </style>
 </head>
