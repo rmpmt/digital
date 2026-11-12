@@ -128,13 +128,13 @@
             margin-left: 4px;
         }
 
-        /* ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে সার্চ ফিল্ড */
+    /* ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে সার্চ ফিল্ড */
         .header-search-inline {
             display: none;
             padding: 2px 16px 10px;
             width: 70%;
             box-sizing: border-box;
-            margin: 0 auto;
+            margin: 0 auto; /* এটি সার্চ ফিল্ডটিকে হরিজন্টালি সেন্টারে নিয়ে আসবে */
         }
         .header-search-inline.is-visible {
             display: block !important;
@@ -144,14 +144,14 @@
             height: 40px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* ভেতরের উপাদানগুলো সেন্টারে রাখতে সাহায্য করবে */
             gap: 9px;
             box-sizing: border-box;
             padding: 0 13px;
             border: 1px solid rgba(255,255,255,0.25);
             border-radius: 40px;
             background: rgba(255,255,255,0.11);
-            margin: 0 auto;
+            margin: 0 auto; /* অতিরিক্ত নিশ্চিতকরণ */
         }
         .subpage-search-icon {
             flex: 0 0 auto;
@@ -170,7 +170,7 @@
             color: #ffffff !important;
             font-size: 14px;
             box-shadow: none !important;
-            text-align: left;
+            text-align: left; /* লেখার সময় লেখা যেন বাম দিক থেকে শুরু হয় */
         }
         .header-search-inline input[type="search"]::placeholder {
             color: #cbd5e1 !important;
@@ -193,6 +193,7 @@
         .subpage-search-field.has-value .subpage-search-clear {
             display: block;
         }
+
 
         /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) */
         .hero-slider-container {
@@ -280,7 +281,7 @@
             border-radius: 4px;
         }
 
-        /* সাদা বাঁকানো মূল শিট */
+        /* সাদা বাঁকানো মূল শিট (কর্নার ওভারল্যাপ ও প্যাডিং মার্জিন ফিক্সড) */
         .curved-main-sheet {
             background-color: var(--bg-color, #f8fafc);
             border-top-left-radius: 24px;
@@ -349,14 +350,14 @@
             transform: scale(0.75);
         }
 
-        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল */
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (দ্বিতীয় ছবির মতো কার্ড ডিজাইন) */
         #categoryDetailsView {
             background-color: transparent !important;
             padding: 0;
             min-height: auto;
         }
         #categoryDetailsView .dashboard-header {
-            display: none !important;
+            display: none !important; /* হেডার টাইটেল ডুলিকেশন এড়াতে হাইড করা হলো */
         }
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
@@ -405,222 +406,6 @@
             font-size: 12.5px !important;
             color: #64748b !important;
             line-height: 1.4;
-        }
-
-        /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — ছবির হুবহু ডিজাইন
-           ===================================================================== */
-        body.is-data-details-mode .modern-top-wrapper {
-            background: #020624 !important;
-            padding-bottom: 0 !important;
-        }
-        body.is-data-details-mode #heroSlider,
-        body.is-data-details-mode #searchBox,
-        body.is-data-details-mode #slidingNoticeContainer {
-            display: none !important;
-        }
-        body.is-data-details-mode .curved-main-sheet {
-            background: transparent !important;
-            border-radius: 0 !important;
-            padding: 0 !important;
-            margin-top: 0 !important;
-            box-shadow: none !important;
-        }
-        body.is-data-details-mode .curved-main-sheet > main.container {
-            padding: 0 !important;
-            margin: 0 !important;
-            max-width: 100% !important;
-        }
-        #dataDetailsView .details-container-card {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            border-radius: 0 !important;
-        }
-
-        /* ডার্ক নেভি প্রোফাইল হেডার */
-        .ref2-profile-hero {
-            background: #020624;
-            padding: 6px 20px 26px 20px;
-            text-align: center;
-            color: #ffffff;
-        }
-        .ref2-top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-        .ref2-save-link {
-            color: #ffffff;
-            font-size: 17px;
-            font-weight: 500;
-            background: transparent;
-            border: none;
-            padding: 4px 0;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .ref2-save-link:active {
-            opacity: 0.7;
-        }
-        .ref2-profile-label {
-            color: #ffffff;
-            font-size: 19px;
-            font-weight: 600;
-        }
-        .ref2-avatar-circle {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            background: #182328;
-            margin: 4px auto 18px auto;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-        }
-        .ref2-avatar-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .ref2-hero-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0;
-            line-height: 1.4;
-        }
-        .ref2-hero-subtitle {
-            font-size: 14px;
-            font-weight: 500;
-            color: #cbd5e1;
-            margin: 4px 0 0 0;
-        }
-
-        /* নিচের সাদা ইনফো লিস্ট শিট */
-        .ref2-info-sheet {
-            background: #f8fafc;
-            border-top-left-radius: 26px;
-            border-top-right-radius: 26px;
-            padding: 14px 22px 60px 22px;
-            min-height: calc(100vh - 275px);
-            position: relative;
-            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
-        }
-        body.dark-mode .ref2-info-sheet {
-            background: #0f172a;
-        }
-        .ref2-field-row {
-            padding: 15px 2px 13px 2px;
-            border-bottom: 1px solid #cbd5e1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-        body.dark-mode .ref2-field-row {
-            border-bottom-color: #334155;
-        }
-        .ref2-field-texts {
-            flex: 1;
-            min-width: 0;
-        }
-        .ref2-field-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: #8b95a1;
-            margin-bottom: 6px;
-            display: block;
-        }
-        .ref2-field-value {
-            font-size: 16.5px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-left: 10px;
-            word-break: break-word;
-            line-height: 1.4;
-        }
-        body.dark-mode .ref2-field-value {
-            color: #f1f5f9;
-        }
-        .ref2-action-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #020624;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-        body.dark-mode .ref2-action-icon {
-            color: #e2e8f0;
-        }
-        .ref2-action-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* Get VIP / প্রশাসনিক তথ্য আগের মতো সাধারণ টেক্সট আকারে */
-        .ref2-plain-vip-area {
-            padding: 16px 6px 4px 6px;
-            font-size: 14.5px;
-            color: #334155;
-            line-height: 1.5;
-        }
-        body.dark-mode .ref2-plain-vip-area {
-            color: #cbd5e1;
-        }
-        .ref2-plain-vip-area a,
-        .ref2-plain-vip-area button,
-        .ref2-plain-vip-area span {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            border-radius: 0 !important;
-            color: #0d6efd !important;
-            font-weight: 600;
-            font-size: 14.5px;
-            text-decoration: underline;
-            cursor: pointer;
-            display: inline !important;
-        }
-
-        /* নিচের কার্ভড লোগো ব্যাজ */
-        .ref2-bottom-curve {
-            background: #020624;
-            height: 34px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-        .ref2-bottom-badge {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 4px solid #f8fafc;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
-            margin-top: -32px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .ref2-bottom-badge img {
-            width: 82%;
-            height: 82%;
-            object-fit: contain;
         }
     </style>
 </head>
@@ -683,7 +468,7 @@
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
         </div>
 
-        <!-- ক্যাটাগরি বা সাব-পেজের সার্চ বক্স -->
+        <!-- ক্যাটাগরি বা সাব-পেজের সার্চ বক্স (ডেট ও টাইমের ঠিক নিচে হেডারের ভেতরে পজিশন করা) -->
         <div id="subPageHeaderSearchWrapper" class="header-search-inline hidden">
             <div class="subpage-search-field">
                 <span class="subpage-search-icon" aria-hidden="true">⌕</span>
@@ -696,7 +481,7 @@
             </div>
         </div>
 
-        <!-- ইমেজ স্লাইডার (শুধুমাত্র হোম পেজে থাকবে) -->
+        <!-- ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) -->
         <div class="hero-slider-container" id="heroSlider">
             <div class="slider-track" id="sliderTrack">
                 <div class="slide-item">
@@ -727,7 +512,7 @@
     <!-- সাদা বাঁকানো কন্টেইনার শিট -->
     <div class="curved-main-sheet">
         
-        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
+        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড (সাদা শিটের ভেতরে মার্জিন ফিক্সড) -->
         <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 10px; border-radius: 8px;"></div>
 
         <main class="container">
@@ -754,7 +539,7 @@
                 </section>
             </div>
 
-            <!-- ক্যাটাগরি ডিটেইলস পেজ -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - স্লাইডার ও হোম সার্চ হাইড থাকবে) -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
@@ -773,7 +558,7 @@
                 <div id="detailsContent"></div>
             </div>
 
-            <!-- কন্টাক্ট ডিটেইলস পেজ -->
+            <!-- কন্টাক্ট ডিটেইলস পেজ (স্লাইডার হাইড থাকবে) -->
             <div id="dataDetailsView" class="hidden">
                 <div class="details-container-card">
                     <div id="dataPageContent"></div>
@@ -1066,14 +851,13 @@
         }, 3500);
     })();
 
-    // পেজ ভিউ পরিবর্তনের সাথে সাথে স্লাইডার ও সার্চ বার নিয়ন্ত্রণ
-    (function initPageViewSync() {
+    // Category details ও Data details page-এ ইমেজ স্লাইডার লুকানো এবং Home page-এ দেখানো
+    (function initSubPageHeaderSearch() {
         const categoryDetails = document.getElementById('categoryDetailsView');
         const dataDetails = document.getElementById('dataDetailsView');
         const heroSlider = document.getElementById('heroSlider');
         const subPageSearchWrapper = document.getElementById('subPageHeaderSearchWrapper');
         const homeSearchBox = document.getElementById('searchBox');
-        const noticeContainer = document.getElementById('slidingNoticeContainer');
         const subInput = document.getElementById('subPageSearchInput');
         const mainInput = document.getElementById('searchInput');
         const clearButton = document.getElementById('clearSubPageSearch');
@@ -1085,16 +869,9 @@
             const isSubPage = !categoryDetails.classList.contains('hidden');
             const isDataPage = dataDetails && !dataDetails.classList.contains('hidden');
 
-            document.body.classList.toggle('is-data-details-mode', isDataPage);
-
-            // হোম পেজ ছাড়া অন্য কোনো পেজে ইমেজ স্লাইডার থাকবে না
+            // হোম পেজ ছাড়া Category বা Data Details কোনো পেজেই ইমেজ স্লাইডার থাকবে না
             heroSlider.style.display = (isSubPage || isDataPage) ? 'none' : '';
-            if (homeSearchBox) {
-                homeSearchBox.style.display = (isSubPage || isDataPage) ? 'none' : '';
-            }
-            if (noticeContainer) {
-                noticeContainer.style.display = isDataPage ? 'none' : '';
-            }
+            if (homeSearchBox) homeSearchBox.style.display = (isSubPage || isDataPage) ? 'none' : '';
 
             subPageSearchWrapper.classList.toggle('is-visible', isSubPage && !isDataPage);
             subPageSearchWrapper.classList.toggle('hidden', !isSubPage || isDataPage);
@@ -1109,6 +886,7 @@
             }
         }
 
+        // মূল searchInput-এর বিদ্যমান search listener-এ সাব-পেজের সার্চ পাঠানো হচ্ছে।
         if (subInput && mainInput) {
             subInput.addEventListener('input', () => {
                 mainInput.value = subInput.value;
@@ -1148,249 +926,6 @@
             });
         }
         syncSearchVisibility();
-    })();
-
-    // কন্টাক্ট ডিটেইলস পেজকে ছবির হুবহু ডিজাইনে রূপান্তর (সব ডেটা ও Get VIP টেক্সট অক্ষুণ্ণ রেখে)
-    (function initExactProfileDesign() {
-        const contentEl = document.getElementById('dataPageContent');
-        if (!contentEl) return;
-
-        let isTransforming = false;
-
-        function applyProfileDesign() {
-            if (isTransforming || contentEl.querySelector('.ref2-wrapper')) return;
-            if (!contentEl.innerText.trim()) return;
-
-            isTransforming = true;
-
-            // ১. মূল কন্টেইনার লুকিয়ে রাখা যেন কোনো ইভেন্ট লিসেনার নষ্ট না হয়
-            const originalWrapper = document.createElement('div');
-            originalWrapper.style.display = 'none';
-            while (contentEl.firstChild) {
-                originalWrapper.appendChild(contentEl.firstChild);
-            }
-            contentEl.appendChild(originalWrapper);
-
-            // ২. ছবি সংগ্রহ
-            const imgEl = originalWrapper.querySelector('img');
-            const imgSrc = imgEl ? imgEl.getAttribute('src') : '';
-
-            // ৩. নাম ও পদবী সংগ্রহ
-            const headingEl = originalWrapper.querySelector('h1, h2, h3, .detail-name, .profile-name');
-            const personName = headingEl ? headingEl.innerText.trim() : '';
-
-            let personDesignation = '';
-            const subEl = originalWrapper.querySelector('.detail-designation, .designation, .subtitle, h4');
-            if (subEl && subEl !== headingEl) {
-                personDesignation = subEl.innerText.trim();
-            } else if (headingEl && headingEl.nextElementSibling && headingEl.nextElementSibling.tagName === 'P') {
-                personDesignation = headingEl.nextElementSibling.innerText.trim();
-            }
-
-            // ৪. tel: এবং mailto: লিংক থেকে সরাসরি ফোন ও ইমেইল সংগ্রহ
-            const telLinks = Array.from(originalWrapper.querySelectorAll('a[href^="tel:"]'))
-                .map(a => a.getAttribute('href').replace('tel:', '').trim())
-                .filter(Boolean);
-            const mailLinks = Array.from(originalWrapper.querySelectorAll('a[href^="mailto:"]'))
-                .map(a => a.getAttribute('href').replace('mailto:', '').trim())
-                .filter(Boolean);
-
-            // ৫. সব টেক্সট লাইন বিশ্লেষণ করে প্রতিটি ফিল্ড বের করা
-            const rawLines = originalWrapper.innerText
-                .split('\n')
-                .map(l => l.trim())
-                .filter(Boolean);
-
-            const buttonLabels = new Set(['মোবাইল', 'টেলিফোন', 'ইমেইল', 'শেয়ার কন্টাক্ট', 'শেয়ার কন্টাক্ট']);
-            // উপরের ৪টি কুইক অ্যাকশন বাটনের টেক্সট বাদ দেওয়া (যেগুলোর নিচে ভ্যালু থাকে না)
-            const filteredLines = [];
-            for (let i = 0; i < rawLines.length; i++) {
-                const curr = rawLines[i];
-                const cleanCurr = curr.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
-                const next = rawLines[i + 1] || '';
-                const cleanNext = next.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
-
-                // যদি পরপর বাটন লেবেল আসে তবে প্রথম দিকের বাটনগুলো স্কিপ করা
-                if (buttonLabels.has(cleanCurr) && buttonLabels.has(cleanNext)) {
-                    continue;
-                }
-                filteredLines.push(curr);
-            }
-
-            const knownLabels = [
-                'মোবাইল', 'টেলিফোন', 'ইমেইল', 'ই-মেইল',
-                'বর্তমান অফিস/ঠিকানা', 'বর্তমান অফিস', 'বর্তমান কর্মরত',
-                'স্থায়ী ঠিকানা', 'স্থায়ী ঠিকানা', 'পদবী', 'বয়স', 'রক্তের গ্রুপ'
-            ];
-
-            const parsedMap = {};
-            for (let i = 0; i < filteredLines.length; i++) {
-                const line = filteredLines[i];
-                const cleanLine = line.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
-
-                if (cleanLine.includes(':')) {
-                    const idx = cleanLine.indexOf(':');
-                    const k = cleanLine.slice(0, idx).trim();
-                    const v = cleanLine.slice(idx + 1).trim();
-                    if (k && v && !parsedMap[k]) parsedMap[k] = v;
-                    continue;
-                }
-
-                const matchedLabel = knownLabels.find(lbl => cleanLine === lbl || cleanLine.startsWith(lbl));
-                if (matchedLabel && filteredLines[i + 1]) {
-                    const nextVal = filteredLines[i + 1].trim();
-                    const cleanNextVal = nextVal.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
-                    if (!knownLabels.includes(cleanNextVal) && !parsedMap[matchedLabel]) {
-                        parsedMap[matchedLabel] = nextVal;
-                        i++;
-                    }
-                }
-            }
-
-            const mobileVal = parsedMap['মোবাইল'] || telLinks[0] || 'নেই';
-            const phoneVal = parsedMap['টেলিফোন'] || (telLinks[1] && telLinks[1] !== mobileVal ? telLinks[1] : 'নেই');
-            const emailVal = parsedMap['ইমেইল'] || parsedMap['ই-মেইল'] || mailLinks[0] || 'নেই';
-            const officeVal = parsedMap['বর্তমান অফিস/ঠিকানা'] || parsedMap['বর্তমান অফিস'] || parsedMap['বর্তমান কর্মরত'] || '';
-            const permanentVal = parsedMap['স্থায়ী ঠিকানা'] || parsedMap['স্থায়ী ঠিকানা'] || '';
-
-            // ৬. Get VIP / প্রশাসনিক তথ্য আগের মতো সাধারণ টেক্সট আকারে সংগ্রহ
-            let vipPlainNode = null;
-            const allElements = originalWrapper.querySelectorAll('div, p, span, a, button');
-            for (const el of allElements) {
-                const txt = el.innerText.trim();
-                if ((txt.includes('Get VIP') || txt.includes('প্রশাসনিক তথ্য') || txt.includes('ভেরিফিকেশন')) && el.children.length <= 2) {
-                    vipPlainNode = el;
-                    break;
-                }
-            }
-
-            // ৭. ছবির মতো ফিল্ড লিস্ট তৈরি
-            const displayFields = [];
-
-            if (personName) {
-                displayFields.push({ label: 'আপনার নাম', value: personName });
-            }
-            if (personDesignation || officeVal) {
-                displayFields.push({
-                    label: 'বর্তমানে কর্মরত',
-                    value: officeVal || personDesignation
-                });
-            }
-            if (personDesignation && officeVal && personDesignation !== officeVal) {
-                displayFields.push({ label: 'পদবী', value: personDesignation });
-            }
-            if (permanentVal) {
-                displayFields.push({ label: 'স্থায়ী ঠিকানা', value: permanentVal });
-            }
-
-            // মোবাইল / টেলিফোন নাম্বার (ছবির মতো কল আইকনসহ)
-            const combinedPhone = (mobileVal !== 'নেই' && phoneVal !== 'নেই')
-                ? `${mobileVal}, ${phoneVal}`
-                : (mobileVal !== 'নেই' ? mobileVal : phoneVal);
-
-            displayFields.push({
-                label: 'মোবাইল / টেলিফোন নাম্বার',
-                value: combinedPhone,
-                phone: combinedPhone !== 'নেই' ? (mobileVal !== 'নেই' ? mobileVal : phoneVal) : ''
-            });
-
-            // ই-মেইল এড্রেস
-            displayFields.push({
-                label: 'ই-মেইল এড্রেস',
-                value: emailVal,
-                email: emailVal !== 'নেই' ? emailVal : ''
-            });
-
-            const phoneSvg = `<svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>`;
-
-            const rowsHtml = displayFields.map(item => {
-                let rightAction = '';
-                if (item.phone) {
-                    const cleanNum = item.phone.replace(/[^+\d]/g, '');
-                    rightAction = `<a href="tel:${cleanNum}" class="ref2-action-icon" title="কল করুন">${phoneSvg}</a>`;
-                }
-                return `
-                    <div class="ref2-field-row">
-                        <div class="ref2-field-texts">
-                            <span class="ref2-field-label">${item.label}</span>
-                            <div class="ref2-field-value">${item.value}</div>
-                        </div>
-                        ${rightAction}
-                    </div>
-                `;
-            }).join('');
-
-            const avatarContent = imgSrc
-                ? `<img src="${imgSrc}" alt="${personName}">`
-                : '';
-
-            const wrapper = document.createElement('div');
-            wrapper.className = 'ref2-wrapper';
-            wrapper.innerHTML = `
-                <div class="ref2-profile-hero">
-                    <div class="ref2-top-bar">
-                        <button type="button" id="ref2SaveContactBtn" class="ref2-save-link">Save Contact</button>
-                        <span class="ref2-profile-label">Profile</span>
-                    </div>
-                    <div class="ref2-avatar-circle">
-                        ${avatarContent}
-                    </div>
-                    <h2 class="ref2-hero-title">${personName}</h2>
-                    ${personDesignation ? `<p class="ref2-hero-subtitle">${personDesignation}</p>` : ''}
-                </div>
-                <div class="ref2-info-sheet">
-                    ${rowsHtml}
-                    <div id="ref2VipPlainMount" class="ref2-plain-vip-area"></div>
-                </div>
-                <div class="ref2-bottom-curve">
-                    <div class="ref2-bottom-badge">
-                        <img src="icons/icon-192.png" alt="Logo" onerror="this.style.display='none'">
-                    </div>
-                </div>
-            `;
-
-            contentEl.appendChild(wrapper);
-
-            // Get VIP / প্রশাসনিক তথ্য আগের মতো সাধারণ টেক্সট আকারে মাউন্ট করা (কোনো আলাদা বক্স ছাড়াই)
-            const vipMount = document.getElementById('ref2VipPlainMount');
-            if (vipMount && vipPlainNode) {
-                vipMount.appendChild(vipPlainNode);
-            }
-
-            // Save Contact বাটনে ক্লিক করলে কন্টাক্ট সেভ (.vcf)
-            const saveBtn = document.getElementById('ref2SaveContactBtn');
-            if (saveBtn) {
-                saveBtn.addEventListener('click', () => {
-                    const vcard = [
-                        'BEGIN:VCARD',
-                        'VERSION:3.0',
-                        `FN:${personName}`,
-                        personDesignation ? `TITLE:${personDesignation}` : '',
-                        mobileVal !== 'নেই' ? `TEL;TYPE=CELL:${mobileVal}` : '',
-                        phoneVal !== 'নেই' ? `TEL;TYPE=WORK:${phoneVal}` : '',
-                        emailVal !== 'নেই' ? `EMAIL:${emailVal}` : '',
-                        'END:VCARD'
-                    ].filter(Boolean).join('\n');
-
-                    const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `${(personName || 'contact').replace(/\s+/g, '_')}.vcf`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
-                });
-            }
-
-            isTransforming = false;
-        }
-
-        const observer = new MutationObserver(() => {
-            applyProfileDesign();
-        });
-        observer.observe(contentEl, { childList: true, subtree: true });
     })();
 </script>
 
