@@ -57,6 +57,12 @@
         body {
             background-color: #020624 !important;
             padding-bottom: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .modern-top-wrapper {
             background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
@@ -412,12 +418,10 @@
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
-        body.is-data-details-mode .modern-top-wrapper {
-            background: #020624 !important;
-            padding-bottom: 0 !important;
-        }
-        /* লাল মার্কিং করা অংশ বা হেডার সম্পূর্ণ লুকানো */
+        body.is-data-details-mode .modern-top-wrapper,
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
         body.is-data-details-mode #subPageHeaderSearchWrapper,
@@ -425,38 +429,12 @@
         body.is-data-details-mode .modern-header {
             display: none !important;
         }
-        /* ওপরের সাদা অংশ সম্পূর্ণরূপে বাদ দেওয়া — মূল কারণ হেডার র‍্যাপার ও বডি মার্জিন */
-        body.is-data-details-mode .modern-top-wrapper {
-            display: none !important;
-        }
-        /* ডিটেইলস পেজে হোম ও ক্যাটাগরি ভিউ সম্পূর্ণ কলাপ্স — ওপরের সাদা ফাঁক এটাই ছিল */
-        body.is-data-details-mode #mainDashboardView,
-        body.is-data-details-mode #categoryDetailsView {
-            display: none !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            height: 0 !important;
-            min-height: 0 !important;
-        }
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        body.is-data-details-mode {
-            margin: 0 !important;
-            padding: 0 !important;
-            top: 0 !important;
-        }
-        body.is-data-details-mode #appContainer {
-            margin: 0 !important;
-            padding: 0 !important;
-            top: 0 !important;
-        }
+        
         body.is-data-details-mode .curved-main-sheet {
             background-color: #ffffff !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            padding: 0 0 50px 0 !important;
+            padding: 0 0 40px 0 !important;
             margin-top: 0 !important;
             box-shadow: none !important;
             min-height: 100vh !important;
@@ -467,6 +445,7 @@
         body.is-data-details-mode .container {
             padding: 0 !important;
             max-width: 100% !important;
+            margin: 0 !important;
         }
 
         #dataDetailsView .details-container-card {
@@ -482,33 +461,31 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
-        /* ১. সব ওপরের অংশটি দুই পাশ পর্যন্ত ভরাট এবং শুধুমাত্র নিচের দুই কর্নার রেডিয়াস */
+        /* ১. একদম ওপরের প্রোফাইল অংশ (সাদা অংশ বাদ দিয়ে ডার্ক ব্যাকগ্রাউন্ড ফিক্সড) */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
-            padding: 26px 16px 30px 16px !important;
-            border-top-left-radius: 0 !important;
-            border-top-right-radius: 0 !important;
-            border-bottom-left-radius: 28px !important;
-            border-bottom-right-radius: 28px !important;
+            padding: 24px 16px 26px 16px !important;
+            border-radius: 0 0 24px 24px !important;
             text-align: center !important;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45) !important;
-            margin-top: 0 !important;
-            margin-bottom: 8px !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+            margin: 0 !important;
             width: 100% !important;
             box-sizing: border-box !important;
         }
         #dataPageContent img {
-            width: 115px !important;
-            height: 115px !important;
+            width: 110px !important;
+            height: 110px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             background: #111b2b !important;
             border: 3px solid rgba(255, 255, 255, 0.15) !important;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
-            margin: 4px auto 12px auto !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
+            margin: 0 auto 10px auto !important;
             display: block !important;
         }
         #dataPageContent h1,
@@ -517,13 +494,13 @@
         #dataPageContent .detail-name,
         #dataPageContent .profile-name {
             color: #ffffff !important;
-            font-size: 18.5px !important;
+            font-size: 18px !important;
             font-weight: 700 !important;
             margin: 0 auto 6px auto !important;
             text-align: center !important;
             background: #060e2b !important;
-            padding: 8px 14px !important;
-            border-radius: 12px !important;
+            padding: 7px 12px !important;
+            border-radius: 10px !important;
             max-width: 90% !important;
             border: 1px solid rgba(255,255,255,0.08) !important;
         }
@@ -531,23 +508,24 @@
         #dataPageContent .designation,
         #dataPageContent .subtitle {
             color: #cbd5e1 !important;
-            font-size: 14px !important;
+            font-size: 13.5px !important;
             font-weight: 500 !important;
             margin: 0 !important;
             text-align: center !important;
         }
 
-        /* ইনফো কার্ডগুলো */
+        /* ইনফো কার্ডগুলোর পারফেক্ট মার্জিন ও প্যাডিং */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
         #dataPageContent .detail-box,
         #dataPageContent .info-card,
-        #dataPageContent .contact-detail-item {
+        #dataPageContent .contact-detail-item,
+        #dataPageContent .details-info-box {
             background: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
             border-radius: 14px !important;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
             padding: 12px 16px !important;
             margin: 0 16px 8px 16px !important;
             display: flex !important;
@@ -561,7 +539,8 @@
         body.dark-mode #dataPageContent .data-field,
         body.dark-mode #dataPageContent .detail-box,
         body.dark-mode #dataPageContent .info-card,
-        body.dark-mode #dataPageContent .contact-detail-item {
+        body.dark-mode #dataPageContent .contact-detail-item,
+        body.dark-mode #dataPageContent .details-info-box {
             background: #0f172a !important;
             border-color: #334155 !important;
         }
@@ -572,17 +551,19 @@
         #dataPageContent .field-label,
         #dataPageContent .detail-label,
         #dataPageContent .info-card > span:first-child,
-        #dataPageContent .detail-box > span:first-child {
-            font-size: 12.5px !important;
+        #dataPageContent .detail-box > span:first-child,
+        #dataPageContent .info-label {
+            font-size: 12px !important;
             font-weight: 600 !important;
             color: #64748b !important;
-            margin-bottom: 3px !important;
+            margin-bottom: 2px !important;
             display: block !important;
         }
         body.dark-mode #dataPageContent .info-row .label,
         body.dark-mode #dataPageContent .detail-row .label,
         body.dark-mode #dataPageContent .field-label,
-        body.dark-mode #dataPageContent .detail-label {
+        body.dark-mode #dataPageContent .detail-label,
+        body.dark-mode #dataPageContent .info-label {
             color: #94a3b8 !important;
         }
 
@@ -593,8 +574,9 @@
         #dataPageContent .info-card > div,
         #dataPageContent .info-card > p,
         #dataPageContent .detail-box > div,
-        #dataPageContent .detail-box > p {
-            font-size: 16px !important;
+        #dataPageContent .detail-box > p,
+        #dataPageContent .info-value {
+            font-size: 15.5px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
             margin: 0 !important;
@@ -603,19 +585,21 @@
         body.dark-mode #dataPageContent .info-row .value,
         body.dark-mode #dataPageContent .detail-row .value,
         body.dark-mode #dataPageContent .field-value,
-        body.dark-mode #dataPageContent .detail-value {
+        body.dark-mode #dataPageContent .detail-value,
+        body.dark-mode #dataPageContent .info-value {
             color: #f1f5f9 !important;
         }
 
-        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন — এক সারিতে সুন্দরভাবে সাজানো আইকন বাটন */
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন — ৩ কলাম গ্রিড আকারে এক সারিতে সুবিন্যস্ত */
         #dataPageContent .action-buttons,
         #dataPageContent .detail-actions,
         #dataPageContent .btn-group,
-        #dataPageContent .quick-actions {
+        #dataPageContent .quick-actions,
+        #dataPageContent .quick-action-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
-            gap: 10px !important;
-            margin: 0 16px 6px 16px !important;
+            gap: 8px !important;
+            margin: 10px 16px !important;
             padding: 0 !important;
             width: auto !important;
         }
@@ -623,77 +607,76 @@
         #dataPageContent .detail-actions a,
         #dataPageContent .btn-group a,
         #dataPageContent .quick-actions a,
+        #dataPageContent .quick-action-grid a,
         #dataPageContent .action-buttons button,
         #dataPageContent .detail-actions button,
         #dataPageContent .btn-group button,
-        #dataPageContent .quick-actions button {
+        #dataPageContent .quick-actions button,
+        #dataPageContent .quick-action-grid button {
             position: static !important;
             transform: none !important;
             width: 100% !important;
-            height: 48px !important;
-            padding: 0 6px !important;
+            height: 44px !important;
+            padding: 0 4px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 7px !important;
-            font-size: 13px !important;
+            gap: 5px !important;
+            font-size: 12.5px !important;
             font-weight: 700 !important;
-            border-radius: 14px !important;
+            border-radius: 12px !important;
             border: none !important;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14) !important;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12) !important;
             color: #ffffff !important;
             text-decoration: none !important;
             cursor: pointer !important;
             box-sizing: border-box !important;
             white-space: nowrap !important;
             overflow: hidden !important;
+            text-overflow: ellipsis !important;
         }
-        /* প্রথম বাটন = মোবাইল (নীল) */
-        #dataPageContent .action-buttons > :nth-child(1),
-        #dataPageContent .detail-actions > :nth-child(1),
-        #dataPageContent .btn-group > :nth-child(1),
+        /* মোবাইল বাটন (নীল) */
+        #dataPageContent .quick-action-grid > :nth-child(1),
         #dataPageContent .quick-actions > :nth-child(1) {
-            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
         }
-        /* দ্বিতীয় বাটন = টেলিফোন (স্লেট) */
-        #dataPageContent .action-buttons > :nth-child(2),
-        #dataPageContent .detail-actions > :nth-child(2),
-        #dataPageContent .btn-group > :nth-child(2),
+        /* টেলিফোন বাটন (স্লেট) */
+        #dataPageContent .quick-action-grid > :nth-child(2),
         #dataPageContent .quick-actions > :nth-child(2) {
-            background: linear-gradient(135deg, #475569 0%, #334155 100%) !important;
+            background: linear-gradient(135deg, #4b5563, #374151) !important;
         }
-        /* তৃতীয় বাটন = ইমেইল (লাল) */
-        #dataPageContent .action-buttons > :nth-child(3),
-        #dataPageContent .detail-actions > :nth-child(3),
-        #dataPageContent .btn-group > :nth-child(3),
+        /* ইমেইল বাটন (লাল) */
+        #dataPageContent .quick-action-grid > :nth-child(3),
         #dataPageContent .quick-actions > :nth-child(3) {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+            background: linear-gradient(135deg, #ea4335, #c5221f) !important;
         }
 
-        /* ৩. শেয়ার কন্টাক্ট — নিজের আলাদা পুরো প্রস্থের ঘর ও আইকন */
+        /* ৩. শেয়ার কন্টাক্ট — নিচে আলাদা পূর্ণ প্রস্থের (Full-width) স্বতন্ত্র ঘর ও আইকন */
         #dataPageContent .share-contact-card,
         #dataPageContent a[href*="share"],
         #dataPageContent button[id*="share"],
-        #dataPageContent .share-btn-wrapper {
+        #dataPageContent .share-btn-wrapper,
+        #dataPageContent #btnShareContact,
+        #dataPageContent .btn-share-round {
             grid-column: 1 / -1 !important;
             background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
             color: #ffffff !important;
             border-radius: 14px !important;
-            height: 50px !important;
-            padding: 0 18px !important;
-            margin: 4px 0 0 0 !important;
+            height: 48px !important;
+            padding: 0 16px !important;
+            margin: 4px 16px 10px 16px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 10px !important;
-            font-size: 15px !important;
+            gap: 8px !important;
+            font-size: 14.5px !important;
             font-weight: 700 !important;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35) !important;
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
             border: none !important;
             text-decoration: none !important;
             position: static !important;
             transform: none !important;
-            width: 100% !important;
+            width: calc(100% - 32px) !important;
             box-sizing: border-box !important;
             cursor: pointer !important;
         }
