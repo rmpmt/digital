@@ -1,681 +1,388 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#05052f">
-
-<title>RMP MT CONTACTS</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@600;700&display=swap" rel="stylesheet">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    background: #05052f;
-}
-
-.splash {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    min-height: 560px;
-    overflow: hidden;
-    background:
-        radial-gradient(ellipse at 50% 75%, #092c91 0%, transparent 48%),
-        linear-gradient(180deg, #07083b, #020523);
-}
-
-/* =================================
-   WHITE CURVED HEADER
-================================= */
-
-.header-shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 43%;
-    z-index: 1;
-}
-
-.page-number {
-    position: absolute;
-    top: 3%;
-    right: 8%;
-    z-index: 5;
-    color: #101c59;
-    font-size: 17px;
-    font-weight: bold;
-    opacity: 0;
-    animation: appear 1s ease forwards;
-}
-
-/* =================================
-   POLICE LOGO
-================================= */
-
-.logo-container {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    width: 205px;
-    height: 225px;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    perspective: 1000px;
-    opacity: 0;
-    animation: logoAppear 1.5s ease forwards;
-    animation-delay: 0.2s;
-}
-
-.logo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transform-style: preserve-3d;
-    filter: drop-shadow(0 8px 12px rgba(0, 80, 255, 0.4));
-    animation: rotateLogo 5s linear infinite;
-}
-
-@keyframes rotateLogo {
-    0% {
-        transform: rotateY(0deg);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
-}
-
-@keyframes logoAppear {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* =================================
-   BRANDING
-================================= */
-
-.branding {
-    position: absolute;
-    top: 45%;
-    left: 0;
-    width: 100%;
-    padding: 0 12px;
-    text-align: center;
-    color: white;
-    z-index: 4;
-    opacity: 0;
-    animation: appear 1.5s ease forwards;
-    animation-delay: 0.6s;
-}
-
-.brand-title {
-    font-size: clamp(25px, 7vw, 39px);
-    font-weight: 900;
-    white-space: nowrap;
-    letter-spacing: -1px;
-}
-
-.brand-title .yellow {
-    color: #ffeb00;
-}
-
-.brand-title .white {
-    color: #ffffff;
-}
-
-.title-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin: 12px auto 8px;
-    max-width: 85%;
-}
-
-.title-divider span {
-    height: 2px;
-    flex: 1;
-    background: linear-gradient(90deg, transparent, #ffffff);
-}
-
-.title-divider span:last-child {
-    background: linear-gradient(90deg, #ffffff, transparent);
-}
-
-.title-divider b {
-    font-size: 22px;
-    color: #ffffff;
-}
-
-.brand-subtitle {
-    font-size: clamp(17px, 4.5vw, 25px);
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.credit {
-    font-size: clamp(14px, 3.7vw, 20px);
-    font-style: italic;
-    font-weight: bold;
-    margin-top: 4vh;
-}
-
-/* =================================
-   POLICE BUILDING
-================================= */
-
-.building-container {
-    position: absolute;
-    left: 0;
-    bottom: 14%;
-    width: 100%;
-    height: 23%;
-    z-index: 2;
-    opacity: 0;
-    animation: buildingAppear 2s ease forwards;
-    animation-delay: 0.8s;
-}
-
-.building {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 15px rgba(0, 105, 255, 0.35));
-}
-
-@keyframes buildingAppear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 0.75;
-        transform: translateY(0);
-    }
-}
-
-/* =================================
-   WELCOME BUTTON
-================================= */
-
-.welcome-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    width: 125px;
-    height: 43px;
-
-    margin-top: 3.5vh;
-
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 30px;
-
-    background: linear-gradient(135deg, #ff1682, #d90062);
-
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-
-    cursor: pointer;
-    box-shadow: 0 5px 22px rgba(255, 0, 110, 0.35);
-
-    transition: transform 0.25s, box-shadow 0.25s;
-
-    opacity: 0;
-    animation: appear 1.2s ease forwards;
-    animation-delay: 1.2s;
-}
-
-.welcome-btn:active {
-    transform: scale(0.93);
-    box-shadow: 0 2px 10px rgba(255, 0, 110, 0.5);
-}
-
-.welcome-btn .arrow {
-    font-size: 20px;
-    line-height: 1;
-}
-
-/* =================================
-   BOTTOM WAVES
-================================= */
-
-.wave-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 18%;
-    z-index: 3;
-    pointer-events: none;
-}
-
-.wave {
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    left: -50%;
-}
-
-.wave path {
-    animation: waveMove 7s ease-in-out infinite alternate;
-}
-
-@keyframes waveMove {
-    from {
-        transform: translateX(-2%);
-    }
-    to {
-        transform: translateX(2%);
-    }
-}
-
-/* =================================
-   GENERAL ANIMATION
-================================= */
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* =================================
-   MOBILE RESPONSIVE
-================================= */
-
-@media (max-width: 380px) {
-
-    .logo-container {
-        width: 170px;
-        height: 190px;
-        top: 29%;
-    }
-
-    .branding {
-        top: 44%;
-    }
-
-    .brand-title {
-        font-size: 25px;
-        letter-spacing: -1px;
-    }
-
-    .brand-subtitle {
-        font-size: 16px;
-    }
-
-    .credit {
-        font-size: 14px;
-        margin-top: 3vh;
-    }
-
-    .welcome-btn {
-        width: 115px;
-        height: 39px;
-        font-size: 14px;
-        margin-top: 3vh;
-    }
-}
-
-/* =================================
-   SHORT SCREEN
-================================= */
-
-@media (max-height: 700px) {
-
-    .logo-container {
-        top: 27%;
-        width: 150px;
-        height: 165px;
-    }
-
-    .branding {
-        top: 43%;
-    }
-
-    .credit {
-        margin-top: 2vh;
-    }
-
-    .welcome-btn {
-        margin-top: 2vh;
-        height: 38px;
-    }
-
-    .building-container {
-        bottom: 12%;
-        height: 20%;
-    }
-}
-
-/* ACCESSIBILITY */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#0d6efd">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Police Phonebook">
+    <meta name="google" content="notranslate">
+    
+
+    <title>Police Phonebook</title>
+
+    <link rel="manifest" href="manifest.json?v=1.1">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css?v=6">
+
+    <style>
+        /* Google Translate Banner & Top Shift Fix */
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+        .goog-tooltip {
+            display: none !important;
+        }
+        .goog-tooltip:hover {
+            display: none !important;
+        }
+        .goog-text-highlight {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="splash">
+<!-- Google Translate Hidden Element & Script -->
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'bn',
+      includedLanguages: 'en,bn',
+      autoDisplay: false,
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- WHITE CURVED HEADER -->
+<script type="text/javascript">
+  // লোকালস্টোরেজ থেকে ভাষা রিড করে কুকি জোরপূর্বক সেট করা যাতে ট্রান্সলেশন স্থায়ী থাকে
+  (function() {
+    const savedLang = localStorage.getItem('app_language');
+    if (savedLang) {
+      const value = `/bn/${savedLang}`;
+      document.cookie = `googtrans=${value};path=/;max-age=31536000`;
+      document.cookie = `googtrans=${value};domain=${document.domain};path=/;max-age=31536000`;
+    }
+  })();
+</script>
 
-    <svg class="header-shape"
-         viewBox="0 0 691 800"
-         preserveAspectRatio="none">
+<div id="appContainer">
 
-        <path
-            fill="#ffffff"
-            d="
-            M0 0
-            H691
-            V390
-            C670 515 590 570 490 585
-            H201
-            C100 585 25 520 0 390
-            Z
-            "
-        />
+<header class="topbar">
+    <button id="navToggleBtn" class="icon-btn" type="button" title="মেনু">
+        <span id="menuIcon">☰</span>
+        <span id="backIcon" class="hidden">←</span>
+    </button>
+    <div class="app-title" id="appTitle">
+        <span class="app-title-text">Police Phonebook</span>
+        <span id="verifiedBadge" class="verified-badge hidden" title="Verified Device">✔</span>
+    </div>
+    <div id="searchBox" class="header-search-box hidden">
+        <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
+    </div>
+    <div class="top-actions" id="topActions">
+        <button id="adminLoginBtn" class="primary-btn active-btn btn-admin-small hidden" type="button" title="লং প্রেস করে ভেরিফিকেশন রিকোয়েস্ট দেখুন">🔑 Admin</button>
+        <button id="searchBtn" class="icon-btn" title="সার্চ করুন" type="button">🔍</button>
+        <button id="themeBtn" class="icon-btn" title="নাইট/ডে মোড" type="button">🌙</button>
+    </div>
+</header>
 
-        <path
-            d="M0 390 C25 520 100 585 201 585 H490 C590 570 670 515 691 390"
-            fill="none"
-            stroke="#087bff"
-            stroke-width="9"
-        />
+<div id="slidingNoticeContainer" style="background: var(--card-bg, #fff); border-bottom: 1px solid var(--border-color, #ddd); overflow: hidden; display: none;"></div>
 
-        <path
-            d="M0 415 C40 535 120 600 220 600 H470 C580 590 660 530 691 415"
-            fill="none"
-            stroke="#061b70"
-            stroke-width="12"
-        />
+<div class="sub-toolbar" id="allSearchBtn" style="cursor: pointer;" title="অল সার্চ অপশন">
+    <div class="sub-toolbar-title">🌐 Search All Units & Numbers</div>
+</div>
 
-    </svg>
-
-    <!-- PAGE NUMBER -->
-
-    <div class="page-number">43</div>
-
-
-    <!-- BANGLADESH POLICE LOGO -->
-
-    <div class="logo-container">
-
-        <svg class="logo"
-             viewBox="0 0 260 290"
-             xmlns="http://www.w3.org/2000/svg">
-
-            <ellipse cx="130" cy="126" rx="113" ry="119" fill="#008b83"/>
-
-            <ellipse cx="130" cy="126" rx="96" ry="102"
-                fill="#ffb900" stroke="#008b83" stroke-width="5"/>
-
-            <ellipse cx="130" cy="126" rx="84" ry="90" fill="#008b83"/>
-
-            <path d="M48 125 Q130 45 212 125 L193 202 Q130 235 67 202 Z"
-                fill="#f4b900"/>
-
-            <polygon
-                points="130,18 138,38 159,38 142,51 149,72 130,59 111,72 118,51 101,38 122,38"
-                fill="#ed1c24"
-                stroke="#a90000"
-                stroke-width="2"/>
-
-            <g fill="#e7b21c" stroke="#dca51b" stroke-width="2">
-
-                <path d="M116 190 Q91 135 99 65"
-                    fill="none" stroke-width="4"/>
-
-                <path d="M144 190 Q169 135 161 65"
-                    fill="none" stroke-width="4"/>
-
-                <g>
-                    <ellipse cx="98" cy="86" rx="5" ry="12" transform="rotate(-35 98 86)"/>
-                    <ellipse cx="108" cy="102" rx="5" ry="12" transform="rotate(30 108 102)"/>
-                    <ellipse cx="94" cy="112" rx="5" ry="12" transform="rotate(-35 94 112)"/>
-                    <ellipse cx="113" cy="128" rx="5" ry="12" transform="rotate(30 113 128)"/>
-                    <ellipse cx="99" cy="140" rx="5" ry="12" transform="rotate(-35 99 140)"/>
-                    <ellipse cx="120" cy="155" rx="5" ry="12" transform="rotate(30 120 155)"/>
-                </g>
-
-                <g>
-                    <ellipse cx="162" cy="86" rx="5" ry="12" transform="rotate(35 162 86)"/>
-                    <ellipse cx="152" cy="102" rx="5" ry="12" transform="rotate(-30 152 102)"/>
-                    <ellipse cx="166" cy="112" rx="5" ry="12" transform="rotate(35 166 112)"/>
-                    <ellipse cx="147" cy="128" rx="5" ry="12" transform="rotate(-30 147 128)"/>
-                    <ellipse cx="161" cy="140" rx="5" ry="12" transform="rotate(35 161 140)"/>
-                    <ellipse cx="140" cy="155" rx="5" ry="12" transform="rotate(-30 140 155)"/>
-                </g>
-
-            </g>
-
-            <path d="M78 177 Q130 218 182 177 L170 206 Q130 226 90 206 Z"
-                fill="#f7c22c"/>
-
-            <text x="130" y="198"
-                text-anchor="middle"
-                font-family="'Noto Serif Bengali', Arial, sans-serif"
-                font-size="14"
-                font-weight="bold"
-                fill="#080808">শৃঙ্খলা</text>
-
-            <path d="M15 207 L2 180 L20 188 L28 166 L49 211 Q130 260 211 211 L232 166 L240 188 L258 180 L245 216 Q130 292 15 216 Z"
-                fill="#ed1c24"
-                stroke="#990000"
-                stroke-width="2"/>
-
-            <path d="M47 225 Q130 263 213 225"
-                fill="none"
-                stroke="#ff7373"
-                stroke-width="2"/>
-
-            <text x="130" y="244"
-                text-anchor="middle"
-                font-family="'Noto Serif Bengali', Arial, sans-serif"
-                font-size="12"
-                fill="white"
-                font-weight="bold">বাংলাদেশ পুলিশ</text>
-
-        </svg>
-
+<main class="container">
+    <div id="mainDashboardView">
+        <section class="dashboard-header">
+            <div id="adminActionContainer" class="admin-only hidden" style="display: flex; gap: 8px; width: 100%; margin-top: 8px;">
+                <button id="addCategoryBtn" class="primary-btn" type="button" style="flex: 1;">＋ Category</button>
+                <button id="notificationBtn" class="secondary-btn" type="button" style="flex: 1; position: relative;">
+                    🔔 নোটিফিকেশন
+                    <span id="notifBadge" class="badge-dot hidden" style="position: absolute; top: 6px; right: 10px; width: 8px; height: 8px; background-color: #ef4444; border-radius: 50%;"></span>
+                </button>
+            </div>
+        </section>
+        <section id="categoryList" class="category-list"></section>
+        <div id="allSearchContainer" class="hidden" style="margin-top: 15px;"></div>
+        <section id="emptyState" class="empty-state hidden">
+            <div class="empty-icon">📂</div>
+            <h2>এখনো কোনো Category নেই</h2>
+            <p>ডাটা দেখতে অপেক্ষা করুন, প্রয়োজনে রিফ্রেস করুন।</p>
+            <button id="emptyAddBtn" class="primary-btn admin-only hidden" type="button">＋ প্রথম Category তৈরি করুন</button>
+        </section>
     </div>
 
-
-    <!-- BRANDING -->
-
-    <section class="branding">
-
-        <h1 class="brand-title">
-            <span class="yellow">RMP MT</span>
-            <span class="white">CONTACTS</span>
-        </h1>
-
-        <div class="title-divider">
-            <span></span>
-            <b>★</b>
-            <span></span>
+    <div id="categoryDetailsView" class="hidden">
+        <section class="dashboard-header">
+            <div class="header-left">
+                <div>
+                    <h1 id="detailsTitle">Category</h1>
+                    <p id="detailsSubtitle"></p>
+                </div>
+            </div>
+        </section>
+        <div class="section-toolbar admin-only hidden">
+            <button id="addSubCategoryBtn" class="primary-btn" type="button">＋ Sub-Category</button>
+            <button id="addHeaderBtn" class="primary-btn" type="button">＋ Header</button>
+            <button id="addDataBtn" class="secondary-btn" type="button">＋ Data</button>
         </div>
-
-        <p class="brand-subtitle">
-            Rajshahi Metropolitan Police
-        </p>
-
-        <p class="credit">
-            Developed by Jewel Rana
-        </p>
-
-        <button class="welcome-btn" id="welcomeBtn">
-            WELCOME
-            <span class="arrow">›</span>
-        </button>
-
-    </section>
-
-
-    <!-- POLICE BUILDING ILLUSTRATION -->
-
-    <div class="building-container">
-
-        <svg class="building"
-             viewBox="0 0 700 230"
-             preserveAspectRatio="xMidYMax meet"
-             xmlns="http://www.w3.org/2000/svg">
-
-            <defs>
-                <linearGradient id="buildingColor" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#168cff"/>
-                    <stop offset="100%" stop-color="#00134f"/>
-                </linearGradient>
-            </defs>
-
-            <!-- Main building -->
-
-            <path d="M70 220 V85 H630 V220 Z"
-                fill="url(#buildingColor)"
-                stroke="#168cff"
-                stroke-width="3"/>
-
-            <!-- Central entrance -->
-
-            <path d="M275 220 V30 H425 V220 Z"
-                fill="#0754b4"
-                stroke="#41aaff"
-                stroke-width="3"/>
-
-            <path d="M250 30 H450 L425 10 H275 Z"
-                fill="#168cff"/>
-
-            <!-- Roof -->
-
-            <path d="M50 85 H650 L620 65 H80 Z"
-                fill="#278fff"/>
-
-            <!-- Windows -->
-
-            <g fill="#001d5c" stroke="#43aaff" stroke-width="2">
-
-                <rect x="95" y="110" width="55" height="65"/>
-                <rect x="170" y="110" width="55" height="65"/>
-
-                <rect x="475" y="110" width="55" height="65"/>
-                <rect x="550" y="110" width="55" height="65"/>
-
-                <rect x="290" y="55" width="35" height="45"/>
-                <rect x="375" y="55" width="35" height="45"/>
-
-            </g>
-
-            <!-- Central door -->
-
-            <rect x="315" y="150" width="70" height="70"
-                fill="#001344" stroke="#55baff" stroke-width="3"/>
-
-            <path d="M350 150 V220"
-                stroke="#55baff" stroke-width="2"/>
-
-            <!-- Police emblem on building -->
-
-            <circle cx="350" cy="24" r="10"
-                fill="#ffcf00" stroke="#ffffff" stroke-width="1"/>
-
-            <!-- Pillars -->
-
-            <g fill="#1473ce">
-                <rect x="75" y="85" width="10" height="135"/>
-                <rect x="225" y="85" width="10" height="135"/>
-                <rect x="465" y="85" width="10" height="135"/>
-                <rect x="615" y="85" width="10" height="135"/>
-            </g>
-
-            <!-- Ground -->
-
-            <path d="M0 220 H700"
-                stroke="#168cff" stroke-width="3"/>
-
-        </svg>
-
+        <div id="detailsContent"></div>
     </div>
 
-
-    <!-- BOTTOM WAVES -->
-
-    <div class="wave-container">
-
-        <svg class="wave"
-             viewBox="0 0 1440 320"
-             preserveAspectRatio="none">
-
-            <path
-                d="M0 130 C300 20 500 260 800 150 S1200 60 1440 130 V320 H0 Z"
-                fill="#003aaf"
-                opacity="0.8"/>
-
-            <path
-                d="M0 180 C300 60 500 290 800 180 S1200 100 1440 170 V320 H0 Z"
-                fill="#006bff"
-                opacity="0.55"/>
-
-            <path
-                d="M0 225 C350 100 550 320 900 205 S1250 140 1440 210 V320 H0 Z"
-                fill="#020a42"/>
-
-        </svg>
-
+    <div id="dataDetailsView" class="hidden">
+        <div class="details-container-card">
+            <div id="dataPageContent"></div>
+        </div>
     </div>
+</main>
+
+<!-- Modals -->
+<div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Admin Login</h2>
+            <button class="close-btn" data-close="loginModal" type="button">✕</button>
+        </div>
+        <div id="loginFormContainer">
+            <div class="form-group">
+                <label>ইমেইল</label>
+                <input id="loginEmail" type="email" placeholder="admin@example.com">
+            </div>
+            <div class="form-group">
+                <label>পাসওয়ার্ড</label>
+                <input id="loginPassword" type="password" placeholder="******">
+            </div>
+            <div class="modal-actions">
+                <button class="secondary-btn" data-close="loginModal" type="button">বাতিল</button>
+                <button id="submitLoginBtn" class="primary-btn" type="button">লগইন</button>
+            </div>
+        </div>
+        <div id="logoutContainer" class="hidden logout-box">
+            <p class="status-ok">✅ আপনি অ্যাডমিন হিসেবে লগইন আছেন</p>
+            <div class="modal-actions">
+                <button class="secondary-btn" data-close="loginModal" type="button">বন্ধ করুন</button>
+                <button id="logoutBtn" class="danger-btn" type="button">লগআউট</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="verifyModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>প্রশাসনিক তথ্যের জন্য ভেরিফিকেশন রিকোয়েস্ট</h2>
+            <button class="close-btn" data-close="verifyModal" type="button">✕</button>
+        </div>
+        <div class="form-group">
+            <label>আপনার নাম *</label>
+            <input id="applicantName" type="text" placeholder="যেমন: মো: আব্দুর রহিম">
+        </div>
+        <div class="form-group">
+            <label>পদবী / পরিচয় *</label>
+            <input id="applicantDesignation" type="text" placeholder="যেমন: সাব-ইন্সপেক্টর / পরিচয় সংক্রান্ত তথ্য">
+        </div>
+        <div class="modal-actions">
+            <button class="secondary-btn" data-close="verifyModal" type="button">বাতিল</button>
+            <button id="submitVerifyBtn" class="primary-btn" type="button">রিকোয়েস্ট পাঠান</button>
+        </div>
+    </div>
+</div>
+
+<div id="adminVerifyRequestsModal" class="modal hidden">
+    <div class="modal-content" style="max-width: 500px; width: 90%;">
+        <div class="modal-header">
+            <h2>🛡️ ডিভাইস ভেরিফিকেশন রিকোয়েস্ট</h2>
+            <button class="close-btn" data-close="adminVerifyRequestsModal" type="button">✕</button>
+        </div>
+        <div id="verifyRequestsList" style="max-height: 350px; overflow-y: auto;">
+            <p style="text-align: center; color: var(--text-muted);">কোনো রিকোয়েস্ট নেই</p>
+        </div>
+        <div class="modal-actions" style="margin-top: 15px;">
+            <button class="secondary-btn" data-close="adminVerifyRequestsModal" type="button">বন্ধ করুন</button>
+        </div>
+    </div>
+</div>
+
+<div id="categoryModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="categoryModalTitle">ক্যাটাগরি</h2>
+            <button class="close-btn" data-close="categoryModal" type="button">✕</button>
+        </div>
+        <div class="form-group">
+            <label>ছবি লিঙ্ক (URL)</label>
+            <input id="categoryImageInput" type="url" placeholder="https://example.com/image.png">
+        </div>
+        <div class="form-group">
+            <label>ক্যাটাগরির নাম</label>
+            <input id="categoryNameInput" type="text" placeholder="নাম লিখুন">
+        </div>
+        <div class="modal-actions">
+            <button class="secondary-btn" data-close="categoryModal" type="button">বাতিল</button>
+            <button id="saveCategoryBtn" class="primary-btn" type="button">সেভ করুন</button>
+        </div>
+    </div>
+</div>
+
+<div id="headerModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Header যুক্ত/এডিট করুন</h2>
+            <button class="close-btn" data-close="headerModal" type="button">✕</button>
+        </div>
+        <div class="form-group">
+            <label>হেডার টাইটেল</label>
+            <input id="headerNameInput" type="text" placeholder="যেমন: কর্মকর্তা/কর্মচারী">
+        </div>
+        <div class="modal-actions">
+            <button class="secondary-btn" data-close="headerModal" type="button">বাতিল</button>
+            <button id="saveHeaderBtn" class="primary-btn" type="button">সেভ করুন</button>
+        </div>
+    </div>
+</div>
+
+<div id="dataModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="dataModalTitle">Data যুক্ত করুন</h2>
+            <button class="close-btn" data-close="dataModal" type="button">✕</button>
+        </div>
+        <div class="form-group">
+            <label>ছবি লিঙ্ক (URL)</label>
+            <input id="dataPhoto" type="url">
+        </div>
+        <div class="form-group">
+            <label>নাম *</label>
+            <input id="dataName" type="text">
+        </div>
+        <div class="form-group">
+            <label>মোবাইল</label>
+            <input id="dataMobile" type="tel">
+        </div>
+        <div class="form-group">
+            <label>টেলিফোন</label>
+            <input id="dataPhone" type="tel">
+        </div>
+        <div class="form-group">
+            <label>পদবী</label>
+            <input id="dataDesignation" type="text">
+        </div>
+        <div class="form-group">
+            <label>ইমেইল</label>
+            <input id="dataEmail" type="email">
+        </div>
+        <div class="form-group">
+            <label>বর্তমান অফিস/ঠিকানা</label>
+            <input id="dataCurrentOffice" type="text">
+        </div>
+        <div class="form-group">
+            <label>স্থায়ী ঠিকানা</label>
+            <input id="dataPermanentAddress" type="text">
+        </div>
+        <div class="form-group">
+            <label>প্রশাসনিক তথ্য</label>
+            <input id="dataAdminInfo" type="text">
+        </div>
+        <div class="form-group">
+            <label>Header নির্বাচন করুন</label>
+            <select id="dataHeaderSelect"></select>
+        </div>
+        <div class="modal-actions">
+            <button class="secondary-btn" data-close="dataModal" type="button">বাতিল</button>
+            <button id="saveDataBtn" class="primary-btn" type="button">সেভ করুন</button>
+        </div>
+    </div>
+</div>
+
+<div id="moveDataModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>ডাটা মুভ করুন</h2>
+            <button class="close-btn" data-close="moveDataModal" type="button">✕</button>
+        </div>
+        <div class="form-group">
+            <label>নতুন Category</label>
+            <select id="moveCategorySelect"></select>
+        </div>
+        <div class="form-group">
+            <label>নতুন Header</label>
+            <select id="moveHeaderSelect"></select>
+        </div>
+        <div class="modal-actions">
+            <button class="secondary-btn" data-close="moveDataModal" type="button">বাতিল</button>
+            <button id="confirmMoveBtn" class="primary-btn" type="button">মুভ নিশ্চিত করুন</button>
+        </div>
+    </div>
+</div>
+
+<div id="customConfirmModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="confirmModalTitle">নিশ্চিতকরণ</h2>
+            <button class="close-btn" data-close="customConfirmModal" type="button">✕</button>
+        </div>
+        <p id="confirmModalMessage">আপনি কি নিশ্চিত?</p>
+        <div class="modal-actions">
+            <button id="cancelConfirmBtn" class="secondary-btn" type="button">বাতিল</button>
+            <button id="okConfirmBtn" class="danger-btn" type="button">হ্যাঁ, মুছুন</button>
+        </div>
+    </div>
+</div>
+
+<div id="homeNoticePopupModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 99999; padding: 15px;">
+    <div style="background: var(--card-bg, #fff); color: var(--text-main, #333); max-width: 450px; width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.3); position: relative; display: flex; flex-direction: column;">
+        <button type="button" id="closeHomePopupBtn" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">✕</button>
+        <div id="popupMediaContainer" style="width: 100%; max-height: 250px; background: #000; display: none; overflow: hidden; align-items: center; justify-content: center;"></div>
+        <div style="padding: 20px; text-align: center;">
+            <h3 id="popupTitle" style="margin-top: 0; margin-bottom: 10px; font-size: 18px; color: var(--text-main, #000);"></h3>
+            <p id="popupMessage" style="font-size: 14px; line-height: 1.5; margin: 0 0 15px 0; color: var(--text-muted, #555); text-align: left; max-height: 150px; overflow-y: auto;"></p>
+            <a id="popupWebsiteBtn" href="#" target="_blank" style="display: none; width: 100%; padding: 10px; background: #0d6efd; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; text-align: center; box-sizing: border-box;">Open Website</a>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
 
 </div>
 
+<script type="module" src="js/app.js"></script>
 
-<!-- =================================
-     NAVIGATION
-================================= -->
+<script type="module">
+    import { initNotificationSystem } from './js/notification.js';
+    document.addEventListener("DOMContentLoaded", () => {
+        initNotificationSystem();
+    });
+</script>
 
 <script>
-
-document.getElementById("welcomeBtn").addEventListener("click", function() {
-
-    window.location.href = "home.html";
-
-});
-
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
 </script>
+
+<script type="module">
+    import { initDrawer } from './js/drawer.js';
+    document.addEventListener("DOMContentLoaded", () => {
+        initDrawer();
+    });
+</script>
+
+<script src="js/color-formatter.js"></script>
+<script type="module" src="js/custom-settings.js"></script>
 
 </body>
 </html>
