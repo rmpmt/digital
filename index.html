@@ -417,7 +417,7 @@
             background: #020624 !important;
             padding-bottom: 0 !important;
         }
-        /* লাল মার্কিং করা অংশ বা হেডার সম্পূর্ণ লুকানো */
+        /* লাল মার্কিং করা অংশ বা ওপরের হেডার সম্পূর্ণ লুকানো */
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
         body.is-data-details-mode #subPageHeaderSearchWrapper,
@@ -580,7 +580,7 @@
             color: #f1f5f9 !important;
         }
 
-        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটনগুলো নির্দিষ্ট স্থানে আইকন আকারে বসানো */
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটনগুলো ডানপাশে আইকন আকারে নির্দিষ্ট স্থানে বসানো */
         #dataPageContent .action-buttons,
         #dataPageContent .detail-actions,
         #dataPageContent .btn-group,
@@ -603,7 +603,7 @@
             right: 14px !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
-            padding: 8px 14px !important;
+            padding: 8px 12px !important;
             font-size: 13px !important;
             font-weight: 600 !important;
             border-radius: 10px !important;
@@ -613,6 +613,10 @@
             display: inline-flex !important;
             align-items: center !important;
             gap: 6px !important;
+            max-width: 120px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* ৩. শেয়ার কন্টাক্ট এর জন্য আলাদা একটি স্বতন্ত্র ঘর এবং আইকন */
