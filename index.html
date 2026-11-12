@@ -408,7 +408,7 @@
         }
 
         /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — সুনির্দিষ্ট নতুন ডিজাইন ও মার্জিন প্যাডিং অপ্টিমাইজেশন
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — সুনির্দিষ্ট নতুন ডিজাইন
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
@@ -417,7 +417,7 @@
             background: #020624 !important;
             padding-bottom: 0 !important;
         }
-        /* একদম ওপরের সাদা অংশ/বর্ডার রিমুভ এবং হেডার লুকানো */
+        /* লাল মার্কিং করা অংশ বা হেডার সম্পূর্ণ লুকানো */
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
         body.is-data-details-mode #subPageHeaderSearchWrapper,
@@ -425,11 +425,38 @@
         body.is-data-details-mode .modern-header {
             display: none !important;
         }
+        /* ওপরের সাদা অংশ সম্পূর্ণরূপে বাদ দেওয়া — মূল কারণ হেডার র‍্যাপার ও বডি মার্জিন */
+        body.is-data-details-mode .modern-top-wrapper {
+            display: none !important;
+        }
+        /* ডিটেইলস পেজে হোম ও ক্যাটাগরি ভিউ সম্পূর্ণ কলাপ্স — ওপরের সাদা ফাঁক এটাই ছিল */
+        body.is-data-details-mode #mainDashboardView,
+        body.is-data-details-mode #categoryDetailsView {
+            display: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 0 !important;
+            min-height: 0 !important;
+        }
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        body.is-data-details-mode {
+            margin: 0 !important;
+            padding: 0 !important;
+            top: 0 !important;
+        }
+        body.is-data-details-mode #appContainer {
+            margin: 0 !important;
+            padding: 0 !important;
+            top: 0 !important;
+        }
         body.is-data-details-mode .curved-main-sheet {
             background-color: #ffffff !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            padding: 0 0 40px 0 !important;
+            padding: 0 0 50px 0 !important;
             margin-top: 0 !important;
             box-shadow: none !important;
             min-height: 100vh !important;
@@ -457,30 +484,31 @@
             gap: 10px;
         }
 
-        /* ১. একদম ওপরের প্রোফাইল অংশ (সাদা অংশ বাদ দিয়ে ডার্ক ব্যাকগ্রাউন্ড ফিক্সড) */
+        /* ১. সব ওপরের অংশটি দুই পাশ পর্যন্ত ভরাট এবং শুধুমাত্র নিচের দুই কর্নার রেডিয়াস */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
-            padding: 24px 16px 26px 16px !important;
+            padding: 26px 16px 30px 16px !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            border-bottom-left-radius: 24px !important;
-            border-bottom-right-radius: 24px !important;
+            border-bottom-left-radius: 28px !important;
+            border-bottom-right-radius: 28px !important;
             text-align: center !important;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
-            margin: 0 !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45) !important;
+            margin-top: 0 !important;
+            margin-bottom: 8px !important;
             width: 100% !important;
             box-sizing: border-box !important;
         }
         #dataPageContent img {
-            width: 110px !important;
-            height: 110px !important;
+            width: 115px !important;
+            height: 115px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             background: #111b2b !important;
             border: 3px solid rgba(255, 255, 255, 0.15) !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
-            margin: 0 auto 10px auto !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+            margin: 4px auto 12px auto !important;
             display: block !important;
         }
         #dataPageContent h1,
@@ -489,13 +517,13 @@
         #dataPageContent .detail-name,
         #dataPageContent .profile-name {
             color: #ffffff !important;
-            font-size: 18px !important;
+            font-size: 18.5px !important;
             font-weight: 700 !important;
             margin: 0 auto 6px auto !important;
             text-align: center !important;
             background: #060e2b !important;
-            padding: 7px 12px !important;
-            border-radius: 10px !important;
+            padding: 8px 14px !important;
+            border-radius: 12px !important;
             max-width: 90% !important;
             border: 1px solid rgba(255,255,255,0.08) !important;
         }
@@ -503,13 +531,13 @@
         #dataPageContent .designation,
         #dataPageContent .subtitle {
             color: #cbd5e1 !important;
-            font-size: 13.5px !important;
+            font-size: 14px !important;
             font-weight: 500 !important;
             margin: 0 !important;
             text-align: center !important;
         }
 
-        /* ইনফো কার্ডগুলোর পারফেক্ট মার্জিন ও প্যাডিং */
+        /* ইনফো কার্ডগুলো */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
@@ -519,7 +547,7 @@
             background: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
             border-radius: 14px !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04) !important;
             padding: 12px 16px !important;
             margin: 0 16px 8px 16px !important;
             display: flex !important;
@@ -545,10 +573,10 @@
         #dataPageContent .detail-label,
         #dataPageContent .info-card > span:first-child,
         #dataPageContent .detail-box > span:first-child {
-            font-size: 12px !important;
+            font-size: 12.5px !important;
             font-weight: 600 !important;
             color: #64748b !important;
-            margin-bottom: 2px !important;
+            margin-bottom: 3px !important;
             display: block !important;
         }
         body.dark-mode #dataPageContent .info-row .label,
@@ -566,7 +594,7 @@
         #dataPageContent .info-card > p,
         #dataPageContent .detail-box > div,
         #dataPageContent .detail-box > p {
-            font-size: 15.5px !important;
+            font-size: 16px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
             margin: 0 !important;
@@ -579,67 +607,95 @@
             color: #f1f5f9 !important;
         }
 
-        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটনগুলো ডানপাশে আইকন আকারে নির্দিষ্ট স্থানে সেট করা */
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন — এক সারিতে সুন্দরভাবে সাজানো আইকন বাটন */
         #dataPageContent .action-buttons,
         #dataPageContent .detail-actions,
         #dataPageContent .btn-group,
         #dataPageContent .quick-actions {
-            display: contents !important;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 10px !important;
+            margin: 0 16px 6px 16px !important;
+            padding: 0 !important;
+            width: auto !important;
         }
-        #dataPageContent .info-row a,
-        #dataPageContent .detail-row a,
-        #dataPageContent .data-field a,
-        #dataPageContent .detail-box a,
-        #dataPageContent .info-card a,
-        #dataPageContent .contact-detail-item a,
-        #dataPageContent .info-row button,
-        #dataPageContent .detail-row button,
-        #dataPageContent .data-field button,
-        #dataPageContent .detail-box button,
-        #dataPageContent .info-card button,
-        #dataPageContent .contact-detail-item button {
-            position: absolute !important;
-            right: 14px !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            padding: 7px 12px !important;
-            font-size: 12.5px !important;
-            font-weight: 600 !important;
-            border-radius: 8px !important;
-            border: none !important;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
-            cursor: pointer !important;
-            display: inline-flex !important;
+        #dataPageContent .action-buttons a,
+        #dataPageContent .detail-actions a,
+        #dataPageContent .btn-group a,
+        #dataPageContent .quick-actions a,
+        #dataPageContent .action-buttons button,
+        #dataPageContent .detail-actions button,
+        #dataPageContent .btn-group button,
+        #dataPageContent .quick-actions button {
+            position: static !important;
+            transform: none !important;
+            width: 100% !important;
+            height: 48px !important;
+            padding: 0 6px !important;
+            display: flex !important;
             align-items: center !important;
-            gap: 5px !important;
-            max-width: 110px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            justify-content: center !important;
+            gap: 7px !important;
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            border-radius: 14px !important;
+            border: none !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14) !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            cursor: pointer !important;
+            box-sizing: border-box !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+        }
+        /* প্রথম বাটন = মোবাইল (নীল) */
+        #dataPageContent .action-buttons > :nth-child(1),
+        #dataPageContent .detail-actions > :nth-child(1),
+        #dataPageContent .btn-group > :nth-child(1),
+        #dataPageContent .quick-actions > :nth-child(1) {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+        }
+        /* দ্বিতীয় বাটন = টেলিফোন (স্লেট) */
+        #dataPageContent .action-buttons > :nth-child(2),
+        #dataPageContent .detail-actions > :nth-child(2),
+        #dataPageContent .btn-group > :nth-child(2),
+        #dataPageContent .quick-actions > :nth-child(2) {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%) !important;
+        }
+        /* তৃতীয় বাটন = ইমেইল (লাল) */
+        #dataPageContent .action-buttons > :nth-child(3),
+        #dataPageContent .detail-actions > :nth-child(3),
+        #dataPageContent .btn-group > :nth-child(3),
+        #dataPageContent .quick-actions > :nth-child(3) {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
         }
 
-        /* ৩. শেয়ার কন্টাক্ট এর জন্য আলাদা একটি স্বতন্ত্র ঘর এবং আইকন */
+        /* ৩. শেয়ার কন্টাক্ট — নিজের আলাদা পুরো প্রস্থের ঘর ও আইকন */
         #dataPageContent .share-contact-card,
         #dataPageContent a[href*="share"],
         #dataPageContent button[id*="share"],
         #dataPageContent .share-btn-wrapper {
+            grid-column: 1 / -1 !important;
             background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
             color: #ffffff !important;
             border-radius: 14px !important;
-            padding: 13px 18px !important;
-            margin: 10px 16px 0 16px !important;
+            height: 50px !important;
+            padding: 0 18px !important;
+            margin: 4px 0 0 0 !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 8px !important;
-            font-size: 14.5px !important;
+            gap: 10px !important;
+            font-size: 15px !important;
             font-weight: 700 !important;
-            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35) !important;
             border: none !important;
             text-decoration: none !important;
             position: static !important;
             transform: none !important;
-            width: auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            cursor: pointer !important;
         }
     </style>
 </head>
