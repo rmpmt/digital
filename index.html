@@ -53,7 +53,7 @@
             box-shadow: none !important;
         }
 
-        /* ডার্ক হেডার এবং ৩-কলাম গ্রিড স্টাইল */
+        /* আধুনিক ডার্ক হেডার এবং গ্রিড স্টাইল */
         body {
             background-color: #020624 !important;
             padding-bottom: 0 !important;
@@ -61,7 +61,7 @@
         .modern-top-wrapper {
             background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
             color: #ffffff;
-            padding-bottom: 16px;
+            padding-bottom: 20px;
         }
         .modern-header {
             display: flex;
@@ -128,20 +128,106 @@
             margin-left: 4px;
         }
 
+        /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে দেখাবে) */
+        .hero-slider-container {
+            position: relative;
+            margin: 4px 14px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 145px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide-item {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 10%, rgba(0, 0, 0, 0.1) 80%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 12px 14px;
+        }
+        .slide-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .slide-badge {
+            background: #ffffff;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .slide-info h4 {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .slide-btn {
+            background: #0ea5e9;
+            color: #ffffff !important;
+            border: none;
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+        .slider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .slider-dot.active {
+            background: #ffffff;
+            width: 14px;
+            border-radius: 4px;
+        }
+
         /* সাদা বাঁকানো মূল শিট */
         .curved-main-sheet {
             background-color: var(--bg-color);
             border-top-left-radius: 28px;
             border-top-right-radius: 28px;
-            min-height: calc(100vh - 100px);
+            min-height: calc(100vh - 230px);
             padding: 18px 14px 40px;
-            margin-top: 0px;
+            margin-top: -8px;
             position: relative;
             z-index: 5;
             box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
         }
 
-        /* ৩-কলাম গ্রিড ক্যাটাগরি লিস্ট (প্রথম ছবির মতো) */
+        /* ৩-কলাম গ্রিড ক্যাটাগরি লিস্ট */
         #categoryList.category-list {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
@@ -196,7 +282,7 @@
             transform: scale(0.75);
         }
 
-        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (দ্বিতীয় ছবির মতো) */
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (দ্বিতীয় ছবির মতো - স্লাইডার ছাড়া) */
         #categoryDetailsView {
             background-color: #020624 !important;
             margin: -18px -14px -40px -14px;
@@ -312,7 +398,7 @@
 
 <div id="appContainer">
 
-    <!-- ডার্ক হেডার (স্লাইডার ছাড়া) -->
+    <!-- ডার্ক হেডার এবং স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) -->
     <div class="modern-top-wrapper">
         <header class="modern-header">
             <div class="header-left-group">
@@ -338,12 +424,39 @@
         </header>
 
         <!-- সার্চ বক্স -->
-        <div id="searchBox" class="header-search-box hidden" style="margin: 0 15px 4px;">
+        <div id="searchBox" class="header-search-box hidden" style="margin: 0 15px 12px;">
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
+        </div>
+
+        <!-- ইমেজ স্লাইডার (শুধু প্রথম পেজে দেখানোর জন্য ডিভ) -->
+        <div class="hero-slider-container" id="heroSlider">
+            <div class="slider-track" id="sliderTrack">
+                <div class="slide-item">
+                    <img src="https://images.unsplash.com/photo-1546272989-40c92939c6c2?auto=format&fit=crop&w=800&q=80" alt="Banner 1">
+                    <div class="slide-overlay">
+                        <div class="slide-info">
+                            <span class="slide-badge">📢</span>
+                            <h4>Welcome to Digital Phonebook</h4>
+                        </div>
+                        <a href="#categoryList" class="slide-btn">Explore</a>
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="Banner 2">
+                    <div class="slide-overlay">
+                        <div class="slide-info">
+                            <span class="slide-badge">🛡️</span>
+                            <h4>Bangladesh Police Directory</h4>
+                        </div>
+                        <button type="button" class="slide-btn" onclick="document.getElementById('searchBtn').click()">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
         </div>
     </div>
 
-    <!-- সাদা বাঁকানো কন্টেইনার শিট (হোম পেজ গ্রিডের জন্য) -->
+    <!-- সাদা বাঁকানো কন্টেইনার শিট -->
     <div class="curved-main-sheet">
         
         <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 10px;"></div>
@@ -372,7 +485,7 @@
                 </section>
             </div>
 
-            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - দ্বিতীয় ছবির মতো) -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - স্লাইডার থাকবে না, দ্বিতীয় ছবির মতো দেখাবে) -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
@@ -613,7 +726,7 @@
 
 </div>
 
-<!-- জাভাস্ক্রিপ্ট ফাইলস এবং লাইভ ঘড়ি স্ক্রিপ্ট -->
+<!-- জাভাস্ক্রিপ্ট ফাইলস এবং স্লাইডার/ঘড়ি স্ক্রিপ্ট -->
 <script type="module" src="js/app.js"></script>
 
 <script type="module">
@@ -653,6 +766,55 @@
     }
     setInterval(updateLiveClock, 1000);
     updateLiveClock();
+
+    // অটো ইমেজ স্লাইডার (হোম পেজের জন্য)
+    (function initHeroSlider() {
+        const track = document.getElementById('sliderTrack');
+        const dotsContainer = document.getElementById('sliderDots');
+        if (!track || !dotsContainer) return;
+
+        const slides = track.children;
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('slider-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = dotsContainer.children;
+
+        function goToSlide(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            Array.from(dots).forEach((d, idx) => {
+                d.classList.toggle('active', idx === currentIndex);
+            });
+        }
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(currentIndex);
+        }, 3500);
+    })();
+
+    // প্রথম পেজ (হোম) এবং দ্বিতীয় পেজ (ক্যাটাগরি ডিটেইলস) সুইচ করার সময় স্লাইডার লুকানোর লজিক
+    const observer = new MutationObserver(() => {
+        const categoryDetails = document.getElementById('categoryDetailsView');
+        const heroSlider = document.getElementById('heroSlider');
+        if (categoryDetails && heroSlider) {
+            if (!categoryDetails.classList.contains('hidden')) {
+                heroSlider.style.display = 'none'; // দ্বিতীয় পেজে গেলে স্লাইডার হাইড হবে
+            } else {
+                heroSlider.style.display = 'block'; // প্রথম পেজে থাকলে স্লাইডার শো করবে
+            }
+        }
+    });
+
+    observer.observe(document.getElementById('categoryDetailsView'), { attributes: true, attributeFilter: ['class'] });
 </script>
 
 </body>
