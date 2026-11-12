@@ -282,7 +282,7 @@
             transform: scale(0.75);
         }
 
-        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (সাদা ব্যাকগ্রাউন্ড ও একক সার্চ বার) */
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (UI ফিক্সড এবং সরাসরি সার্চ বক্স) */
         #categoryDetailsView {
             background-color: transparent !important;
             padding: 0;
@@ -290,34 +290,40 @@
         }
         #categoryDetailsView .dashboard-header {
             background: transparent !important;
-            padding: 0 0 10px 0;
-            margin-bottom: 8px;
+            padding: 0 0 6px 0;
+            margin-bottom: 4px;
             border: none;
         }
         #categoryDetailsView .dashboard-header h1 {
             color: var(--text-main, #0f172a) !important;
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
+            margin-bottom: 2px;
         }
         #categoryDetailsView .dashboard-header p {
             color: var(--text-muted, #64748b) !important;
-            font-size: 13px;
+            font-size: 12.5px;
         }
+        
+        /* সরাসরি সার্চ ঘর বা বক্স ডিজাইন (কোনো বাটন ছাড়া) */
         #categoryDetailsView .header-search-box, 
         #categoryDetailsView input[type="search"] {
             background: var(--card-bg, #ffffff) !important;
             border: 1px solid var(--border-color, #cbd5e1) !important;
             border-radius: 50px !important;
             color: var(--text-main, #0f172a) !important;
-            padding: 0 18px;
-            height: 44px;
-            width: 100%;
-            margin-bottom: 16px;
+            padding: 0 18px !important;
+            height: 42px !important;
+            width: 100% !important;
+            margin: 4px 0 14px 0 !important;
             box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            display: block !important;
+            box-sizing: border-box !important;
         }
         #categoryDetailsView input[type="search"]::placeholder {
             color: var(--text-muted, #94a3b8) !important;
         }
+        
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
@@ -417,13 +423,13 @@
 
             <div class="header-right-group">
                 <button id="adminLoginBtn" class="primary-btn active-btn btn-admin-small hidden" type="button">🔑</button>
-                <button id="searchBtn" class="modern-icon-btn" title="সার্চ করুন" type="button">🔍</button>
+                <!-- সার্চ বাটন রিমুভ করে সরাসরি হেডার আইকন রাখা হয়েছে বা সার্চ ইনপুট নিচে রাখা হয়েছে -->
                 <button id="themeBtn" class="modern-icon-btn" title="নাইট/ডে মোড" type="button">🌙</button>
                 <img src="icons/icon-192.png" alt="Logo" class="header-logo-img">
             </div>
         </header>
 
-        <!-- সার্চ বক্স -->
+        <!-- হোম পেজের সার্চ বক্স -->
         <div id="searchBox" class="header-search-box hidden" style="margin: 0 15px 12px;">
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
         </div>
@@ -448,7 +454,7 @@
                             <span class="slide-badge">🛡️</span>
                             <h4>Bangladesh Police Directory</h4>
                         </div>
-                        <button type="button" class="slide-btn" onclick="document.getElementById('searchBtn').click()">Search</button>
+                        <a href="#categoryList" class="slide-btn">Search</a>
                     </div>
                 </div>
             </div>
@@ -485,7 +491,7 @@
                 </section>
             </div>
 
-            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - স্লাইডার থাকবে না, দ্বিতীয় ছবির মতো দেখাবে) -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - সরাসরি সার্চ ঘর ও ফিক্সড UI) -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
@@ -495,6 +501,11 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- সরাসরি সার্চ করার ঘর (কোনো বাটন নেই) -->
+                <div class="header-search-box">
+                    <input type="search" id="subPageSearchInput" placeholder="Search Your Contact..." autocomplete="off">
+                </div>
 
                 <div class="section-toolbar admin-only hidden">
                     <button id="addSubCategoryBtn" class="primary-btn" type="button">＋ Sub-Category</button>
