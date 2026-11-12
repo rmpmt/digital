@@ -67,7 +67,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 16px 8px 16px;
+            padding: 14px 16px 4px 16px;
         }
         .header-left-group {
             display: flex;
@@ -128,20 +128,20 @@
             margin-left: 4px;
         }
 
-        /* ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে সার্চ ফিল্ড */
+        /* সার্চ ফিল্ড: ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে পজিশন করা */
         .header-search-inline {
-            padding: 4px 16px 6px 16px;
+            padding: 6px 16px 4px 16px;
         }
         .header-search-inline input[type="search"] {
-            background: rgba(255, 255, 255, 0.1) !important;
+            background: rgba(255, 255, 255, 0.12) !important;
             border: 1px solid rgba(255, 255, 255, 0.25) !important;
             border-radius: 50px !important;
             color: #ffffff !important;
-            padding: 0 16px !important;
-            height: 38px !important;
+            padding: 0 18px !important;
+            height: 40px !important;
             width: 100% !important;
             box-sizing: border-box !important;
-            font-size: 13.5px;
+            font-size: 14px;
         }
         .header-search-inline input[type="search"]::placeholder {
             color: #cbd5e1 !important;
@@ -233,7 +233,7 @@
             border-radius: 4px;
         }
 
-        /* সাদা বাঁকানো মূল শিট (কর্নার ওভারল্যাপ ও প্যাডিং মার্জিন ফিক্সড) */
+        /* সাদা বাঁকানো মূল শিট */
         .curved-main-sheet {
             background-color: var(--bg-color, #f8fafc);
             border-top-left-radius: 24px;
@@ -302,14 +302,14 @@
             transform: scale(0.75);
         }
 
-        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (দ্বিতীয় ছবির মতো কার্ড ডিজাইন) */
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (লেখাগুলো বড় করা হয়েছে) */
         #categoryDetailsView {
             background-color: transparent !important;
             padding: 0;
             min-height: auto;
         }
         #categoryDetailsView .dashboard-header {
-            display: none !important; /* হেডার টাইটেল ডুলিকেশন এড়াতে হাইড করা হলো */
+            display: none !important;
         }
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
@@ -348,16 +348,18 @@
             flex-grow: 1;
             overflow: hidden;
         }
+        /* ক্যাটাগরি/কার্ডের নাম বড় করা হয়েছে */
         #categoryDetailsView .data-card-name {
-            font-size: 16px !important;
+            font-size: 17.5px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
+        /* ক্যাটাগরি/কার্ডের ভেতরের ডিটেইলস লেখা বড় করা হয়েছে */
         #categoryDetailsView .data-card-detail {
-            font-size: 12.5px !important;
-            color: #64748b !important;
-            line-height: 1.4;
+            font-size: 13.5px !important;
+            color: #475569 !important;
+            line-height: 1.45;
         }
     </style>
 </head>
@@ -420,7 +422,7 @@
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
         </div>
 
-        <!-- ক্যাটাগরি বা সাব-পেজের সার্চ বক্স (ডেট ও টাইমের ঠিক নিচে হেডারের ভেতরে পজিশন করা) -->
+        <!-- ক্যাটাগরি পেজের জন্য সার্চ বক্স (ঠিক টাইম ও ডেটের নিচে হেডারের ভেতরে পজিশন করা) -->
         <div id="subPageHeaderSearchWrapper" class="header-search-inline hidden">
             <input type="search" id="subPageSearchInput" placeholder="Search Your Contact..." autocomplete="off">
         </div>
@@ -453,10 +455,10 @@
         </div>
     </div>
 
-    <!-- সাদা বাঁকানো কন্টেইনার শিট -->
+    <!-- সাদা বাঁকানো মূল শিট -->
     <div class="curved-main-sheet">
         
-        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড (সাদা শিটের ভেতরে মার্জিন ফিক্সড) -->
+        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
         <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 10px; border-radius: 8px;"></div>
 
         <main class="container">
@@ -483,7 +485,7 @@
                 </section>
             </div>
 
-            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - স্লাইডার ও হোম সার্চ হাইড থাকবে) -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ) -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
