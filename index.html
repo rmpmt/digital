@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
 
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,13 +61,13 @@
         .modern-top-wrapper {
             background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
             color: #ffffff;
-            padding-bottom: 20px;
+            padding-bottom: 12px;
         }
         .modern-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 16px;
+            padding: 12px 14px 6px 14px;
         }
         .header-left-group {
             display: flex;
@@ -127,6 +126,25 @@
             border: 2px solid #f59e0b;
             object-fit: cover;
             margin-left: 4px;
+        }
+
+        /* হেডার অংশের ভেতর সরাসরি সার্চ বক্স (ডেট এবং টাইমের ঠিক নিচে পজিশন করা) */
+        .header-search-inline {
+            padding: 4px 14px 6px 14px;
+        }
+        .header-search-inline input[type="search"] {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            border-radius: 50px !important;
+            color: #ffffff !important;
+            padding: 0 16px !important;
+            height: 38px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            font-size: 13.5px;
+        }
+        .header-search-inline input[type="search"]::placeholder {
+            color: #cbd5e1 !important;
         }
 
         /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) */
@@ -215,17 +233,17 @@
             border-radius: 4px;
         }
 
-        /* সাদা বাঁকানো মূল শিট (ইউআই কর্নার ওভারল্যাপ ফিক্স করা হয়েছে) */
+        /* সাদা বাঁকানো মূল শিট (কর্নার ও প্যাডিং মার্জিন কমানো হয়েছে) */
         .curved-main-sheet {
             background-color: var(--bg-color, #f8fafc);
-            border-top-left-radius: 28px;
-            border-top-right-radius: 28px;
-            min-height: calc(100vh - 120px);
-            padding: 22px 16px 40px;
-            margin-top: -12px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            min-height: calc(100vh - 100px);
+            padding: 12px 10px 40px 10px;
+            margin-top: -8px;
             position: relative;
             z-index: 5;
-            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
 
@@ -233,14 +251,14 @@
         #categoryList.category-list {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
-            gap: 12px !important;
+            gap: 10px !important;
         }
         #categoryList .category-card {
             background: #3f3351 !important;
             border: none !important;
-            border-radius: 14px !important;
-            height: 105px !important;
-            padding: 10px 6px !important;
+            border-radius: 12px !important;
+            height: 100px !important;
+            padding: 8px 4px !important;
             margin-bottom: 0 !important;
             display: flex !important;
             flex-direction: column !important;
@@ -248,7 +266,7 @@
             justify-content: center !important;
             text-align: center !important;
             position: relative;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12) !important;
         }
         #categoryList .cat-click {
             flex-direction: column !important;
@@ -258,18 +276,18 @@
             height: 100%;
         }
         #categoryList .cat-card-img {
-            width: 38px !important;
-            height: 38px !important;
-            margin: 0 0 8px 0 !important;
+            width: 36px !important;
+            height: 36px !important;
+            margin: 0 0 6px 0 !important;
             border: none !important;
-            border-radius: 8px !important;
+            border-radius: 6px !important;
             object-fit: contain !important;
         }
         #categoryList .category-card h3 {
             color: #ffffff !important;
-            font-size: 12px !important;
+            font-size: 11.5px !important;
             font-weight: 600 !important;
-            line-height: 1.25 !important;
+            line-height: 1.2 !important;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -277,11 +295,11 @@
         }
         #categoryList .category-card > div:last-child {
             position: absolute;
-            top: 3px;
-            right: 3px;
+            top: 2px;
+            right: 2px;
             display: flex;
             gap: 2px;
-            transform: scale(0.75);
+            transform: scale(0.7);
         }
 
         /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল */
@@ -292,61 +310,42 @@
         }
         #categoryDetailsView .dashboard-header {
             background: transparent !important;
-            padding: 0 0 8px 0;
-            margin-bottom: 8px;
+            padding: 0 0 4px 0;
+            margin-bottom: 4px;
             border: none;
         }
         #categoryDetailsView .dashboard-header h1 {
             color: var(--text-main, #0f172a) !important;
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
             margin-bottom: 2px;
         }
         #categoryDetailsView .dashboard-header p {
             color: var(--text-muted, #64748b) !important;
-            font-size: 12.5px;
-        }
-        
-        /* সরাসরি সার্চ ঘর (ডেট ও টাইমের নিচে সুন্দরভাবে সেট করা) */
-        #categoryDetailsView .header-search-box, 
-        #categoryDetailsView input[type="search"] {
-            background: var(--card-bg, #ffffff) !important;
-            border: 1px solid var(--border-color, #cbd5e1) !important;
-            border-radius: 50px !important;
-            color: var(--text-main, #0f172a) !important;
-            padding: 0 18px !important;
-            height: 42px !important;
-            width: 100% !important;
-            margin: 8px 0 16px 0 !important;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-            display: block !important;
-            box-sizing: border-box !important;
-        }
-        #categoryDetailsView input[type="search"]::placeholder {
-            color: var(--text-muted, #94a3b8) !important;
+            font-size: 12px;
         }
         
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
-            border-radius: 20px !important;
-            padding: 14px 16px !important;
-            margin-bottom: 12px !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+            border-radius: 16px !important;
+            padding: 12px 14px !important;
+            margin-bottom: 10px !important;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05) !important;
             display: flex !important;
             align-items: center !important;
             position: relative;
             cursor: pointer;
         }
         #categoryDetailsView .data-card-avatar {
-            width: 65px !important;
-            height: 65px !important;
-            min-width: 65px !important;
-            max-width: 65px !important;
-            max-height: 65px !important;
+            width: 58px !important;
+            height: 58px !important;
+            min-width: 58px !important;
+            max-width: 58px !important;
+            max-height: 58px !important;
             border-radius: 50% !important;
             background: #e2e8f0;
-            margin-right: 14px !important;
+            margin-right: 12px !important;
             object-fit: cover !important;
             border: 2px solid #cbd5e1;
             overflow: hidden;
@@ -364,15 +363,15 @@
             overflow: hidden;
         }
         #categoryDetailsView .data-card-name {
-            font-size: 16px !important;
+            font-size: 15px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
             margin-bottom: 2px;
         }
         #categoryDetailsView .data-card-detail {
-            font-size: 12.5px !important;
+            font-size: 12px !important;
             color: #64748b !important;
-            line-height: 1.4;
+            line-height: 1.35;
         }
     </style>
 </head>
@@ -431,8 +430,13 @@
         </header>
 
         <!-- হোম পেজের সার্চ বক্স -->
-        <div id="searchBox" class="header-search-box hidden" style="margin: 0 15px 12px;">
+        <div id="searchBox" class="header-search-box hidden" style="margin: 4px 14px 8px;">
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
+        </div>
+
+        <!-- ক্যাটাগরি পেজের জন্য সরাসরি সার্চ বক্স (ডেট ও টাইমের ঠিক নিচে হেডারের ভেতরে পজিশন করা) -->
+        <div id="subPageHeaderSearchWrapper" class="header-search-inline hidden">
+            <input type="search" id="subPageSearchInput" placeholder="Search Your Contact..." autocomplete="off">
         </div>
 
         <!-- ইমেজ স্লাইডার (শুধু প্রথম পেজে দেখানোর জন্য) -->
@@ -463,16 +467,16 @@
         </div>
     </div>
 
-    <!-- সাদা বাঁকানো কন্টেইনার শিট (কর্নার ফিক্সসহ) -->
+    <!-- সাদা বাঁকানো কন্টেইনার শিট (মার্জিন ও প্যাডিং ফিক্সসহ) -->
     <div class="curved-main-sheet">
         
-        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড (সরাসরি ডেট ও টাইমের ঠিক নিচে ক্যাটাগরি পেজে সার্চ বক্সের আগে) -->
-        <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 12px; border-radius: 8px;"></div>
+        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
+        <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 8px; border-radius: 6px;"></div>
 
         <main class="container">
             <div id="mainDashboardView">
                 <section class="dashboard-header">
-                    <div id="adminActionContainer" class="admin-only hidden" style="display: flex; gap: 8px; width: 100%; margin-bottom: 10px;">
+                    <div id="adminActionContainer" class="admin-only hidden" style="display: flex; gap: 8px; width: 100%; margin-bottom: 8px;">
                         <button id="addCategoryBtn" class="primary-btn" type="button" style="flex: 1;">＋ Category</button>
                         <button id="notificationBtn" class="secondary-btn" type="button" style="flex: 1; position: relative;">
                             🔔 নোটিফিকেশন
@@ -483,7 +487,7 @@
                 
                 <!-- ৩-কলাম ক্যাটাগরি লিস্ট -->
                 <section id="categoryList" class="category-list grid-3-col"></section>
-                <div id="allSearchContainer" class="hidden" style="margin-top: 15px;"></div>
+                <div id="allSearchContainer" class="hidden" style="margin-top: 12px;"></div>
                 
                 <section id="emptyState" class="empty-state hidden">
                     <div class="empty-icon">📂</div>
@@ -493,9 +497,10 @@
                 </section>
             </div>
 
-            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - ডেট/টাইমের নিচে সার্চ ঘর ও ফিক্সড ইউআই) -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ) -->
             <div id="categoryDetailsView" class="hidden">
-                <section class="dashboard-header">
+                <section class="dashboard-header" style="display: none;">
+                    <!-- টাইটেল এখন ড্রয়ার/হেডারে ডাইনামিকালি হ্যান্ডেল হতে পারে -->
                     <div class="header-left">
                         <div>
                             <h1 id="detailsTitle">Category</h1>
@@ -504,12 +509,7 @@
                     </div>
                 </section>
 
-                <!-- সরাসরি সার্চ করার ঘর (ডেট ও টাইমের ঠিক নিচে পজিশন করা) -->
-                <div class="header-search-box">
-                    <input type="search" id="subPageSearchInput" placeholder="Search Your Contact..." autocomplete="off">
-                </div>
-
-                <div class="section-toolbar admin-only hidden">
+                <div class="section-toolbar admin-only hidden" style="margin-bottom: 8px;">
                     <button id="addSubCategoryBtn" class="primary-btn" type="button">＋ Sub-Category</button>
                     <button id="addHeaderBtn" class="primary-btn" type="button">＋ Header</button>
                     <button id="addDataBtn" class="secondary-btn" type="button">＋ Data</button>
@@ -734,7 +734,7 @@
 
 </div>
 
-<!-- জাভাস্ক্রিপ্ট ফাইলস এবং স্লাইডার/ঘড়ি স্ক্রিপ্ট -->
+<!-- জাভাস্ক্রিপ্ট ফাইলস এবং স্লাইডার/ঘড়ি/সার্চ টগল স্ক্রিপ্ট -->
 <script type="module" src="js/app.js"></script>
 
 <script type="module">
@@ -809,15 +809,23 @@
         }, 3500);
     })();
 
-    // প্রথম পেজ (হোম) এবং দ্বিতীয় পেজ (ক্যাটাগরি ডিটেইলস) সুইচ করার সময় স্লাইডার লুকানোর লজিক
+    // পেজ সুইচ করার সময় প্রথম বা দ্বিতীয় পেজের সার্চ বক্স এবং স্লাইডার হাইড/শো করার লজিক
     const observer = new MutationObserver(() => {
         const categoryDetails = document.getElementById('categoryDetailsView');
         const heroSlider = document.getElementById('heroSlider');
-        if (categoryDetails && heroSlider) {
+        const subPageSearchWrapper = document.getElementById('subPageHeaderSearchWrapper');
+        const homeSearchBox = document.getElementById('searchBox');
+
+        if (categoryDetails && heroSlider && subPageSearchWrapper) {
             if (!categoryDetails.classList.contains('hidden')) {
-                heroSlider.style.display = 'none'; // দ্বিতীয় পেজে গেলে স্লাইডার হাইড হবে
+                // দ্বিতীয় পেজে থাকলে
+                heroSlider.style.display = 'none';
+                if(homeSearchBox) homeSearchBox.style.display = 'none';
+                subPageSearchWrapper.style.display = 'block'; // হেডারের ভেতর ডেট/টাইমের নিচে সার্চ ফিল্ড দেখাবে
             } else {
-                heroSlider.style.display = 'block'; // প্রথম পেজে থাকলে স্লাইডার শো করবে
+                // প্রথম পেজে (হোম) থাকলে
+                heroSlider.style.display = 'block';
+                subPageSearchWrapper.style.display = 'none';
             }
         }
     });
