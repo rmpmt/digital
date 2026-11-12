@@ -408,7 +408,8 @@
         }
 
         /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — প্রদত্ত ছবির হুবহু ডিজাইন
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — শুধুমাত্র CSS ডিজাইন আপডেট
+           (কোনো HTML বা JS ফাংশন পরিবর্তন না করে)
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
@@ -419,27 +420,28 @@
         }
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
-        body.is-data-details-mode #slidingNoticeContainer,
         body.is-data-details-mode #subPageHeaderSearchWrapper {
             display: none !important;
         }
         body.is-data-details-mode .curved-main-sheet {
-            background: #ffffff !important;
-            border-top-left-radius: 28px !important;
-            border-top-right-radius: 28px !important;
-            padding: 16px 16px 50px 16px !important;
-            margin-top: 0 !important;
-            box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.3) !important;
-            min-height: calc(100vh - 180px) !important;
+            background-color: #ffffff !important;
+            border-top-left-radius: 26px !important;
+            border-top-right-radius: 26px !important;
+            padding: 0 0 40px 0 !important;
+            margin-top: 4px !important;
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25) !important;
         }
         body.dark-mode.is-data-details-mode .curved-main-sheet {
-            background: #0f172a !important;
+            background-color: #0f172a !important;
         }
-        body.is-data-details-mode .curved-main-sheet > main.container {
+        body.is-data-details-mode #slidingNoticeContainer {
+            margin: 10px 14px 4px 14px !important;
+        }
+        body.is-data-details-mode .container {
             padding: 0 !important;
-            margin: 0 !important;
             max-width: 100% !important;
         }
+
         #dataDetailsView .details-container-card {
             background: transparent !important;
             border: none !important;
@@ -449,131 +451,156 @@
             border-radius: 0 !important;
         }
 
-        /* ছবির মতো ডার্ক নেভি টপ প্রোফাইল ব্যানার */
-        .ref3-top-banner {
-            background: #020624;
-            margin: -16px -16px 16px -16px;
-            padding: 10px 18px 22px 18px;
-            color: #ffffff;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
+        /* উপরের ডার্ক প্রোফাইল অংশ (ছবির মতো গোল ছবি ও নাম ব্যাকগ্রাউন্ড) */
+        #dataPageContent {
+            position: relative;
         }
-        .ref3-nav-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
+        #dataPageContent .profile-header-box,
+        #dataPageContent .details-header,
+        #dataPageContent > div:first-child:has(img) {
+            background: #020624 !important;
+            color: #ffffff !important;
+            padding: 16px 18px 26px 18px !important;
+            border-bottom-left-radius: 26px !important;
+            border-bottom-right-radius: 26px !important;
+            text-align: center !important;
+            margin-bottom: 14px !important;
+            box-shadow: 0 6px 18px rgba(2, 6, 36, 0.22) !important;
         }
-        .ref3-save-btn {
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            padding: 0;
+        #dataPageContent img,
+        #dataPageContent .profile-avatar,
+        #dataPageContent .details-avatar {
+            width: 128px !important;
+            height: 128px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            background: #141e2b !important;
+            border: 3px solid rgba(255, 255, 255, 0.14) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+            margin: 4px auto 14px auto !important;
+            display: block !important;
         }
-        .ref3-profile-title {
-            color: #ffffff;
-            font-size: 17px;
-            font-weight: 600;
+        #dataPageContent h1,
+        #dataPageContent h2,
+        #dataPageContent h3,
+        #dataPageContent .detail-name,
+        #dataPageContent .profile-name {
+            color: #ffffff !important;
+            font-size: 19px !important;
+            font-weight: 700 !important;
+            margin: 0 0 4px 0 !important;
+            text-align: center !important;
         }
-        .ref3-avatar-area {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #111b2b;
-            margin: 6px auto 14px auto;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(255,255,255,0.08);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-        .ref3-avatar-area img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .ref3-name-badge {
-            background: #020624;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 700;
-            text-align: center;
-            padding: 10px 14px;
-            border-radius: 12px;
-            margin: 0 -4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            border: 1px solid rgba(255,255,255,0.1);
-            word-break: break-word;
+        #dataPageContent .detail-designation,
+        #dataPageContent .designation,
+        #dataPageContent .subtitle {
+            color: #cbd5e1 !important;
+            font-size: 13.5px !important;
+            font-weight: 500 !important;
+            margin: 0 !important;
+            text-align: center !important;
         }
 
-        /* নিচের সাদা ফিল্ড রো ডিজাইন (ছবির মতো) */
-        .ref3-field-block {
-            padding: 12px 4px 12px 4px;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+        /* কুইক অ্যাকশন বাটনগুলো পরিচ্ছন্ন মিনিমাল স্টাইলে */
+        #dataPageContent .action-buttons,
+        #dataPageContent .detail-actions,
+        #dataPageContent .btn-group,
+        #dataPageContent .quick-actions {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            margin: 14px 16px 6px 16px !important;
         }
-        body.dark-mode .ref3-field-block {
-            border-bottom-color: #334155;
-        }
-        .ref3-field-content {
-            flex: 1;
-            min-width: 0;
-        }
-        .ref3-field-key {
-            font-size: 13px;
-            font-weight: 500;
-            color: #94a3b8;
-            margin-bottom: 4px;
-            display: block;
-        }
-        .ref3-field-val {
-            font-size: 15.5px;
-            font-weight: 700;
-            color: #1e293b;
-            word-break: break-word;
-            line-height: 1.4;
-        }
-        body.dark-mode .ref3-field-val {
-            color: #f1f5f9;
-        }
-        .ref3-call-icon-btn {
-            background: transparent;
-            border: none;
-            color: #0f172a;
-            font-size: 22px;
-            cursor: pointer;
-            padding: 4px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-        body.dark-mode .ref3-call-icon-btn {
-            color: #f1f5f9;
-        }
-        .ref3-call-icon-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
+        #dataPageContent .action-buttons a,
+        #dataPageContent .action-buttons button,
+        #dataPageContent .detail-actions a,
+        #dataPageContent .detail-actions button,
+        #dataPageContent .btn-group a,
+        #dataPageContent .btn-group button {
+            border-radius: 20px !important;
+            padding: 7px 14px !important;
+            font-size: 12.5px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08) !important;
         }
 
-        /* অতিরিক্ত টেক্সট বা Get VIP / প্রশাসনিক তথ্য */
-        .ref3-extra-info {
-            padding: 14px 4px 6px 4px;
-            font-size: 14px;
-            color: #475569;
-            line-height: 1.5;
+        /* নিচের তথ্যের ঘরগুলো (ছবির মতো সাদা ব্যাকগ্রাউন্ড ও নিচে চিকন বর্ডার লাইন) */
+        #dataPageContent .info-row,
+        #dataPageContent .detail-row,
+        #dataPageContent .data-field,
+        #dataPageContent .detail-box,
+        #dataPageContent .info-card,
+        #dataPageContent .contact-detail-item {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid #cbd5e1 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            padding: 14px 6px 12px 6px !important;
+            margin: 0 18px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+            position: relative !important;
         }
-        body.dark-mode .ref3-extra-info {
-            color: #94a3b8;
+        body.dark-mode #dataPageContent .info-row,
+        body.dark-mode #dataPageContent .detail-row,
+        body.dark-mode #dataPageContent .data-field,
+        body.dark-mode #dataPageContent .detail-box,
+        body.dark-mode #dataPageContent .info-card,
+        body.dark-mode #dataPageContent .contact-detail-item {
+            border-bottom-color: #334155 !important;
+        }
+
+        /* লেবেল ও ভ্যালু স্টাইল (ছবির মতো ধূসর লেবেল ও বোল্ড গাঢ় মান) */
+        #dataPageContent .info-row .label,
+        #dataPageContent .detail-row .label,
+        #dataPageContent .field-label,
+        #dataPageContent .detail-label,
+        #dataPageContent .info-card > span:first-child,
+        #dataPageContent .detail-box > span:first-child {
+            font-size: 13.5px !important;
+            font-weight: 500 !important;
+            color: #8b95a1 !important;
+            margin-bottom: 5px !important;
+            display: block !important;
+        }
+        #dataPageContent .info-row .value,
+        #dataPageContent .detail-row .value,
+        #dataPageContent .field-value,
+        #dataPageContent .detail-value,
+        #dataPageContent .info-card > div,
+        #dataPageContent .info-card > p,
+        #dataPageContent .detail-box > div,
+        #dataPageContent .detail-box > p {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #1e293b !important;
+            padding-left: 8px !important;
+            margin: 0 !important;
+            word-break: break-word !important;
+        }
+        body.dark-mode #dataPageContent .info-row .value,
+        body.dark-mode #dataPageContent .detail-row .value,
+        body.dark-mode #dataPageContent .field-value,
+        body.dark-mode #dataPageContent .detail-value,
+        body.dark-mode #dataPageContent .info-card > div,
+        body.dark-mode #dataPageContent .info-card > p,
+        body.dark-mode #dataPageContent .detail-box > div,
+        body.dark-mode #dataPageContent .detail-box > p {
+            color: #f1f5f9 !important;
+        }
+
+        /* Get VIP / প্রশাসনিক তথ্যের টেক্সট সাধারণ টেক্সট হিসেবে রাখা */
+        #dataPageContent .vip-box,
+        #dataPageContent .admin-info-box {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 12px 22px !important;
+            margin: 0 !important;
         }
     </style>
 </head>
@@ -636,7 +663,7 @@
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
         </div>
 
-        <!-- ক্যাটাগরি বা সাব-পেজের সার্চ বক্স -->
+        <!-- ক্যাটাগরি বা সাব-পেজের সার্চ বক্স (ডেট ও টাইমের ঠিক নিচে হেডারের ভেতরে পজিশন করা) -->
         <div id="subPageHeaderSearchWrapper" class="header-search-inline hidden">
             <div class="subpage-search-field">
                 <span class="subpage-search-icon" aria-hidden="true">⌕</span>
@@ -677,10 +704,10 @@
         </div>
     </div>
 
-    <!-- সাদা বাঁকানো মূল শিট -->
+    <!-- সাদা বাঁকানো কন্টেইনার শিট -->
     <div class="curved-main-sheet">
         
-        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
+        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড (সাদা শিটের ভেতরে মার্জিন ফিক্সড) -->
         <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 10px; border-radius: 8px;"></div>
 
         <main class="container">
@@ -707,7 +734,7 @@
                 </section>
             </div>
 
-            <!-- ক্যাটাগরি ডিটেইলস পেজ -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - স্লাইডার ও হোম সার্চ হাইড থাকবে) -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
@@ -726,7 +753,7 @@
                 <div id="detailsContent"></div>
             </div>
 
-            <!-- কন্টাক্ট ডিটেইলস পেজ (প্রদত্ত ছবির হুবহু ডিজাইন) -->
+            <!-- কন্টাক্ট ডিটেইলস পেজ -->
             <div id="dataDetailsView" class="hidden">
                 <div class="details-container-card">
                     <div id="dataPageContent"></div>
@@ -1019,14 +1046,13 @@
         }, 3500);
     })();
 
-    // পেজ ভিউ এবং সার্চ বার সমন্বয়
-    (function initPageViewSync() {
+    // Category details ও Data details page-এ ইমেজ স্লাইডার লুকানো এবং Home page-এ দেখানো
+    (function initSubPageHeaderSearch() {
         const categoryDetails = document.getElementById('categoryDetailsView');
         const dataDetails = document.getElementById('dataDetailsView');
         const heroSlider = document.getElementById('heroSlider');
         const subPageSearchWrapper = document.getElementById('subPageHeaderSearchWrapper');
         const homeSearchBox = document.getElementById('searchBox');
-        const noticeContainer = document.getElementById('slidingNoticeContainer');
         const subInput = document.getElementById('subPageSearchInput');
         const mainInput = document.getElementById('searchInput');
         const clearButton = document.getElementById('clearSubPageSearch');
@@ -1040,13 +1066,9 @@
 
             document.body.classList.toggle('is-data-details-mode', isDataPage);
 
+            // হোম পেজ ছাড়া Category বা Data Details কোনো পেজেই ইমেজ স্লাইডার থাকবে না
             heroSlider.style.display = (isSubPage || isDataPage) ? 'none' : '';
-            if (homeSearchBox) {
-                homeSearchBox.style.display = (isSubPage || isDataPage) ? 'none' : '';
-            }
-            if (noticeContainer) {
-                noticeContainer.style.display = isDataPage ? 'none' : '';
-            }
+            if (homeSearchBox) homeSearchBox.style.display = (isSubPage || isDataPage) ? 'none' : '';
 
             subPageSearchWrapper.classList.toggle('is-visible', isSubPage && !isDataPage);
             subPageSearchWrapper.classList.toggle('hidden', !isSubPage || isDataPage);
@@ -1089,209 +1111,17 @@
         });
 
         const observer = new MutationObserver(syncSearchVisibility);
-        observer.observe(categoryDetails, { attributes: true, attributeFilter: ['class'] });
+        observer.observe(categoryDetails, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
         if (dataDetails) {
-            observer.observe(dataDetails, { attributes: true, attributeFilter: ['class'] });
+            observer.observe(dataDetails, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
         }
         syncSearchVisibility();
-    })();
-
-    // কন্টাক্ট ডিটেইলস পেজকে অবিকল প্রদত্ত ছবির ডিজাইনে রেন্ডার করা (সকল ফাংশন ও ডাটা ঠিক রেখে)
-    (function initExactImage3ProfileDesign() {
-        const contentEl = document.getElementById('dataPageContent');
-        if (!contentEl) return;
-
-        let isProcessing = false;
-
-        function transformView() {
-            if (isProcessing || contentEl.querySelector('.ref3-banner-wrapper')) return;
-            if (!contentEl.innerText.trim()) return;
-
-            isProcessing = true;
-
-            // আসল কন্টেন্ট সেভ করে রাখা যাতে মূল ফাংশন ও ইভেন্ট কাজ করে
-            const sourceContainer = document.createElement('div');
-            sourceContainer.style.display = 'none';
-            while (contentEl.firstChild) {
-                sourceContainer.appendChild(contentEl.firstChild);
-            }
-            contentEl.appendChild(sourceContainer);
-
-            // ছবি সংগ্রহ
-            const imgEl = sourceContainer.querySelector('img');
-            const imgSrc = imgEl ? imgEl.getAttribute('src') : '';
-
-            // নাম বা আইডি সংগ্রহ
-            const headingEl = sourceContainer.querySelector('h1, h2, h3, .detail-name, .profile-name');
-            const primaryTitle = headingEl ? headingEl.innerText.trim() : '';
-
-            // লিঙ্ক ও ফিল্ড ডেটা সংগ্রহ
-            const telLinks = Array.from(sourceContainer.querySelectorAll('a[href^="tel:"]'))
-                .map(a => a.getAttribute('href').replace('tel:', '').trim())
-                .filter(Boolean);
-            const mailLinks = Array.from(sourceContainer.querySelectorAll('a[href^="mailto:"]'))
-                .map(a => a.getAttribute('href').replace('mailto:', '').trim())
-                .filter(Boolean);
-
-            const lines = sourceContainer.innerText.split('\n').map(l => l.trim()).filter(Boolean);
-            const ignoreList = ['মোবাইল', 'টেলিফোন', 'ইমেইল', 'শেয়ার কন্টাক্ট', 'শেয়ার কন্টাক্ট', 'স্বাগত বার্তা'];
-            const cleanLines = lines.filter(l => !ignoreList.includes(l));
-
-            const dataMap = {};
-            for (let i = 0; i < cleanLines.length; i++) {
-                const line = cleanLines[i];
-                const clean = line.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
-                if (clean.includes(':')) {
-                    const idx = clean.indexOf(':');
-                    const k = clean.slice(0, idx).trim();
-                    const v = clean.slice(idx + 1).trim();
-                    if (k && v && !dataMap[k]) dataMap[k] = v;
-                }
-            }
-
-            const mobile = dataMap['মোবাইল'] || telLinks[0] || '';
-            const phone = dataMap['টেলিফোন'] || (telLinks[1] && telLinks[1] !== mobile ? telLinks[1] : '');
-            const email = dataMap['ইমেইল'] || dataMap['ই-মেইল'] || mailLinks[0] || '';
-            const office = dataMap['বর্তমান অফিস/ঠিকানা'] || dataMap['বর্তমান অফিস'] || dataMap['বর্তমান কর্মরত'] || '';
-            const permAddress = dataMap['স্থায়ী ঠিকানা'] || dataMap['স্থায়ী ঠিকানা'] || '';
-            const ageVal = dataMap['বয়স'] || '';
-
-            // Get VIP বা অন্য কোনো এক্সট্রা টেক্সট নোড খোঁজা
-            let extraNode = null;
-            const allEls = sourceContainer.querySelectorAll('div, p, span, a, button');
-            for (const el of allEls) {
-                const txt = el.innerText.trim();
-                if ((txt.includes('Get VIP') || txt.includes('প্রশাসনিক তথ্য') || txt.includes('ভেরিফিকেশন')) && el.children.length <= 2) {
-                    extraNode = el;
-                    break;
-                }
-            }
-
-            // ছবির স্টাইল অনুযায়ী ফিল্ড লিস্ট তৈরি
-            const rowsData = [];
-
-            // নাম
-            const nameVal = dataMap['নাম'] || primaryTitle || cleanLines[0] || 'তথ্য নেই';
-            rowsData.push({ label: 'আপনার নাম', value: nameVal });
-
-            // বর্তমানে কর্মরত
-            if (office || cleanLines[1]) {
-                rowsData.push({ label: 'বর্তমানে কর্মরত', value: office || cleanLines[1] });
-            }
-
-            // বয়স (যদি থাকে)
-            if (ageVal) {
-                rowsData.push({ label: 'বয়স', value: ageVal });
-            }
-
-            // স্থায়ী ঠিকানা
-            if (permAddress) {
-                rowsData.push({ label: 'স্থায়ী ঠিকানা', value: permAddress });
-            }
-
-            // মোবাইল / টেলিফোন নাম্বার
-            const phoneCombined = (mobile && phone) ? `${mobile} / ${phone}` : (mobile || phone || 'নেই');
-            const activeCallNum = mobile || phone || '';
-            rowsData.push({
-                label: 'মোবাইল / টেলিফোন নাম্বার',
-                value: phoneCombined,
-                callNumber: activeCallNum
-            });
-
-            // ই-মেইল এড্রেস
-            if (email) {
-                rowsData.push({ label: 'ই-মেইল এড্রেস', value: email, emailVal: email });
-            }
-
-            const phoneSvgIcon = `<svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>`;
-
-            const fieldsHtml = rowsData.map(item => {
-                let actionBtn = '';
-                if (item.callNumber && item.callNumber !== 'নেই') {
-                    const cleanNum = item.callNumber.replace(/[^+\d]/g, '');
-                    actionBtn = `<a href="tel:${cleanNum}" class="ref3-call-icon-btn" title="কল করুন">${phoneSvgIcon}</a>`;
-                } else if (item.emailVal) {
-                    actionBtn = `<a href="mailto:${item.emailVal}" class="ref3-call-icon-btn" title="ইমেইল পাঠান">✉️</a>`;
-                }
-
-                return `
-                    <div class="ref3-field-block">
-                        <div class="ref3-field-content">
-                            <span class="ref3-field-key">${item.label}</span>
-                            <div class="ref3-field-val">${item.value}</div>
-                        </div>
-                        ${actionBtn}
-                    </div>
-                `;
-            }).join('');
-
-            const avatarMarkup = imgSrc
-                ? `<img src="${imgSrc}" alt="Avatar">`
-                : '';
-
-            const wrapper = document.createElement('div');
-            wrapper.className = 'ref3-banner-wrapper';
-            wrapper.innerHTML = `
-                <div class="ref3-top-banner">
-                    <div class="ref3-nav-bar">
-                        <button type="button" id="ref3SaveContactBtn" class="ref3-save-btn">Save Contact</button>
-                        <span class="ref3-profile-title">Profile</span>
-                    </div>
-                    <div class="ref3-avatar-area">
-                        ${avatarMarkup}
-                    </div>
-                    <div class="ref3-name-badge">
-                        ${primaryTitle || nameVal}
-                    </div>
-                </div>
-                <div class="ref3-fields-wrapper">
-                    ${fieldsHtml}
-                    <div id="ref3ExtraMount" class="ref3-extra-info"></div>
-                </div>
-            `;
-
-            contentEl.appendChild(wrapper);
-
-            // এক্সট্রা টেক্সট বা Get VIP মাউন্ট করা
-            const mountEl = document.getElementById('ref3ExtraMount');
-            if (mountEl && extraNode) {
-                mountEl.appendChild(extraNode);
-            }
-
-            // Save Contact (.vcf) ফাংশন
-            const saveBtn = document.getElementById('ref3SaveContactBtn');
-            if (saveBtn) {
-                saveBtn.addEventListener('click', () => {
-                    const vcard = [
-                        'BEGIN:VCARD',
-                        'VERSION:3.0',
-                        `FN:${nameVal}`,
-                        office ? `TITLE:${office}` : '',
-                        mobile ? `TEL;TYPE=CELL:${mobile}` : '',
-                        phone ? `TEL;TYPE=WORK:${phone}` : '',
-                        email ? `EMAIL:${email}` : '',
-                        'END:VCARD'
-                    ].filter(Boolean).join('\n');
-
-                    const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-                    const url = URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = `${nameVal.replace(/\s+/g, '_')}.vcf`;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    URL.revokeObjectURL(url);
-                });
-            }
-
-            isProcessing = false;
-        }
-
-        const observer = new MutationObserver(() => {
-            transformView();
-        });
-        observer.observe(contentEl, { childList: true, subtree: true });
     })();
 </script>
 
