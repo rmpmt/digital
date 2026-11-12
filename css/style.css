@@ -999,6 +999,104 @@ html, body {
     margin-bottom: 20px;
 }
 
+
+/* =========================================================
+   CATEGORY DETAILS / SECOND PAGE REDESIGN (IMAGE 2 STYLE)
+   ========================================================= */
+
+/* যখন ক্যাটাগরি ডিটেইলস বা সাব-পেজ ভিউ চালু থাকবে, তখন হেডার স্টাইল সামঞ্জস্য করা */
+#categoryDetailsView .dashboard-header {
+    background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
+    color: #ffffff;
+    padding: 16px;
+    margin: -18px -14px 16px -14px;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+}
+
+#categoryDetailsView .dashboard-header h1 {
+    color: #ffffff !important;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#categoryDetailsView .dashboard-header p {
+    color: #94a3b8 !important;
+    font-size: 13px;
+}
+
+/* ক্যাটাগরি পেজের ভেতরের ডাটা কার্ড লিস্ট স্টাইল (দ্বিতীয় ছবির মতো) */
+.data-card-item {
+    background-color: var(--card-bg, #ffffff) !important;
+    border: 1px solid var(--border-color, #e2e8f0) !important;
+    border-radius: 20px !important;
+    padding: 14px 16px !important;
+    margin-bottom: 14px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.data-card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ডাটা কার্ডের অবতার বা গোল ছবি/লোগো */
+.data-card-avatar {
+    width: 65px !important;
+    height: 65px !important;
+    min-width: 65px !important;
+    border-radius: 50% !important;
+    background: #f1f5f9;
+    margin-right: 14px !important;
+    object-fit: cover !important;
+    border: 2px solid var(--border-color, #e2e8f0);
+}
+
+/* ডাটা কার্ডের ভেতরের টেক্সট ইনফো */
+.data-card-info {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.data-card-name {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--text-main, #0f172a) !important;
+    margin-bottom: 2px;
+}
+
+.data-card-detail {
+    font-size: 13px !important;
+    color: var(--text-muted, #64748b) !important;
+    line-height: 1.4;
+}
+
+/* যদি ক্যাটাগরি পেজে সার্চ বক্স বা ফিল্টার থাকে তার ডিজাইন */
+#categoryDetailsView .header-search-box, 
+.sub-page-search {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50px !important;
+    padding: 0 16px;
+    height: 40px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+}
+
+#categoryDetailsView .header-search-box input {
+    color: #ffffff !important;
+}
+
+#categoryDetailsView .header-search-box input::placeholder {
+    color: #94a3b8 !important;
+}
+
+
+
 @media (max-width: 600px) {
     .topbar { height: 58px; padding: 0 10px; }
     .sub-toolbar { height: 46px; padding: 0 12px; }
