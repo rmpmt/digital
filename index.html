@@ -408,8 +408,7 @@
         }
 
         /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — মার্ক করা অংশ বাদ দিয়ে 
-           এবং মোবাইল, টেলিফোন, ইমেইল ও শেয়ার কন্টাক্ট আলাদা ঘর/বাটন স্টাইল
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — আপনার ছবি ও নির্দেশনা অনুযায়ী
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
@@ -418,22 +417,25 @@
             background: #020624 !important;
             padding-bottom: 0 !important;
         }
+        /* লাল মার্কিং করা অংশ বা হেডার স্লাইডার পুরোপুরি লুকানো */
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
         body.is-data-details-mode #subPageHeaderSearchWrapper,
-        body.is-data-details-mode #slidingNoticeContainer {
+        body.is-data-details-mode #slidingNoticeContainer,
+        body.is-data-details-mode .modern-header {
             display: none !important;
         }
         body.is-data-details-mode .curved-main-sheet {
             background-color: #ffffff !important;
-            border-top-left-radius: 26px !important;
-            border-top-right-radius: 26px !important;
-            padding: 16px 16px 40px 16px !important;
-            margin-top: 4px !important;
-            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25) !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            padding: 12px 14px 40px 14px !important;
+            margin-top: 0 !important;
+            box-shadow: none !important;
+            min-height: 100vh !important;
         }
         body.dark-mode.is-data-details-mode .curved-main-sheet {
-            background-color: #0f172a !important;
+            background-color: #020624 !important;
         }
         body.is-data-details-mode .container {
             padding: 0 !important;
@@ -449,22 +451,23 @@
             border-radius: 0 !important;
         }
 
-        /* কন্টাক্ট ডিটেইলস পেজের ভেতরের এলিমেন্টগুলো স্ট্যান্ডার্ড মার্জিন প্যাডিং ও গ্রিড বিন্যাস */
+        /* সবুজ মার্কিং করা অংশ: ছবি, নাম, পদবী এবং ৪টি বাটন ওপরের ডার্ক বক্সে */
         #dataPageContent {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
-        /* প্রোফাইল কার্ড হেডার অংশ */
+        /* ছবি, নাম ও পদবীর ডার্ক কার্ড ব্যাকগ্রাউন্ড */
         #dataPageContent > div:first-child {
-            background: #020624 !important;
+            background: #060d2b !important;
             color: #ffffff !important;
-            padding: 16px 18px 24px 18px !important;
-            border-radius: 20px !important;
+            padding: 18px 16px 20px 16px !important;
+            border-radius: 22px !important;
             text-align: center !important;
-            box-shadow: 0 6px 18px rgba(2, 6, 36, 0.22) !important;
-            margin-bottom: 4px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            margin-bottom: 2px;
         }
         #dataPageContent img {
             width: 110px !important;
@@ -472,8 +475,8 @@
             border-radius: 50% !important;
             object-fit: cover !important;
             background: #111b2b !important;
-            border: 3px solid rgba(255, 255, 255, 0.14) !important;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+            border: 3px solid rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
             margin: 4px auto 12px auto !important;
             display: block !important;
         }
@@ -485,7 +488,7 @@
             color: #ffffff !important;
             font-size: 18px !important;
             font-weight: 700 !important;
-            margin: 0 auto 6px auto !important;
+            margin: 0 auto 4px auto !important;
             text-align: center !important;
             background: #020624 !important;
             padding: 8px 14px !important;
@@ -499,11 +502,11 @@
             color: #cbd5e1 !important;
             font-size: 13.5px !important;
             font-weight: 500 !important;
-            margin: 0 !important;
+            margin: 4px 0 0 0 !important;
             text-align: center !important;
         }
 
-        /* অ্যাকশন বাটন গ্রিড (মোবাইল, টেলিফোন, ইমেইল এবং আলাদা শেয়ার কন্টাক্ট ঘর) */
+        /* সবুজ মার্কিং করা অংশের ভেতরের ৪টি বাটন (মোবাইল, টেলিফোন, ইমেইল, শেয়ার কন্টাক্ট) */
         #dataPageContent .action-buttons,
         #dataPageContent .detail-actions,
         #dataPageContent .btn-group,
@@ -511,7 +514,7 @@
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 10px !important;
-            margin: 6px 0 12px 0 !important;
+            margin: 12px 0 4px 0 !important;
         }
         #dataPageContent .action-buttons a,
         #dataPageContent .action-buttons button,
@@ -521,18 +524,18 @@
         #dataPageContent .btn-group button {
             border-radius: 14px !important;
             padding: 12px 14px !important;
-            font-size: 14px !important;
+            font-size: 13.5px !important;
             font-weight: 600 !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 8px !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
             border: none !important;
             text-decoration: none !important;
         }
 
-        /* ডেটা ফিল্ড রো (স্ট্যান্ডার্ড কার্ড ও প্যাডিং) */
+        /* নিচের তথ্যগুলো (মোবাইল, টেলিফোন, পদবী, ই-মেইল ইত্যাদির জন্য আলাদা স্ট্যান্ডার্ড ঘর) */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
@@ -542,7 +545,7 @@
             background: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
             border-radius: 14px !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04) !important;
             padding: 12px 16px !important;
             margin-bottom: 8px !important;
             display: flex !important;
@@ -556,11 +559,11 @@
         body.dark-mode #dataPageContent .detail-box,
         body.dark-mode #dataPageContent .info-card,
         body.dark-mode #dataPageContent .contact-detail-item {
-            background: #1e293b !important;
+            background: #0f172a !important;
             border-color: #334155 !important;
         }
 
-        /* লেবেল ও ভ্যালু স্টাইল */
+        /* ঘরের ভেতরের লেবেল ও মান (Value) */
         #dataPageContent .info-row .label,
         #dataPageContent .detail-row .label,
         #dataPageContent .field-label,
@@ -588,7 +591,7 @@
         #dataPageContent .info-card > p,
         #dataPageContent .detail-box > div,
         #dataPageContent .detail-box > p {
-            font-size: 15.5px !important;
+            font-size: 16px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
             margin: 0 !important;
