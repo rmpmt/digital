@@ -408,7 +408,7 @@
         }
 
         /* =====================================================================
-           দ্বিতীয় ছবির মতো কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) ডিজাইন
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — ছবির হুবহু ডিজাইন
            ===================================================================== */
         body.is-data-details-mode .modern-top-wrapper {
             background: #020624 !important;
@@ -431,7 +431,6 @@
             margin: 0 !important;
             max-width: 100% !important;
         }
-
         #dataDetailsView .details-container-card {
             background: transparent !important;
             border: none !important;
@@ -441,13 +440,12 @@
             border-radius: 0 !important;
         }
 
-        /* প্রোফাইল টপ ডার্ক সেকশন (Save Contact | Avatar | Profile | Name) */
+        /* ডার্ক নেভি প্রোফাইল হেডার */
         .ref2-profile-hero {
             background: #020624;
-            padding: 8px 20px 26px 20px;
+            padding: 6px 20px 26px 20px;
             text-align: center;
             color: #ffffff;
-            position: relative;
         }
         .ref2-top-bar {
             display: flex;
@@ -464,20 +462,18 @@
             padding: 4px 0;
             cursor: pointer;
             text-decoration: none;
-            letter-spacing: 0.2px;
         }
         .ref2-save-link:active {
-            opacity: 0.75;
+            opacity: 0.7;
         }
         .ref2-profile-label {
             color: #ffffff;
             font-size: 19px;
             font-weight: 600;
-            letter-spacing: 0.2px;
         }
         .ref2-avatar-circle {
-            width: 138px;
-            height: 138px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: #182328;
             margin: 4px auto 18px auto;
@@ -486,17 +482,11 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-            border: 2px solid rgba(255, 255, 255, 0.12);
         }
         .ref2-avatar-circle img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        .ref2-avatar-circle svg {
-            width: 72px;
-            height: 72px;
-            fill: #64748b;
         }
         .ref2-hero-title {
             font-size: 20px;
@@ -512,12 +502,12 @@
             margin: 4px 0 0 0;
         }
 
-        /* প্রোফাইল নিচের সাদা ইনফো লিস্ট সেকশন */
+        /* নিচের সাদা ইনফো লিস্ট শিট */
         .ref2-info-sheet {
             background: #f8fafc;
             border-top-left-radius: 26px;
             border-top-right-radius: 26px;
-            padding: 16px 22px 65px 22px;
+            padding: 14px 22px 60px 22px;
             min-height: calc(100vh - 275px);
             position: relative;
             box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
@@ -526,7 +516,7 @@
             background: #0f172a;
         }
         .ref2-field-row {
-            padding: 15px 4px 13px 4px;
+            padding: 15px 2px 13px 2px;
             border-bottom: 1px solid #cbd5e1;
             display: flex;
             align-items: center;
@@ -559,30 +549,56 @@
             color: #f1f5f9;
         }
         .ref2-action-icon {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             color: #020624;
             text-decoration: none;
-            font-size: 22px;
             flex-shrink: 0;
-            transition: transform 0.15s ease, background 0.15s ease;
         }
         body.dark-mode .ref2-action-icon {
             color: #e2e8f0;
         }
-        .ref2-action-icon:active {
-            transform: scale(0.92);
-            background: rgba(2, 6, 36, 0.08);
+        .ref2-action-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
 
-        /* নিচের ফুটার ব্যাজ (দ্বিতীয় ছবির নিচের লোগো কার্ভের মতো) */
+        /* Get VIP / প্রশাসনিক তথ্য আগের মতো সাধারণ টেক্সট আকারে */
+        .ref2-plain-vip-area {
+            padding: 16px 6px 4px 6px;
+            font-size: 14.5px;
+            color: #334155;
+            line-height: 1.5;
+        }
+        body.dark-mode .ref2-plain-vip-area {
+            color: #cbd5e1;
+        }
+        .ref2-plain-vip-area a,
+        .ref2-plain-vip-area button,
+        .ref2-plain-vip-area span {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            color: #0d6efd !important;
+            font-weight: 600;
+            font-size: 14.5px;
+            text-decoration: underline;
+            cursor: pointer;
+            display: inline !important;
+        }
+
+        /* নিচের কার্ভড লোগো ব্যাজ */
         .ref2-bottom-curve {
             background: #020624;
-            height: 36px;
+            height: 34px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -680,7 +696,7 @@
             </div>
         </div>
 
-        <!-- ইমেজ স্লাইডার (শুধুমাত্র প্রথম/হোম পেজে থাকবে) -->
+        <!-- ইমেজ স্লাইডার (শুধুমাত্র হোম পেজে থাকবে) -->
         <div class="hero-slider-container" id="heroSlider">
             <div class="slider-track" id="sliderTrack">
                 <div class="slide-item">
@@ -757,7 +773,7 @@
                 <div id="detailsContent"></div>
             </div>
 
-            <!-- কন্টাক্ট ডিটেইলস পেজ (প্রথম ছবির পেজ -> দ্বিতীয় ছবির ডিজাইন) -->
+            <!-- কন্টাক্ট ডিটেইলস পেজ -->
             <div id="dataDetailsView" class="hidden">
                 <div class="details-container-card">
                     <div id="dataPageContent"></div>
@@ -1134,154 +1150,214 @@
         syncSearchVisibility();
     })();
 
-    // কন্টাক্ট ডিটেইলস পেজ (#dataPageContent)-কে দ্বিতীয় ছবির মতো ডিজাইনে রূপান্তর
-    (function initReference2ProfileFormatter() {
+    // কন্টাক্ট ডিটেইলস পেজকে ছবির হুবহু ডিজাইনে রূপান্তর (সব ডেটা ও Get VIP টেক্সট অক্ষুণ্ণ রেখে)
+    (function initExactProfileDesign() {
         const contentEl = document.getElementById('dataPageContent');
         if (!contentEl) return;
 
-        let isRendering = false;
+        let isTransforming = false;
 
-        function buildReference2Layout() {
-            if (isRendering || contentEl.querySelector('.ref2-profile-hero')) return;
+        function applyProfileDesign() {
+            if (isTransforming || contentEl.querySelector('.ref2-wrapper')) return;
+            if (!contentEl.innerText.trim()) return;
 
-            const rawText = contentEl.innerText.trim();
-            if (!rawText) return;
+            isTransforming = true;
 
-            isRendering = true;
+            // ১. মূল কন্টেইনার লুকিয়ে রাখা যেন কোনো ইভেন্ট লিসেনার নষ্ট না হয়
+            const originalWrapper = document.createElement('div');
+            originalWrapper.style.display = 'none';
+            while (contentEl.firstChild) {
+                originalWrapper.appendChild(contentEl.firstChild);
+            }
+            contentEl.appendChild(originalWrapper);
 
-            // ছবি সংগ্রহ
-            const imgEl = contentEl.querySelector('img');
+            // ২. ছবি সংগ্রহ
+            const imgEl = originalWrapper.querySelector('img');
             const imgSrc = imgEl ? imgEl.getAttribute('src') : '';
 
-            // নাম ও পদবী সংগ্রহ
-            const headingEl = contentEl.querySelector('h1, h2, h3, .detail-name, .profile-name');
-            const subHeadingEl = contentEl.querySelector('.detail-designation, .designation, .subtitle, h4, p');
+            // ৩. নাম ও পদবী সংগ্রহ
+            const headingEl = originalWrapper.querySelector('h1, h2, h3, .detail-name, .profile-name');
+            const personName = headingEl ? headingEl.innerText.trim() : '';
 
-            let personName = headingEl ? headingEl.innerText.trim() : '';
-            let personDesignation = (subHeadingEl && subHeadingEl !== headingEl) ? subHeadingEl.innerText.trim() : '';
+            let personDesignation = '';
+            const subEl = originalWrapper.querySelector('.detail-designation, .designation, .subtitle, h4');
+            if (subEl && subEl !== headingEl) {
+                personDesignation = subEl.innerText.trim();
+            } else if (headingEl && headingEl.nextElementSibling && headingEl.nextElementSibling.tagName === 'P') {
+                personDesignation = headingEl.nextElementSibling.innerText.trim();
+            }
 
-            // সব ফিল্ডের ডেটা সংগ্রহ (যেমন: মোবাইল, টেলিফোন, ইমেইল, অফিস ইত্যাদি)
-            const fields = [];
-            const rows = contentEl.querySelectorAll('.info-row, .detail-row, .data-field, .detail-box, .contact-item, li, tr');
+            // ৪. tel: এবং mailto: লিংক থেকে সরাসরি ফোন ও ইমেইল সংগ্রহ
+            const telLinks = Array.from(originalWrapper.querySelectorAll('a[href^="tel:"]'))
+                .map(a => a.getAttribute('href').replace('tel:', '').trim())
+                .filter(Boolean);
+            const mailLinks = Array.from(originalWrapper.querySelectorAll('a[href^="mailto:"]'))
+                .map(a => a.getAttribute('href').replace('mailto:', '').trim())
+                .filter(Boolean);
 
-            rows.forEach(row => {
-                if (row.closest('.action-buttons, .detail-actions, .btn-group')) return;
-                const labelNode = row.querySelector('.label, .field-label, strong, b, th, span:first-child');
-                const valueNode = row.querySelector('.value, .field-value, td, span:last-child, p');
-                if (labelNode && valueNode && labelNode !== valueNode) {
-                    const lbl = labelNode.innerText.replace(/[:\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
-                    const val = valueNode.innerText.trim();
-                    if (lbl && val && lbl !== val && lbl.length < 40) {
-                        if (!fields.some(f => f.label === lbl)) {
-                            fields.push({ label: lbl, value: val });
-                        }
+            // ৫. সব টেক্সট লাইন বিশ্লেষণ করে প্রতিটি ফিল্ড বের করা
+            const rawLines = originalWrapper.innerText
+                .split('\n')
+                .map(l => l.trim())
+                .filter(Boolean);
+
+            const buttonLabels = new Set(['মোবাইল', 'টেলিফোন', 'ইমেইল', 'শেয়ার কন্টাক্ট', 'শেয়ার কন্টাক্ট']);
+            // উপরের ৪টি কুইক অ্যাকশন বাটনের টেক্সট বাদ দেওয়া (যেগুলোর নিচে ভ্যালু থাকে না)
+            const filteredLines = [];
+            for (let i = 0; i < rawLines.length; i++) {
+                const curr = rawLines[i];
+                const cleanCurr = curr.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
+                const next = rawLines[i + 1] || '';
+                const cleanNext = next.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
+
+                // যদি পরপর বাটন লেবেল আসে তবে প্রথম দিকের বাটনগুলো স্কিপ করা
+                if (buttonLabels.has(cleanCurr) && buttonLabels.has(cleanNext)) {
+                    continue;
+                }
+                filteredLines.push(curr);
+            }
+
+            const knownLabels = [
+                'মোবাইল', 'টেলিফোন', 'ইমেইল', 'ই-মেইল',
+                'বর্তমান অফিস/ঠিকানা', 'বর্তমান অফিস', 'বর্তমান কর্মরত',
+                'স্থায়ী ঠিকানা', 'স্থায়ী ঠিকানা', 'পদবী', 'বয়স', 'রক্তের গ্রুপ'
+            ];
+
+            const parsedMap = {};
+            for (let i = 0; i < filteredLines.length; i++) {
+                const line = filteredLines[i];
+                const cleanLine = line.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
+
+                if (cleanLine.includes(':')) {
+                    const idx = cleanLine.indexOf(':');
+                    const k = cleanLine.slice(0, idx).trim();
+                    const v = cleanLine.slice(idx + 1).trim();
+                    if (k && v && !parsedMap[k]) parsedMap[k] = v;
+                    continue;
+                }
+
+                const matchedLabel = knownLabels.find(lbl => cleanLine === lbl || cleanLine.startsWith(lbl));
+                if (matchedLabel && filteredLines[i + 1]) {
+                    const nextVal = filteredLines[i + 1].trim();
+                    const cleanNextVal = nextVal.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim();
+                    if (!knownLabels.includes(cleanNextVal) && !parsedMap[matchedLabel]) {
+                        parsedMap[matchedLabel] = nextVal;
+                        i++;
                     }
                 }
+            }
+
+            const mobileVal = parsedMap['মোবাইল'] || telLinks[0] || 'নেই';
+            const phoneVal = parsedMap['টেলিফোন'] || (telLinks[1] && telLinks[1] !== mobileVal ? telLinks[1] : 'নেই');
+            const emailVal = parsedMap['ইমেইল'] || parsedMap['ই-মেইল'] || mailLinks[0] || 'নেই';
+            const officeVal = parsedMap['বর্তমান অফিস/ঠিকানা'] || parsedMap['বর্তমান অফিস'] || parsedMap['বর্তমান কর্মরত'] || '';
+            const permanentVal = parsedMap['স্থায়ী ঠিকানা'] || parsedMap['স্থায়ী ঠিকানা'] || '';
+
+            // ৬. Get VIP / প্রশাসনিক তথ্য আগের মতো সাধারণ টেক্সট আকারে সংগ্রহ
+            let vipPlainNode = null;
+            const allElements = originalWrapper.querySelectorAll('div, p, span, a, button');
+            for (const el of allElements) {
+                const txt = el.innerText.trim();
+                if ((txt.includes('Get VIP') || txt.includes('প্রশাসনিক তথ্য') || txt.includes('ভেরিফিকেশন')) && el.children.length <= 2) {
+                    vipPlainNode = el;
+                    break;
+                }
+            }
+
+            // ৭. ছবির মতো ফিল্ড লিস্ট তৈরি
+            const displayFields = [];
+
+            if (personName) {
+                displayFields.push({ label: 'আপনার নাম', value: personName });
+            }
+            if (personDesignation || officeVal) {
+                displayFields.push({
+                    label: 'বর্তমানে কর্মরত',
+                    value: officeVal || personDesignation
+                });
+            }
+            if (personDesignation && officeVal && personDesignation !== officeVal) {
+                displayFields.push({ label: 'পদবী', value: personDesignation });
+            }
+            if (permanentVal) {
+                displayFields.push({ label: 'স্থায়ী ঠিকানা', value: permanentVal });
+            }
+
+            // মোবাইল / টেলিফোন নাম্বার (ছবির মতো কল আইকনসহ)
+            const combinedPhone = (mobileVal !== 'নেই' && phoneVal !== 'নেই')
+                ? `${mobileVal}, ${phoneVal}`
+                : (mobileVal !== 'নেই' ? mobileVal : phoneVal);
+
+            displayFields.push({
+                label: 'মোবাইল / টেলিফোন নাম্বার',
+                value: combinedPhone,
+                phone: combinedPhone !== 'নেই' ? (mobileVal !== 'নেই' ? mobileVal : phoneVal) : ''
             });
 
-            // যদি উপরের সিলেক্টরে ফিল্ড না পাওয়া যায়, তবে টেক্সট লাইন থেকে পার্স করা হবে
-            if (fields.length === 0) {
-                const lines = rawText.split('\n').map(l => l.trim()).filter(Boolean);
-                const skipWords = ['মোবাইল', 'টেলিফোন', 'ইমেইল', 'শেয়ার কন্টাক্ট', 'স্বাগত বার্তা'];
-                const cleanLines = lines.filter(l => !skipWords.includes(l));
-
-                if (!personName && cleanLines.length > 0) personName = cleanLines[0];
-                if (!personDesignation && cleanLines.length > 1 && !cleanLines[1].includes(':')) {
-                    personDesignation = cleanLines[1];
-                }
-
-                for (let i = 0; i < cleanLines.length; i++) {
-                    const line = cleanLines[i];
-                    if (line.includes(':')) {
-                        const idx = line.indexOf(':');
-                        const lbl = line.slice(0, idx).replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
-                        const val = line.slice(idx + 1).trim();
-                        if (lbl && val) fields.push({ label: lbl, value: val });
-                    } else if (
-                        ['মোবাইল', 'টেলিফোন', 'ইমেইল', 'বর্তমান অফিস/ঠিকানা', 'বর্তমান কর্মরত', 'স্থায়ী ঠিকানা', 'প্রশাসনিক তথ্য', 'পদবী'].some(k => line.includes(k)) &&
-                        cleanLines[i + 1]
-                    ) {
-                        const lbl = line.replace(/[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}]/gu, '').trim();
-                        const val = cleanLines[i + 1].trim();
-                        if (!fields.some(f => f.label === lbl)) {
-                            fields.push({ label: lbl, value: val });
-                            i++;
-                        }
-                    }
-                }
-            }
-
-            // নাম ফিল্ড সবার উপরে যুক্ত করা (দ্বিতীয় ছবির "আপনার নাম" অংশের মতো)
-            if (personName && !fields.some(f => f.label.includes('নাম'))) {
-                fields.unshift({ label: 'নাম', value: personName });
-            }
-            if (personDesignation && !fields.some(f => f.label.includes('পদবী') || f.label.includes('কর্মরত'))) {
-                fields.splice(1, 0, { label: 'পদবী / কর্মস্থল', value: personDesignation });
-            }
-
-            // মোবাইল ও ইমেইল খুঁজে বের করা (Save Contact এবং কল বাটনের জন্য)
-            let mobileNumber = '';
-            let emailAddress = '';
-            fields.forEach(f => {
-                if ((f.label.includes('মোবাইল') || f.label.includes('টেলিফোন')) && f.value !== 'নেই' && !mobileNumber) {
-                    mobileNumber = f.value;
-                }
-                if (f.label.includes('ইমেইল') && f.value !== 'নেই' && !emailAddress) {
-                    emailAddress = f.value;
-                }
+            // ই-মেইল এড্রেস
+            displayFields.push({
+                label: 'ই-মেইল এড্রেস',
+                value: emailVal,
+                email: emailVal !== 'নেই' ? emailVal : ''
             });
 
-            // ফিল্ডগুলোর HTML তৈরি
-            const fieldsHtml = fields.map(f => {
-                const isPhone = (f.label.includes('মোবাইল') || f.label.includes('টেলিফোন')) && f.value && f.value !== 'নেই';
-                const isEmail = f.label.includes('ইমেইল') && f.value && f.value !== 'নেই';
+            const phoneSvg = `<svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>`;
 
-                let actionHtml = '';
-                if (isPhone) {
-                    const cleanPhone = f.value.replace(/[^+\d]/g, '');
-                    actionHtml = `<a href="tel:${cleanPhone}" class="ref2-action-icon" title="কল করুন">📞</a>`;
-                } else if (isEmail) {
-                    actionHtml = `<a href="mailto:${f.value}" class="ref2-action-icon" title="ইমেইল পাঠান">✉️</a>`;
+            const rowsHtml = displayFields.map(item => {
+                let rightAction = '';
+                if (item.phone) {
+                    const cleanNum = item.phone.replace(/[^+\d]/g, '');
+                    rightAction = `<a href="tel:${cleanNum}" class="ref2-action-icon" title="কল করুন">${phoneSvg}</a>`;
                 }
-
                 return `
                     <div class="ref2-field-row">
                         <div class="ref2-field-texts">
-                            <span class="ref2-field-label">${f.label}</span>
-                            <div class="ref2-field-value">${f.value}</div>
+                            <span class="ref2-field-label">${item.label}</span>
+                            <div class="ref2-field-value">${item.value}</div>
                         </div>
-                        ${actionHtml}
+                        ${rightAction}
                     </div>
                 `;
             }).join('');
 
-            const avatarHtml = imgSrc
+            const avatarContent = imgSrc
                 ? `<img src="${imgSrc}" alt="${personName}">`
-                : `<svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>`;
+                : '';
 
-            contentEl.innerHTML = `
+            const wrapper = document.createElement('div');
+            wrapper.className = 'ref2-wrapper';
+            wrapper.innerHTML = `
                 <div class="ref2-profile-hero">
                     <div class="ref2-top-bar">
                         <button type="button" id="ref2SaveContactBtn" class="ref2-save-link">Save Contact</button>
                         <span class="ref2-profile-label">Profile</span>
                     </div>
                     <div class="ref2-avatar-circle">
-                        ${avatarHtml}
+                        ${avatarContent}
                     </div>
-                    <h2 class="ref2-hero-title">${personName || 'কর্মকর্তার তথ্য'}</h2>
+                    <h2 class="ref2-hero-title">${personName}</h2>
                     ${personDesignation ? `<p class="ref2-hero-subtitle">${personDesignation}</p>` : ''}
                 </div>
                 <div class="ref2-info-sheet">
-                    ${fieldsHtml}
+                    ${rowsHtml}
+                    <div id="ref2VipPlainMount" class="ref2-plain-vip-area"></div>
                 </div>
                 <div class="ref2-bottom-curve">
                     <div class="ref2-bottom-badge">
-                        <img src="icons/icon-192.png" alt="Badge" onerror="this.style.display='none'">
+                        <img src="icons/icon-192.png" alt="Logo" onerror="this.style.display='none'">
                     </div>
                 </div>
             `;
 
-            // Save Contact বাটনে ক্লিক করলে সরাসরি ফোনে vCard (.vcf) সেভ হবে
+            contentEl.appendChild(wrapper);
+
+            // Get VIP / প্রশাসনিক তথ্য আগের মতো সাধারণ টেক্সট আকারে মাউন্ট করা (কোনো আলাদা বক্স ছাড়াই)
+            const vipMount = document.getElementById('ref2VipPlainMount');
+            if (vipMount && vipPlainNode) {
+                vipMount.appendChild(vipPlainNode);
+            }
+
+            // Save Contact বাটনে ক্লিক করলে কন্টাক্ট সেভ (.vcf)
             const saveBtn = document.getElementById('ref2SaveContactBtn');
             if (saveBtn) {
                 saveBtn.addEventListener('click', () => {
@@ -1290,30 +1366,31 @@
                         'VERSION:3.0',
                         `FN:${personName}`,
                         personDesignation ? `TITLE:${personDesignation}` : '',
-                        mobileNumber ? `TEL;TYPE=CELL:${mobileNumber}` : '',
-                        emailAddress ? `EMAIL:${emailAddress}` : '',
+                        mobileVal !== 'নেই' ? `TEL;TYPE=CELL:${mobileVal}` : '',
+                        phoneVal !== 'নেই' ? `TEL;TYPE=WORK:${phoneVal}` : '',
+                        emailVal !== 'নেই' ? `EMAIL:${emailVal}` : '',
                         'END:VCARD'
                     ].filter(Boolean).join('\n');
 
                     const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
                     const url = URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = `${(personName || 'contact').replace(/\s+/g, '_')}.vcf`;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${(personName || 'contact').replace(/\s+/g, '_')}.vcf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
                     URL.revokeObjectURL(url);
                 });
             }
 
-            isRendering = false;
+            isTransforming = false;
         }
 
-        const contentObserver = new MutationObserver(() => {
-            buildReference2Layout();
+        const observer = new MutationObserver(() => {
+            applyProfileDesign();
         });
-        contentObserver.observe(contentEl, { childList: true, subtree: true });
+        observer.observe(contentEl, { childList: true, subtree: true });
     })();
 </script>
 
