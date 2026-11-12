@@ -372,10 +372,8 @@
 
         function unlockApp() {
             localStorage.setItem(UNLOCK_FLAG, "true");
-            passwordGate.classList.remove("show");
-            passwordInput.value = "";
-            passwordError.textContent = "";
-            // আপনি চাইলে এখানে index.html এ রিডাইরেক্ট করতে পারেন অথবা মেইন কন্টেন্ট লোড করতে পারেন
+            // পাসওয়ার্ড সঠিক হওয়ার পর সরাসরি ইনডেক্স পেজে চলে যাবে
+            window.location.href = "index.html";
         }
 
         function showLoginMode() {
