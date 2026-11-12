@@ -408,7 +408,7 @@
         }
 
         /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — আপনার নতুন নির্দেশনা অনুযায়ী
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — আপনার সর্বশেষ চাহিদা অনুযায়ী
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
@@ -456,7 +456,7 @@
             gap: 12px;
         }
 
-        /* ১. উপরের অংশটি দুই পাশ পর্যন্ত ভরাট এবং শুধুমাত্র নিচের দুই কর্নার রেডিয়াস */
+        /* ওপরের ডার্ক প্রোফাইল অংশ (সব ওপরের সাদা অংশ বাদ দিয়ে স্ক্রিনের দুই পাশ ভরাট) */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
@@ -509,7 +509,7 @@
             text-align: center !important;
         }
 
-        /* মূল কন্টেইনার মার্জিন ফিক্সড */
+        /* ইনফো কার্ডগুলো */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
@@ -579,7 +579,7 @@
             color: #f1f5f9 !important;
         }
 
-        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন নিজ নিজ ঘরের ভেতরে মার্কিং করা অংশে বসানো */
+        /* তীর চিহ্ন নির্দেশিত বাটনগুলো নিজ নিজ ঘরের ভেতরে আইকন আকারে ডানপাশে বসানো */
         #dataPageContent .action-buttons,
         #dataPageContent .detail-actions,
         #dataPageContent .btn-group,
@@ -602,32 +602,35 @@
             right: 14px !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
-            padding: 6px 14px !important;
-            font-size: 12.5px !important;
+            padding: 8px 14px !important;
+            font-size: 13px !important;
             font-weight: 600 !important;
-            border-radius: 8px !important;
+            border-radius: 10px !important;
             border: none !important;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
             cursor: pointer !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
         }
 
-        /* ৩. শুধুমাত্র 'শেয়ার কন্টাক্ট' (Share Contact) এর জন্য আলাদা একটি স্বতন্ত্র ঘর তৈরি */
+        /* শেয়ার কন্টাক্টের জন্য আলাদা একটি স্বতন্ত্র ঘর এবং আইকন */
         #dataPageContent .share-contact-card,
         #dataPageContent a[href*="share"],
         #dataPageContent button[id*="share"],
         #dataPageContent .share-btn-wrapper {
-            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%0) !important;
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
             color: #ffffff !important;
             border-radius: 14px !important;
             padding: 14px 18px !important;
-            margin: 10px 16px 0 16px !important;
+            margin: 12px 16px 0 16px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 10px !important;
             font-size: 15px !important;
             font-weight: 700 !important;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35) !important;
             border: none !important;
             text-decoration: none !important;
             position: static !important;
