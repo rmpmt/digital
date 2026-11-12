@@ -408,7 +408,7 @@
         }
 
         /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — আপনার ছবি ও নির্দেশনা অনুযায়ী
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — আপনার নতুন নির্দেশনা অনুযায়ী
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
@@ -417,7 +417,6 @@
             background: #020624 !important;
             padding-bottom: 0 !important;
         }
-        /* লাল মার্কিং করা অংশ বা হেডার স্লাইডার পুরোপুরি লুকানো */
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
         body.is-data-details-mode #subPageHeaderSearchWrapper,
@@ -429,7 +428,7 @@
             background-color: #ffffff !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            padding: 12px 14px 40px 14px !important;
+            padding: 0 0 50px 0 !important;
             margin-top: 0 !important;
             box-shadow: none !important;
             min-height: 100vh !important;
@@ -451,27 +450,31 @@
             border-radius: 0 !important;
         }
 
-        /* সবুজ মার্কিং করা অংশ: ছবি, নাম, পদবী এবং ৪টি বাটন ওপরের ডার্ক বক্সে */
         #dataPageContent {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
-        /* ছবি, নাম ও পদবীর ডার্ক কার্ড ব্যাকগ্রাউন্ড */
+        /* ১. উপরের অংশটি দুই পাশ পর্যন্ত ভরাট এবং শুধুমাত্র নিচের দুই কর্নার রেডিয়াস */
         #dataPageContent > div:first-child {
-            background: #060d2b !important;
+            background: #020624 !important;
             color: #ffffff !important;
-            padding: 18px 16px 20px 16px !important;
-            border-radius: 22px !important;
+            padding: 24px 16px 28px 16px !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            border-bottom-left-radius: 30px !important;
+            border-bottom-right-radius: 30px !important;
             text-align: center !important;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            margin-bottom: 2px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45) !important;
+            margin-top: 0 !important;
+            margin-bottom: 10px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
         #dataPageContent img {
-            width: 110px !important;
-            height: 110px !important;
+            width: 115px !important;
+            height: 115px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             background: #111b2b !important;
@@ -486,56 +489,27 @@
         #dataPageContent .detail-name,
         #dataPageContent .profile-name {
             color: #ffffff !important;
-            font-size: 18px !important;
+            font-size: 18.5px !important;
             font-weight: 700 !important;
-            margin: 0 auto 4px auto !important;
+            margin: 0 auto 6px auto !important;
             text-align: center !important;
-            background: #020624 !important;
+            background: #060e2b !important;
             padding: 8px 14px !important;
             border-radius: 12px !important;
-            max-width: 95% !important;
+            max-width: 90% !important;
             border: 1px solid rgba(255,255,255,0.08) !important;
         }
         #dataPageContent .detail-designation,
         #dataPageContent .designation,
         #dataPageContent .subtitle {
             color: #cbd5e1 !important;
-            font-size: 13.5px !important;
+            font-size: 14px !important;
             font-weight: 500 !important;
-            margin: 4px 0 0 0 !important;
+            margin: 0 !important;
             text-align: center !important;
         }
 
-        /* সবুজ মার্কিং করা অংশের ভেতরের ৪টি বাটন (মোবাইল, টেলিফোন, ইমেইল, শেয়ার কন্টাক্ট) */
-        #dataPageContent .action-buttons,
-        #dataPageContent .detail-actions,
-        #dataPageContent .btn-group,
-        #dataPageContent .quick-actions {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 10px !important;
-            margin: 12px 0 4px 0 !important;
-        }
-        #dataPageContent .action-buttons a,
-        #dataPageContent .action-buttons button,
-        #dataPageContent .detail-actions a,
-        #dataPageContent .detail-actions button,
-        #dataPageContent .btn-group a,
-        #dataPageContent .btn-group button {
-            border-radius: 14px !important;
-            padding: 12px 14px !important;
-            font-size: 13.5px !important;
-            font-weight: 600 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 8px !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-            border: none !important;
-            text-decoration: none !important;
-        }
-
-        /* নিচের তথ্যগুলো (মোবাইল, টেলিফোন, পদবী, ই-মেইল ইত্যাদির জন্য আলাদা স্ট্যান্ডার্ড ঘর) */
+        /* মূল কন্টেইনার মার্জিন ফিক্সড */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
@@ -547,11 +521,12 @@
             border-radius: 14px !important;
             box-shadow: 0 3px 10px rgba(0,0,0,0.04) !important;
             padding: 12px 16px !important;
-            margin-bottom: 8px !important;
+            margin: 0 16px 8px 16px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
             text-align: left !important;
+            position: relative !important;
         }
         body.dark-mode #dataPageContent .info-row,
         body.dark-mode #dataPageContent .detail-row,
@@ -563,7 +538,7 @@
             border-color: #334155 !important;
         }
 
-        /* ঘরের ভেতরের লেবেল ও মান (Value) */
+        /* লেবেল ও মান */
         #dataPageContent .info-row .label,
         #dataPageContent .detail-row .label,
         #dataPageContent .field-label,
@@ -602,6 +577,62 @@
         body.dark-mode #dataPageContent .field-value,
         body.dark-mode #dataPageContent .detail-value {
             color: #f1f5f9 !important;
+        }
+
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন নিজ নিজ ঘরের ভেতরে মার্কিং করা অংশে বসানো */
+        #dataPageContent .action-buttons,
+        #dataPageContent .detail-actions,
+        #dataPageContent .btn-group,
+        #dataPageContent .quick-actions {
+            display: contents !important;
+        }
+        #dataPageContent .info-row a,
+        #dataPageContent .detail-row a,
+        #dataPageContent .data-field a,
+        #dataPageContent .detail-box a,
+        #dataPageContent .info-card a,
+        #dataPageContent .contact-detail-item a,
+        #dataPageContent .info-row button,
+        #dataPageContent .detail-row button,
+        #dataPageContent .data-field button,
+        #dataPageContent .detail-box button,
+        #dataPageContent .info-card button,
+        #dataPageContent .contact-detail-item button {
+            position: absolute !important;
+            right: 14px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            padding: 6px 14px !important;
+            font-size: 12.5px !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            border: none !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+            cursor: pointer !important;
+        }
+
+        /* ৩. শুধুমাত্র 'শেয়ার কন্টাক্ট' (Share Contact) এর জন্য আলাদা একটি স্বতন্ত্র ঘর তৈরি */
+        #dataPageContent .share-contact-card,
+        #dataPageContent a[href*="share"],
+        #dataPageContent button[id*="share"],
+        #dataPageContent .share-btn-wrapper {
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%0) !important;
+            color: #ffffff !important;
+            border-radius: 14px !important;
+            padding: 14px 18px !important;
+            margin: 10px 16px 0 16px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+            border: none !important;
+            text-decoration: none !important;
+            position: static !important;
+            transform: none !important;
+            width: auto !important;
         }
     </style>
 </head>
