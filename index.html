@@ -408,7 +408,7 @@
         }
 
         /* =====================================================================
-           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — সুনির্দিষ্ট নতুন ডিজাইন
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — সুনির্দিষ্ট নতুন ডিজাইন ও মার্জিন প্যাডিং অপ্টিমাইজেশন
            ===================================================================== */
         body.is-data-details-mode {
             background-color: #020624 !important;
@@ -417,7 +417,7 @@
             background: #020624 !important;
             padding-bottom: 0 !important;
         }
-        /* লাল মার্কিং করা অংশ বা ওপরের হেডার সম্পূর্ণ লুকানো */
+        /* একদম ওপরের সাদা অংশ/বর্ডার রিমুভ এবং হেডার লুকানো */
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
         body.is-data-details-mode #subPageHeaderSearchWrapper,
@@ -429,7 +429,7 @@
             background-color: #ffffff !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            padding: 0 0 50px 0 !important;
+            padding: 0 0 40px 0 !important;
             margin-top: 0 !important;
             box-shadow: none !important;
             min-height: 100vh !important;
@@ -457,31 +457,30 @@
             gap: 10px;
         }
 
-        /* ১. সব ওপরের অংশটি দুই পাশ পর্যন্ত ভরাট এবং শুধুমাত্র নিচের দুই কর্নার রেডিয়াস */
+        /* ১. একদম ওপরের প্রোফাইল অংশ (সাদা অংশ বাদ দিয়ে ডার্ক ব্যাকগ্রাউন্ড ফিক্সড) */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
-            padding: 26px 16px 30px 16px !important;
+            padding: 24px 16px 26px 16px !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            border-bottom-left-radius: 28px !important;
-            border-bottom-right-radius: 28px !important;
+            border-bottom-left-radius: 24px !important;
+            border-bottom-right-radius: 24px !important;
             text-align: center !important;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45) !important;
-            margin-top: 0 !important;
-            margin-bottom: 8px !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+            margin: 0 !important;
             width: 100% !important;
             box-sizing: border-box !important;
         }
         #dataPageContent img {
-            width: 115px !important;
-            height: 115px !important;
+            width: 110px !important;
+            height: 110px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             background: #111b2b !important;
             border: 3px solid rgba(255, 255, 255, 0.15) !important;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
-            margin: 4px auto 12px auto !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
+            margin: 0 auto 10px auto !important;
             display: block !important;
         }
         #dataPageContent h1,
@@ -490,13 +489,13 @@
         #dataPageContent .detail-name,
         #dataPageContent .profile-name {
             color: #ffffff !important;
-            font-size: 18.5px !important;
+            font-size: 18px !important;
             font-weight: 700 !important;
             margin: 0 auto 6px auto !important;
             text-align: center !important;
             background: #060e2b !important;
-            padding: 8px 14px !important;
-            border-radius: 12px !important;
+            padding: 7px 12px !important;
+            border-radius: 10px !important;
             max-width: 90% !important;
             border: 1px solid rgba(255,255,255,0.08) !important;
         }
@@ -504,13 +503,13 @@
         #dataPageContent .designation,
         #dataPageContent .subtitle {
             color: #cbd5e1 !important;
-            font-size: 14px !important;
+            font-size: 13.5px !important;
             font-weight: 500 !important;
             margin: 0 !important;
             text-align: center !important;
         }
 
-        /* ইনফো কার্ডগুলো */
+        /* ইনফো কার্ডগুলোর পারফেক্ট মার্জিন ও প্যাডিং */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
@@ -520,7 +519,7 @@
             background: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
             border-radius: 14px !important;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
             padding: 12px 16px !important;
             margin: 0 16px 8px 16px !important;
             display: flex !important;
@@ -546,10 +545,10 @@
         #dataPageContent .detail-label,
         #dataPageContent .info-card > span:first-child,
         #dataPageContent .detail-box > span:first-child {
-            font-size: 12.5px !important;
+            font-size: 12px !important;
             font-weight: 600 !important;
             color: #64748b !important;
-            margin-bottom: 3px !important;
+            margin-bottom: 2px !important;
             display: block !important;
         }
         body.dark-mode #dataPageContent .info-row .label,
@@ -567,7 +566,7 @@
         #dataPageContent .info-card > p,
         #dataPageContent .detail-box > div,
         #dataPageContent .detail-box > p {
-            font-size: 16px !important;
+            font-size: 15.5px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
             margin: 0 !important;
@@ -580,7 +579,7 @@
             color: #f1f5f9 !important;
         }
 
-        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটনগুলো ডানপাশে আইকন আকারে নির্দিষ্ট স্থানে বসানো */
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটনগুলো ডানপাশে আইকন আকারে নির্দিষ্ট স্থানে সেট করা */
         #dataPageContent .action-buttons,
         #dataPageContent .detail-actions,
         #dataPageContent .btn-group,
@@ -603,17 +602,17 @@
             right: 14px !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
-            padding: 8px 12px !important;
-            font-size: 13px !important;
+            padding: 7px 12px !important;
+            font-size: 12.5px !important;
             font-weight: 600 !important;
-            border-radius: 10px !important;
+            border-radius: 8px !important;
             border: none !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
             cursor: pointer !important;
             display: inline-flex !important;
             align-items: center !important;
-            gap: 6px !important;
-            max-width: 120px;
+            gap: 5px !important;
+            max-width: 110px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -627,15 +626,15 @@
             background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
             color: #ffffff !important;
             border-radius: 14px !important;
-            padding: 14px 18px !important;
-            margin: 12px 16px 0 16px !important;
+            padding: 13px 18px !important;
+            margin: 10px 16px 0 16px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 10px !important;
-            font-size: 15px !important;
+            gap: 8px !important;
+            font-size: 14.5px !important;
             font-weight: 700 !important;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35) !important;
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
             border: none !important;
             text-decoration: none !important;
             position: static !important;
