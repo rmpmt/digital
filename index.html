@@ -67,7 +67,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 16px 4px 16px;
+            padding: 14px 16px 8px 16px;
         }
         .header-left-group {
             display: flex;
@@ -128,23 +128,66 @@
             margin-left: 4px;
         }
 
-        /* সার্চ ফিল্ড: ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে পজিশন করা */
+        /* ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে সার্চ ফিল্ড */
         .header-search-inline {
-            padding: 6px 16px 4px 16px;
+            display: none;
+            padding: 2px 16px 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .header-search-inline.is-visible {
+            display: block !important;
+        }
+        .subpage-search-field {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            box-sizing: border-box;
+            padding: 0 13px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.11);
+        }
+        .subpage-search-icon {
+            flex: 0 0 auto;
+            color: #cbd5e1;
+            font-size: 23px;
+            line-height: 1;
         }
         .header-search-inline input[type="search"] {
-            background: rgba(255, 255, 255, 0.12) !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            border-radius: 50px !important;
+            flex: 1 1 auto;
+            min-width: 0;
+            height: 100% !important;
+            padding: 0 !important;
+            border: 0 !important;
+            outline: 0 !important;
+            background: transparent !important;
             color: #ffffff !important;
-            padding: 0 18px !important;
-            height: 40px !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
             font-size: 14px;
+            box-shadow: none !important;
         }
         .header-search-inline input[type="search"]::placeholder {
             color: #cbd5e1 !important;
+            opacity: 1;
+        }
+        .subpage-search-clear {
+            display: none;
+            flex: 0 0 25px;
+            width: 25px;
+            height: 25px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.16);
+            color: #fff;
+            font-size: 20px;
+            line-height: 22px;
+            cursor: pointer;
+        }
+        .subpage-search-field.has-value .subpage-search-clear {
+            display: block;
         }
 
         /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) */
@@ -233,7 +276,7 @@
             border-radius: 4px;
         }
 
-        /* সাদা বাঁকানো মূল শিট */
+        /* সাদা বাঁকানো মূল শিট (কর্নার ওভারল্যাপ ও প্যাডিং মার্জিন ফিক্সড) */
         .curved-main-sheet {
             background-color: var(--bg-color, #f8fafc);
             border-top-left-radius: 24px;
@@ -302,14 +345,14 @@
             transform: scale(0.75);
         }
 
-        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (লেখাগুলো বড় করা হয়েছে) */
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল (দ্বিতীয় ছবির মতো কার্ড ডিজাইন) */
         #categoryDetailsView {
             background-color: transparent !important;
             padding: 0;
             min-height: auto;
         }
         #categoryDetailsView .dashboard-header {
-            display: none !important;
+            display: none !important; /* হেডার টাইটেল ডুলিকেশন এড়াতে হাইড করা হলো */
         }
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
@@ -348,18 +391,16 @@
             flex-grow: 1;
             overflow: hidden;
         }
-        /* ক্যাটাগরি/কার্ডের নাম বড় করা হয়েছে */
         #categoryDetailsView .data-card-name {
-            font-size: 17.5px !important;
+            font-size: 16px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
-        /* ক্যাটাগরি/কার্ডের ভেতরের ডিটেইলস লেখা বড় করা হয়েছে */
         #categoryDetailsView .data-card-detail {
-            font-size: 13.5px !important;
-            color: #475569 !important;
-            line-height: 1.45;
+            font-size: 12.5px !important;
+            color: #64748b !important;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -422,9 +463,17 @@
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
         </div>
 
-        <!-- ক্যাটাগরি পেজের জন্য সার্চ বক্স (ঠিক টাইম ও ডেটের নিচে হেডারের ভেতরে পজিশন করা) -->
+        <!-- ক্যাটাগরি বা সাব-পেজের সার্চ বক্স (ডেট ও টাইমের ঠিক নিচে হেডারের ভেতরে পজিশন করা) -->
         <div id="subPageHeaderSearchWrapper" class="header-search-inline hidden">
-            <input type="search" id="subPageSearchInput" placeholder="Search Your Contact..." autocomplete="off">
+            <div class="subpage-search-field">
+                <span class="subpage-search-icon" aria-hidden="true">⌕</span>
+                <input type="search" id="subPageSearchInput"
+                       placeholder="Search contacts..." autocomplete="off"
+                       aria-label="Search contacts">
+                <button type="button" id="clearSubPageSearch"
+                        class="subpage-search-clear" aria-label="Clear search"
+                        title="Clear search">×</button>
+            </div>
         </div>
 
         <!-- ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) -->
@@ -455,10 +504,10 @@
         </div>
     </div>
 
-    <!-- সাদা বাঁকানো মূল শিট -->
+    <!-- সাদা বাঁকানো কন্টেইনার শিট -->
     <div class="curved-main-sheet">
         
-        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
+        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড (সাদা শিটের ভেতরে মার্জিন ফিক্সড) -->
         <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 10px; border-radius: 8px;"></div>
 
         <main class="container">
@@ -485,7 +534,7 @@
                 </section>
             </div>
 
-            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ) -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ (দ্বিতীয় পেজ - স্লাইডার ও হোম সার্চ হাইড থাকবে) -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
@@ -796,28 +845,73 @@
         }, 3500);
     })();
 
-    // পেজ সুইচ করার সময় প্রথম বা দ্বিতীয় পেজের সার্চ বক্স এবং স্লাইডার হাইড/শো করার লজিক
-    const observer = new MutationObserver(() => {
+    // Category details page-এ হেডারের নিচে সার্চ দেখানো এবং Home page-এ লুকানো
+    (function initSubPageHeaderSearch() {
         const categoryDetails = document.getElementById('categoryDetailsView');
         const heroSlider = document.getElementById('heroSlider');
         const subPageSearchWrapper = document.getElementById('subPageHeaderSearchWrapper');
         const homeSearchBox = document.getElementById('searchBox');
+        const subInput = document.getElementById('subPageSearchInput');
+        const mainInput = document.getElementById('searchInput');
+        const clearButton = document.getElementById('clearSubPageSearch');
+        const searchField = subPageSearchWrapper?.querySelector('.subpage-search-field');
 
-        if (categoryDetails && heroSlider && subPageSearchWrapper) {
-            if (!categoryDetails.classList.contains('hidden')) {
-                // দ্বিতীয় পেজে থাকলে
-                heroSlider.style.display = 'none';
-                if(homeSearchBox) homeSearchBox.style.display = 'none';
-                subPageSearchWrapper.style.display = 'block'; // হেডারের ভেতর ডেট/টাইমের ঠিক নিচে সার্চ ফিল্ড দেখাবে
-            } else {
-                // প্রথম পেজে (হোম) থাকলে
-                heroSlider.style.display = 'block';
-                subPageSearchWrapper.style.display = 'none';
+        if (!categoryDetails || !heroSlider || !subPageSearchWrapper) return;
+
+        function syncSearchVisibility() {
+            const isSubPage = !categoryDetails.classList.contains('hidden');
+
+            heroSlider.style.display = isSubPage ? 'none' : '';
+            if (homeSearchBox) homeSearchBox.style.display = isSubPage ? 'none' : '';
+
+            subPageSearchWrapper.classList.toggle('is-visible', isSubPage);
+            subPageSearchWrapper.classList.toggle('hidden', !isSubPage);
+
+            if (!isSubPage && subInput) {
+                subInput.value = '';
+                searchField?.classList.remove('has-value');
+                if (mainInput && mainInput.value) {
+                    mainInput.value = '';
+                    mainInput.dispatchEvent(new Event('input', { bubbles: true }));
+                }
             }
         }
-    });
 
-    observer.observe(document.getElementById('categoryDetailsView'), { attributes: true, attributeFilter: ['class'] });
+        // মূল searchInput-এর বিদ্যমান search listener-এ সাব-পেজের সার্চ পাঠানো হচ্ছে।
+        if (subInput && mainInput) {
+            subInput.addEventListener('input', () => {
+                mainInput.value = subInput.value;
+                mainInput.dispatchEvent(new Event('input', { bubbles: true }));
+                searchField?.classList.toggle('has-value', subInput.value.length > 0);
+            });
+
+            subInput.addEventListener('keydown', event => {
+                if (event.key === 'Escape') {
+                    subInput.value = '';
+                    mainInput.value = '';
+                    mainInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    searchField?.classList.remove('has-value');
+                    subInput.blur();
+                }
+            });
+        }
+
+        clearButton?.addEventListener('click', () => {
+            if (!subInput || !mainInput) return;
+            subInput.value = '';
+            mainInput.value = '';
+            mainInput.dispatchEvent(new Event('input', { bubbles: true }));
+            searchField?.classList.remove('has-value');
+            subInput.focus();
+        });
+
+        const observer = new MutationObserver(syncSearchVisibility);
+        observer.observe(categoryDetails, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+        syncSearchVisibility();
+    })();
 </script>
 
 </body>
