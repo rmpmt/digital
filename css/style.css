@@ -1011,11 +1011,11 @@ html, body {
 
 /* ===== PAGE SPACE ===== */
 html {
-    min-height: 80%;
+    min-height: 50%;
 }
 
 body {
-    min-height: 100vh;
+    min-height: 50vh;
     margin: 0;
     padding-bottom: 80px !important;
     box-sizing: border-box;
