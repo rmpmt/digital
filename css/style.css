@@ -1007,59 +1007,51 @@ html, body {
 
 
 
-/* ১. পেজ লেআউট ফিক্স যাতে কম কন্টেন্ট থাকলেও বার নিচে থাকে */
+
+/* ===== PAGE LAYOUT FIX ===== */
 html, body {
-    height: 100%;
+    width: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    padding-bottom: 95px !important; /* নেভিগেশন বারের নিচে কন্টেন্ট যেন ঢাকা না পড়ে */
+    padding-bottom: 95px !important;
     box-sizing: border-box;
 }
 
-/* ১. পেজ লেআউট ফিক্স যাতে কম কন্টেন্ট থাকলেও বার নিচে থাকে */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding-bottom: 95px !important; /* নেভিগেশন বারের নিচে কন্টেন্ট যেন ঢাকা না পড়ে */
-    box-sizing: border-box;
-}
-
-/* আপনার পেজের মূল কন্টেইনার বা শিট */
+/* Main content */
 .curved-main-sheet,
 .main-wrapper {
-    flex: 1;
+    flex: 1 0 auto;
+    min-height: 0;
 }
 
-/* ২. কার্ভড বটম নেভিগেশন বার - একদম নিচে ফিক্সড রাখার জন্য */
+/* ===== BOTTOM NAVIGATION ===== */
 .custom-bottom-nav,
 .curved-bottom-nav {
     position: fixed !important;
     bottom: 0 !important;
     left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
     height: 62px !important;
     z-index: 99999 !important;
+
     display: flex !important;
     justify-content: center !important;
     align-items: flex-end !important;
+
     background: transparent !important;
     pointer-events: none !important;
+    overflow: visible !important;
 }
 
-/* SVG কার্ভ ব্যাকগ্রাউন্ড */
+/* SVG BACKGROUND */
 .bottom-nav-svg,
 .nav-svg-bg {
     position: absolute !important;
@@ -1067,43 +1059,70 @@ body {
     left: 0 !important;
     width: 100% !important;
     height: 62px !important;
+
     display: block !important;
     fill: #020624 !important;
-    filter: drop-shadow(0 -4px 10px rgba(0, 0, 0, 0.25));
+
+    filter: drop-shadow(
+        0 -4px 10px rgba(0, 0, 0, 0.25)
+    );
+
     pointer-events: auto !important;
 }
 
-/* ৩. মাঝখানের গোল লোগো বা সার্কেল */
+/* SVG PATH */
+.bottom-nav-svg path,
+.nav-svg-bg path {
+    fill: #020624 !important;
+}
+
+/* ===== CENTER LOGO ===== */
 .bottom-nav-logo-circle,
 .nav-center-logo-btn {
     position: absolute !important;
+
     top: -24px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+
     width: 56px !important;
     height: 56px !important;
-    background-color: #ffffff !important;
+    box-sizing: border-box !important;
+
+    background: #ffffff !important;
     border: 3px solid #020624 !important;
     border-radius: 50% !important;
+
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+
     box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3) !important;
+
     cursor: pointer !important;
     pointer-events: auto !important;
+
     z-index: 100000 !important;
     overflow: hidden !important;
     padding: 2px !important;
 }
 
-/* লোগো ইমেজ সাইজ ও ফিট */
+/* LOGO IMAGE */
 .bottom-nav-logo-circle img,
 .nav-center-logo-btn img {
+    display: block !important;
     width: 100% !important;
     height: 100% !important;
     border-radius: 50% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
 }
+
+/* Prevent unwanted background artifacts */
+.custom-bottom-nav::before,
+.custom-bottom-nav::after {
+    content: none !important;
+}
+
 
 
 
