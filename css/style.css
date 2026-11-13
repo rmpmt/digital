@@ -1000,96 +1000,82 @@ html, body {
 }
 
 
-/* ১. পেজ লেআউট ফিক্স (অল্প বা বেশি ডকুমেন্ট যাই থাকুক, বার নিচে আটকে থাকবে) */
-html, body {
+
+
+/* ১. বডি এবং এইচটিএমএল ফিক্স যাতে পেজ ছোট হলেও বার নিচে থাকে */
+html {
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
-    padding-bottom: 95px !important; /* নেভিগেশন বারের নিচে কন্টেন্ট ঢাকা পড়া রোধ করতে */
+    margin: 0;
+    padding-bottom: 95px !important; /* নেভিগেশন বারের নিচে কন্টেন্ট যেন ঢাকা না পড়ে */
+    position: relative;
+    box-sizing: border-box;
 }
 
-/* যদি পেজে মূল কন্টেইনার ক্লাস থাকে, সেটি দিয়ে ফ্লেক্স গ্রো নিশ্চিত করুন */
-.curved-main-sheet {
-    flex: 1;
-}
-
-/* ২. কার্ভড বটম নেভিগেশন বার মেইন কন্টেইনার */
+/* ২. কার্ভড বটম নেভিগেশন বার - একদম নিচে ফিক্সড রাখার জন্য */
 .custom-bottom-nav,
 .curved-bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 62px;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background: transparent;
-    pointer-events: none; /* যাতে বারের ফাঁকা জায়গা দিয়ে পেজে ক্লিক করা যায় */
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 62px !important;
+    z-index: 99999 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    background: transparent !important;
+    pointer-events: none !important;
 }
 
 /* SVG কার্ভ ব্যাকগ্রাউন্ড */
 .bottom-nav-svg,
 .nav-svg-bg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 62px;
-    display: block;
-    fill: #020624; /* হেডারের ডার্ক নেভি ব্লু কালার */
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 62px !important;
+    display: block !important;
+    fill: #020624 !important;
     filter: drop-shadow(0 -4px 10px rgba(0, 0, 0, 0.25));
-    pointer-events: auto;
+    pointer-events: auto !important;
 }
 
-/* ৩. মাঝখানের গোল ফ্লোটিং লোগো বাটন / সার্কেল */
+/* ৩. মাঝখানের গোল লোগো বা সার্কেল */
 .bottom-nav-logo-circle,
 .nav-center-logo-btn {
-    position: absolute;
-    top: -24px; /* গর্তের সাথে সামঞ্জস্য রেখে উপরে ভাসমান রাখা */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 56px;
-    height: 56px;
-    background-color: #ffffff;
-    border: 3px solid #020624;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 10000;
-    transition: transform 0.2s ease;
-    overflow: hidden;
-    padding: 2px;
-}
-
-.nav-center-logo-btn:active {
-    transform: translateX(-50%) scale(0.92);
+    position: absolute !important;
+    top: -24px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 56px !important;
+    height: 56px !important;
+    background-color: #ffffff !important;
+    border: 3px solid #020624 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3) !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 100000 !important;
+    overflow: hidden !important;
+    padding: 2px !important;
 }
 
 /* লোগো ইমেজ সাইজ ও ফিট */
 .bottom-nav-logo-circle img,
 .nav-center-logo-btn img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
 }
-
-
-
-
-
 
 
 
