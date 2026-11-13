@@ -1002,6 +1002,11 @@ html, body {
 
 
 
+
+
+
+
+
 /* ১. পেজ লেআউট ফিক্স যাতে কম কন্টেন্ট থাকলেও বার নিচে থাকে */
 html, body {
     height: 100%;
@@ -1017,9 +1022,24 @@ body {
     box-sizing: border-box;
 }
 
-/* আপনার পেজের মূল কন্টেন্ট বা কার্ডগুলো যে মেইন ডিভ বা কন্টেইনারের ভেতরে আছে, সেটিতে এই ক্লাসটি যুক্ত করে দেবেন */
-.main-wrapper, 
-.curved-main-sheet {
+/* ১. পেজ লেআউট ফিক্স যাতে কম কন্টেন্ট থাকলেও বার নিচে থাকে */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 95px !important; /* নেভিগেশন বারের নিচে কন্টেন্ট যেন ঢাকা না পড়ে */
+    box-sizing: border-box;
+}
+
+/* আপনার পেজের মূল কন্টেইনার বা শিট */
+.curved-main-sheet,
+.main-wrapper {
     flex: 1;
 }
 
@@ -1084,6 +1104,7 @@ body {
     border-radius: 50% !important;
     object-fit: cover !important;
 }
+
 
 
 
