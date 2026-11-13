@@ -1002,17 +1002,25 @@ html, body {
 
 
 
-/* ১. বডি এবং এইচটিএমএল ফিক্স যাতে পেজ ছোট হলেও বার নিচে থাকে */
-html {
+/* ১. পেজ লেআউট ফিক্স যাতে কম কন্টেন্ট থাকলেও বার নিচে থাকে */
+html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    margin: 0;
     padding-bottom: 95px !important; /* নেভিগেশন বারের নিচে কন্টেন্ট যেন ঢাকা না পড়ে */
-    position: relative;
     box-sizing: border-box;
+}
+
+/* আপনার পেজের মূল কন্টেন্ট বা কার্ডগুলো যে মেইন ডিভ বা কন্টেইনারের ভেতরে আছে, সেটিতে এই ক্লাসটি যুক্ত করে দেবেন */
+.main-wrapper, 
+.curved-main-sheet {
+    flex: 1;
 }
 
 /* ২. কার্ভড বটম নেভিগেশন বার - একদম নিচে ফিক্সড রাখার জন্য */
@@ -1049,7 +1057,7 @@ body {
 .bottom-nav-logo-circle,
 .nav-center-logo-btn {
     position: absolute !important;
-    top: -25px !important;
+    top: -24px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 56px !important;
@@ -1076,6 +1084,7 @@ body {
     border-radius: 50% !important;
     object-fit: cover !important;
 }
+
 
 
 
