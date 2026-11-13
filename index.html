@@ -74,7 +74,7 @@
             z-index: 1000;
             background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
             color: #ffffff;
-            padding-bottom: 22px; /* নিচের বাঁকানো শিটের জন্য বাড়তি জায়গা */
+            padding-bottom: 20px;
             box-sizing: border-box;
         }
 
@@ -295,17 +295,17 @@
             border-radius: 4px;
         }
 
-        /* সাদা বাঁকানো মূল শিট (শুধুমাত্র এই অংশটি স্ক্রল হবে) */
+        /* মূল শিট যা ফিক্সড হেডারের নিচ দিয়ে স্ক্রল হবে */
         .curved-main-sheet {
             background-color: var(--bg-color, #f8fafc);
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
             min-height: 100vh;
-            padding: 18px 14px 90px 14px; /* নিচে নেভিগেশন বারের জন্য ৯০px জায়গা */
-            margin-top: 225px; /* JavaScript দ্বারা অটো অ্যাডজাস্ট হবে */
+            padding: 18px 14px 100px 14px; /* নিচে নেভিগেশন বারের জন্য পর্যাপ্ত জায়গা রাখা হয়েছে */
+            margin-top: 220px; /* জাভাস্ক্রিপ্ট দ্বারা হেডারের উচ্চতা অনুযায়ী স্বয়ংক্রিয়ভাবে পরিবর্তিত হবে */
             position: relative;
-            z-index: 1010; /* ফিক্সড হেডারের বাঁকানো কর্নারের ওপর দিয়ে স্ক্রল হবে */
-            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
             box-sizing: border-box;
         }
 
@@ -443,7 +443,7 @@
             background-color: #ffffff !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            padding: 0 0 90px 0 !important;
+            padding: 0 0 100px 0 !important;
             margin-top: 0 !important;
             box-shadow: none !important;
             min-height: 100vh !important;
@@ -690,7 +690,7 @@
             cursor: pointer !important;
         }
 
-        /* নিচের নেভিগেশন বার ফিক্সড রাখার স্টাইল */
+        /* একদম ছবির মতো বাঁকানো গর্ত ও মাঝখানের লোগোসহ নিচের নেভিগেশন বার (ফিক্সড) */
         .custom-bottom-nav {
             position: fixed;
             bottom: 0;
@@ -833,7 +833,7 @@
         </div>
     </div>
 
-    <!-- সাদা বাঁকানো মূল শিট -->
+    <!-- সাদা বাঁকানো মূল শিট (যা হেডারের নিচ দিয়ে স্লাইডিং বা স্ক্রল হবে) -->
     <div class="curved-main-sheet" id="mainCurvedSheet">
         
         <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
@@ -1145,8 +1145,8 @@
 <script type="module" src="js/custom-settings.js"></script>
 
 <script>
-    // ফিক্সড হেডারের উচ্চতা অনুযায়ী নিচের শিট অ্যাডজাস্ট করার ফাংশন
-    function adjustFixedLayoutSpacing() {
+    // হেডারের উচ্চতা মেপে মূল শিটের মার্জিন সেট করা যাতে কোনো কনটেন্ট হেডারের নিচে ঢাকা না পড়ে
+    function adjustHeaderSpacing() {
         const header = document.getElementById('fixedTopHeader');
         const sheet = document.getElementById('mainCurvedSheet');
         if (!header || !sheet) return;
@@ -1157,12 +1157,11 @@
         }
 
         const headerHeight = header.offsetHeight;
-        // হেডারের নিচের বাঁকানো অংশের সাথে সুন্দরভাবে মিলিয়ে দেওয়ার জন্য ১৮px কমানো হয়েছে
-        sheet.style.marginTop = Math.max(0, headerHeight - 18) + 'px';
+        sheet.style.marginTop = Math.max(0, headerHeight - 15) + 'px';
     }
 
-    window.addEventListener('resize', adjustFixedLayoutSpacing);
-    window.addEventListener('load', adjustFixedLayoutSpacing);
+    window.addEventListener('resize', adjustHeaderSpacing);
+    window.addEventListener('load', adjustHeaderSpacing);
 
     // লাইভ ঘড়ি
     function updateLiveClock() {
@@ -1246,8 +1245,7 @@
                 }
             }
 
-            // হেডারের উচ্চতা পরিবর্তন হলেই শিটের পজিশন আপডেট করবে
-            adjustFixedLayoutSpacing();
+            adjustHeaderSpacing();
         }
 
         if (subInput && mainInput) {
@@ -1288,10 +1286,10 @@
                 attributeFilter: ['class']
             });
         }
-        // হেডারের ভেতরের যেকোনো পরিবর্তন (যেমন সার্চ বক্স শো/হাইড) পর্যবেক্ষণ করবে
+
         const fixedHeader = document.getElementById('fixedTopHeader');
         if (fixedHeader) {
-            const resizeObserver = new ResizeObserver(adjustFixedLayoutSpacing);
+            const resizeObserver = new ResizeObserver(adjustHeaderSpacing);
             resizeObserver.observe(fixedHeader);
         }
 
