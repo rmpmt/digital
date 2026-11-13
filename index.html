@@ -59,24 +59,26 @@
             padding-bottom: 0 !important;
             margin: 0 !important;
             padding: 0 !important;
-            padding-top: 175px !important; /* ফিক্সড হেডারের নিচে কন্টেন্ট যেন ঢাকা না পড়ে */
         }
         html {
             margin: 0 !important;
             padding: 0 !important;
         }
+
+        /* ফিক্সড বা স্থির হেডার র‍্যাপার */
         .modern-top-wrapper {
-            background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
-            color: #ffffff;
-            padding-bottom: 14px;
-            /* হেডার সম্পূর্ণ ফিক্সড রাখার জন্য */
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
+            background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
+            color: #ffffff;
+            padding-bottom: 14px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
         }
+
         .modern-header {
             display: flex;
             align-items: center;
@@ -301,7 +303,7 @@
             border-top-right-radius: 24px;
             min-height: calc(100vh - 200px);
             padding: 16px 14px 70px 14px;
-            margin-top: 0px;
+            margin-top: 195px !important;
             position: relative;
             z-index: 5;
             box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
@@ -428,7 +430,6 @@
             background-color: #020624 !important;
             margin: 0 !important;
             padding: 0 !important;
-            padding-top: 0 !important;
         }
         body.is-data-details-mode .modern-top-wrapper,
         body.is-data-details-mode #heroSlider,
@@ -474,7 +475,7 @@
             padding: 0 !important;
         }
 
-        /* ১. একদম একদম প্রোফাইল অংশ */
+        /* ১. একদম একদম ওপরের প্রোফাইল অংশ (সাদা অংশ বাদ দিয়ে ডার্ক ব্যাকগ্রাউন্ড ফিক্সড) */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
@@ -1192,7 +1193,7 @@
         }, 3500);
     })();
 
-    // Category details ও Data details page-এ ইমেজ স্লাইডার লুকানো এবং Home page-এ দেখানো
+    // Category details ও Data details page-এ ইমেজ স্লাইডার লুকানো এবং হোম পেজে দেখানো
     (function initSubPageHeaderSearch() {
         const categoryDetails = document.getElementById('categoryDetailsView');
         const dataDetails = document.getElementById('dataDetailsView');
