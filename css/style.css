@@ -1112,33 +1112,7 @@ body {
 
 
 
-        /* ফিক্সড বা স্থির হেডার র‍্যাপার */
-        .modern-top-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
-            color: #ffffff;
-            padding-bottom: 14px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            box-sizing: border-box;
-        }
-
-        /* ফিক্সড হেডারের নিচে কন্টেন্ট যেন ঢাকা না পড়ে তার জন্য মার্জিন */
-        .curved-main-sheet {
-            background-color: var(--bg-color, #f8fafc);
-            border-top-left-radius: 24px;
-            border-top-right-radius: 24px;
-            min-height: calc(100vh - 200px);
-            padding: 16px 14px 70px 14px;
-            margin-top: 195px !important; /* ফিক্সড হেডারের উচ্চতার সমান বা বেশি মার্জিন */
-            position: relative;
-            z-index: 5;
-            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-        }
+        
 
 
 
