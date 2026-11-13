@@ -1084,7 +1084,7 @@ html, body {
 /* মাঝের লোগো বা সার্কেল স্টাইল */
 .bottom-nav-logo-circle {
     position: absolute;
-    top: -18px; /* SVG-এর গর্তের সাথে ঠিকমতো বসানোর জন্য */
+    top: -24px; /* SVG-এর গর্তের সাথে ঠিকমতো বসানোর জন্য */
     left: 50%;
     transform: translateX(-50%);
     width: 52px;
