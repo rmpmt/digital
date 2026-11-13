@@ -1028,7 +1028,7 @@ body {
     bottom: 0 !important;
 
     width: 100% !important;
-    height: 62px !important;
+    height: 50px !important;
 
     margin: 0 !important;
     padding: 0 !important;
@@ -1046,19 +1046,19 @@ body {
     left: 0 !important;
     bottom: 0 !important;
     width: 100% !important;
-    height: 62px !important;
+    height: 50px !important;
     display: block !important;
 }
 
 /* LOGO */
 .bottom-nav-logo-circle {
     position: absolute !important;
-    top: -24px !important;
+    top: -22px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
 
-    width: 56px !important;
-    height: 56px !important;
+    width: 52px !important;
+    height: 52px !important;
 
     border: 3px solid #020624 !important;
     border-radius: 50% !important;
