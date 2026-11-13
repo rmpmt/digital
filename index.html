@@ -11,6 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Police Phonebook">
     <meta name="google" content="notranslate">
+    
 
     <title>RMP MT Contacts</title>
 
@@ -28,7 +29,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css?v=6">
 
@@ -39,17 +41,11 @@
         }
         body {
             top: 0px !important;
-            background-color: #020624 !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            font-family: 'Hind Siliguri', sans-serif;
-            overflow-x: hidden;
         }
-        html {
-            margin: 0 !important;
-            padding: 0 !important;
+        .goog-tooltip {
+            display: none !important;
         }
-        .goog-tooltip, .goog-tooltip:hover {
+        .goog-tooltip:hover {
             display: none !important;
         }
         .goog-text-highlight {
@@ -57,43 +53,45 @@
             box-shadow: none !important;
         }
 
-        /* =====================================================================
-           ১. ইউনিফাইড ডার্ক নেভি ব্লু টপ হেডার (সবগুলো পেজের জন্য)
-           ===================================================================== */
+        /* আধুনিক ডার্ক হেডার এবং গ্রিড স্টাইল */
+        body {
+            background-color: #020624 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
         .modern-top-wrapper {
             background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
             color: #ffffff;
-            padding-bottom: 18px;
-            position: relative;
-            z-index: 10;
+            padding-bottom: 14px;
         }
         .modern-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 16px 10px 16px;
+            padding: 14px 16px 8px 16px;
         }
         .header-left-group {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         .modern-menu-btn, .modern-icon-btn {
             background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             color: #ffffff;
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 16px;
-            transition: background 0.2s;
-        }
-        .modern-menu-btn:active, .modern-icon-btn:active {
-            background: rgba(255, 255, 255, 0.25);
+            font-size: 15px;
         }
         .modern-title-area .app-title {
             font-size: 19px;
@@ -103,7 +101,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            line-height: 1.2;
         }
         .verified-badge {
             background-color: #0d6efd;
@@ -126,7 +123,7 @@
         .header-right-group {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         .header-logo-img {
             width: 42px;
@@ -134,36 +131,14 @@
             border-radius: 50%;
             border: 2px solid #f59e0b;
             object-fit: cover;
-            background: #ffffff;
-        }
-
-        /* সাব-পেজের জন্য হেডার টাইটেল ব্যাজ (যখন ক্যাটাগরি বা ডিটেইলস পেজে থাকবে) */
-        .subpage-header-banner {
-            display: none;
-            padding: 4px 16px 8px 16px;
-            text-align: center;
-        }
-        .subpage-header-banner.is-visible {
-            display: block;
-        }
-        .subpage-header-banner h2 {
-            margin: 0;
-            font-size: 17px;
-            font-weight: 700;
-            color: #f8fafc;
-            background: rgba(255, 255, 255, 0.08);
-            display: inline-block;
-            padding: 5px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-left: 4px;
         }
 
         /* ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে সার্চ ফিল্ড */
         .header-search-inline {
             display: none;
-            padding: 4px 16px 8px;
-            width: 85%;
-            max-width: 420px;
+            padding: 2px 16px 10px;
+            width: 70%;
             box-sizing: border-box;
             margin: 0 auto;
         }
@@ -178,16 +153,16 @@
             justify-content: center;
             gap: 9px;
             box-sizing: border-box;
-            padding: 0 14px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0 13px;
+            border: 1px solid rgba(255,255,255,0.25);
             border-radius: 40px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255,255,255,0.11);
             margin: 0 auto;
         }
         .subpage-search-icon {
             flex: 0 0 auto;
             color: #cbd5e1;
-            font-size: 20px;
+            font-size: 23px;
             line-height: 1;
         }
         .header-search-inline input[type="search"] {
@@ -209,15 +184,15 @@
         }
         .subpage-search-clear {
             display: none;
-            flex: 0 0 24px;
-            width: 24px;
-            height: 24px;
+            flex: 0 0 25px;
+            width: 25px;
+            height: 25px;
             padding: 0;
             border: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.16);
             color: #fff;
-            font-size: 18px;
+            font-size: 20px;
             line-height: 22px;
             cursor: pointer;
         }
@@ -228,7 +203,7 @@
         /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) */
         .hero-slider-container {
             position: relative;
-            margin: 4px 16px 4px;
+            margin: 4px 16px 0;
             border-radius: 16px;
             overflow: hidden;
             height: 145px;
@@ -311,31 +286,21 @@
             border-radius: 4px;
         }
 
-        /* =====================================================================
-           ২. সাদা বাঁকানো মূল শিট (সবগুলো পেজের জন্য অভিন্ন কার্ড কন্টেইনার)
-           ===================================================================== */
+        /* সাদা বাঁকানো মূল শিট */
         .curved-main-sheet {
-            background-color: var(--bg-color, #f1f5f9);
-            border-top-left-radius: 26px;
-            border-top-right-radius: 26px;
-            border-bottom-left-radius: 26px;
-            border-bottom-right-radius: 26px;
-            min-height: calc(100vh - 220px);
-            padding: 16px 14px 55px 14px;
-            margin-top: -12px;
-            margin-bottom: 28px;
+            background-color: var(--bg-color, #f8fafc);
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            min-height: calc(100vh - 200px);
+            padding: 16px 14px 40px 14px;
+            margin-top: -10px;
             position: relative;
             z-index: 5;
-            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
             overflow: hidden;
         }
-        body.dark-mode .curved-main-sheet {
-            background-color: #0b1120 !important;
-        }
 
-        /* =====================================================================
-           ৩. হোম পেজ: ৩-কলাম গ্রিড ক্যাটাগরি লিস্ট (স্ক্রিনশটের হুবহু ডিজাইন)
-           ===================================================================== */
+        /* ৩-কলাম গ্রিড ক্যাটাগরি লিস্ট */
         #categoryList.category-list {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
@@ -344,8 +309,8 @@
         #categoryList .category-card {
             background: #3f3351 !important;
             border: none !important;
-            border-radius: 16px !important;
-            height: 108px !important;
+            border-radius: 14px !important;
+            height: 105px !important;
             padding: 10px 6px !important;
             margin-bottom: 0 !important;
             display: flex !important;
@@ -354,14 +319,9 @@
             justify-content: center !important;
             text-align: center !important;
             position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-            transition: transform 0.15s ease;
-        }
-        #categoryList .category-card:active {
-            transform: scale(0.96);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
         }
         #categoryList .cat-click {
-            display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
             align-items: center !important;
@@ -369,21 +329,18 @@
             height: 100%;
         }
         #categoryList .cat-card-img {
-            width: 40px !important;
-            height: 40px !important;
+            width: 38px !important;
+            height: 38px !important;
             margin: 0 0 8px 0 !important;
             border: none !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
-            background: #ef4444;
-            padding: 3px;
+            border-radius: 8px !important;
+            object-fit: contain !important;
         }
         #categoryList .category-card h3 {
             color: #ffffff !important;
             font-size: 12px !important;
             font-weight: 600 !important;
             line-height: 1.25 !important;
-            margin: 0 !important;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -398,9 +355,7 @@
             transform: scale(0.75);
         }
 
-        /* =====================================================================
-           ৪. দ্বিতীয় পেজ: ক্যাটাগরি / কন্টাক্ট লিস্ট পেজ (#categoryDetailsView)
-           ===================================================================== */
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল */
         #categoryDetailsView {
             background-color: transparent !important;
             padding: 0;
@@ -409,63 +364,29 @@
         #categoryDetailsView .dashboard-header {
             display: none !important;
         }
-        /* হেডার সেকশন টাইটেল (যেমন: কর্মকর্তা/কর্মচারী) */
-        #categoryDetailsView .header-section-title,
-        #categoryDetailsView .group-header {
-            background: #3f3351 !important;
-            color: #ffffff !important;
-            padding: 8px 14px !important;
-            border-radius: 12px !important;
-            font-size: 14px !important;
-            font-weight: 700 !important;
-            margin: 12px 0 10px 0 !important;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-        }
-        /* সাব-ক্যাটাগরি কার্ডগুলোকেও হোম পেজের থিমের সাথে মিল রাখা */
-        #categoryDetailsView .sub-category-card {
-            background: #3f3351 !important;
-            color: #ffffff !important;
-            border-radius: 16px !important;
-            padding: 12px 14px !important;
-            margin-bottom: 10px !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
-            border: none !important;
-        }
-        #categoryDetailsView .sub-category-card h3 {
-            color: #ffffff !important;
-        }
-        /* কন্টাক্ট লিস্ট আইটেম কার্ড */
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
-            border-left: 4px solid #3f3351 !important;
-            border-radius: 18px !important;
-            padding: 12px 14px !important;
-            margin-bottom: 10px !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+            border-radius: 20px !important;
+            padding: 14px 16px !important;
+            margin-bottom: 12px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
             display: flex !important;
             align-items: center !important;
             position: relative;
             cursor: pointer;
-            transition: transform 0.15s ease;
-        }
-        #categoryDetailsView .data-card-item:active {
-            transform: scale(0.98);
-        }
-        body.dark-mode #categoryDetailsView .data-card-item {
-            background-color: #1e293b !important;
-            border-color: #334155 !important;
-            border-left-color: #6366f1 !important;
         }
         #categoryDetailsView .data-card-avatar {
-            width: 58px !important;
-            height: 58px !important;
-            min-width: 58px !important;
+            width: 65px !important;
+            height: 65px !important;
+            min-width: 65px !important;
+            max-width: 65px !important;
+            max-height: 65px !important;
             border-radius: 50% !important;
             background: #e2e8f0;
-            margin-right: 12px !important;
+            margin-right: 14px !important;
             object-fit: cover !important;
-            border: 2px solid #3f3351;
+            border: 2px solid #cbd5e1;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -481,32 +402,59 @@
             overflow: hidden;
         }
         #categoryDetailsView .data-card-name {
-            font-size: 15.5px !important;
+            font-size: 16px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
             margin-bottom: 2px;
         }
-        body.dark-mode #categoryDetailsView .data-card-name {
-            color: #f8fafc !important;
-        }
         #categoryDetailsView .data-card-detail {
             font-size: 12.5px !important;
-            color: #475569 !important;
+            color: #64748b !important;
             line-height: 1.4;
-        }
-        body.dark-mode #categoryDetailsView .data-card-detail {
-            color: #94a3b8 !important;
         }
 
         /* =====================================================================
-           ৫. তৃতীয় পেজ: কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — সব পেজের সাথে মিল রেখে
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — সুনির্দিষ্ট নতুন ডিজাইন
            ===================================================================== */
+        body.is-data-details-mode {
+            background-color: #020624 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        body.is-data-details-mode .modern-top-wrapper,
+        body.is-data-details-mode #heroSlider,
+        body.is-data-details-mode #searchBox,
+        body.is-data-details-mode #subPageHeaderSearchWrapper,
+        body.is-data-details-mode #slidingNoticeContainer,
+        body.is-data-details-mode .modern-header {
+            display: none !important;
+        }
+        
+        body.is-data-details-mode .curved-main-sheet {
+            background-color: #ffffff !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            padding: 0 0 40px 0 !important;
+            margin-top: 0 !important;
+            box-shadow: none !important;
+            min-height: 100vh !important;
+        }
+        body.dark-mode.is-data-details-mode .curved-main-sheet {
+            background-color: #020624 !important;
+        }
+        body.is-data-details-mode .container {
+            padding: 0 !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+        }
+
         #dataDetailsView .details-container-card {
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
             padding: 0 !important;
             margin: 0 !important;
+            border-radius: 0 !important;
         }
 
         #dataPageContent {
@@ -517,26 +465,26 @@
             padding: 0 !important;
         }
 
-        /* প্রোফাইল কার্ড অংশ (ডার্ক থিম কার্ড যা পুরো অ্যাপের সাথে মানানসই) */
+        /* ১. একদম ওপরের প্রোফাইল অংশ (সাদা অংশ বাদ দিয়ে ডার্ক ব্যাকগ্রাউন্ড ফিক্সড) */
         #dataPageContent > div:first-child {
-            background: linear-gradient(135deg, #020624 0%, #3f3351 100%) !important;
+            background: #020624 !important;
             color: #ffffff !important;
-            padding: 20px 14px 22px 14px !important;
-            border-radius: 20px !important;
+            padding: 24px 16px 26px 16px !important;
+            border-radius: 0 0 24px 24px !important;
             text-align: center !important;
-            box-shadow: 0 6px 18px rgba(2, 6, 36, 0.25) !important;
-            margin: 0 0 4px 0 !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+            margin: 0 !important;
             width: 100% !important;
             box-sizing: border-box !important;
         }
         #dataPageContent img {
-            width: 100px !important;
-            height: 100px !important;
+            width: 110px !important;
+            height: 110px !important;
             border-radius: 50% !important;
             object-fit: cover !important;
-            background: #1e293b !important;
-            border: 3px solid #f59e0b !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+            background: #111b2b !important;
+            border: 3px solid rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
             margin: 0 auto 10px auto !important;
             display: block !important;
         }
@@ -548,26 +496,25 @@
             color: #ffffff !important;
             font-size: 18px !important;
             font-weight: 700 !important;
-            margin: 0 auto 4px auto !important;
+            margin: 0 auto 6px auto !important;
             text-align: center !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            padding: 6px 14px !important;
-            border-radius: 12px !important;
-            display: inline-block !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            background: #060e2b !important;
+            padding: 7px 12px !important;
+            border-radius: 10px !important;
+            max-width: 90% !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
         }
         #dataPageContent .detail-designation,
         #dataPageContent .designation,
         #dataPageContent .subtitle {
-            color: #e2e8f0 !important;
+            color: #cbd5e1 !important;
             font-size: 13.5px !important;
             font-weight: 500 !important;
-            margin: 4px 0 0 0 !important;
+            margin: 0 !important;
             text-align: center !important;
-            display: block !important;
         }
 
-        /* ইনফো কার্ডগুলোর ডিজাইন */
+        /* ইনফো কার্ডগুলোর পারফেক্ট মার্জিন ও প্যাডিং */
         #dataPageContent .info-row,
         #dataPageContent .detail-row,
         #dataPageContent .data-field,
@@ -577,15 +524,15 @@
         #dataPageContent .details-info-box {
             background: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
-            border-left: 4px solid #3f3351 !important;
             border-radius: 14px !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
-            padding: 11px 14px !important;
-            margin: 0 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03) !important;
+            padding: 12px 16px !important;
+            margin: 0 16px 8px 16px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: flex-start !important;
             text-align: left !important;
+            position: relative !important;
         }
         body.dark-mode #dataPageContent .info-row,
         body.dark-mode #dataPageContent .detail-row,
@@ -594,9 +541,8 @@
         body.dark-mode #dataPageContent .info-card,
         body.dark-mode #dataPageContent .contact-detail-item,
         body.dark-mode #dataPageContent .details-info-box {
-            background: #1e293b !important;
+            background: #0f172a !important;
             border-color: #334155 !important;
-            border-left-color: #6366f1 !important;
         }
 
         /* লেবেল ও মান */
@@ -630,7 +576,7 @@
         #dataPageContent .detail-box > div,
         #dataPageContent .detail-box > p,
         #dataPageContent .info-value {
-            font-size: 15px !important;
+            font-size: 15.5px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
             margin: 0 !important;
@@ -644,7 +590,7 @@
             color: #f1f5f9 !important;
         }
 
-        /* মোবাইল, টেলিফোন ও ইমেইল বাটন — ৩ কলাম গ্রিড */
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন — ৩ কলাম গ্রিড আকারে এক সারিতে সুবিন্যস্ত */
         #dataPageContent .action-buttons,
         #dataPageContent .detail-actions,
         #dataPageContent .btn-group,
@@ -653,9 +599,9 @@
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 8px !important;
-            margin: 6px 0 !important;
+            margin: 10px 16px !important;
             padding: 0 !important;
-            width: 100% !important;
+            width: auto !important;
         }
         #dataPageContent .action-buttons a,
         #dataPageContent .detail-actions a,
@@ -686,21 +632,26 @@
             cursor: pointer !important;
             box-sizing: border-box !important;
             white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
         }
+        /* মোবাইল বাটন (নীল) */
         #dataPageContent .quick-action-grid > :nth-child(1),
         #dataPageContent .quick-actions > :nth-child(1) {
             background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
         }
+        /* টেলিফোন বাটন (স্লেট) */
         #dataPageContent .quick-action-grid > :nth-child(2),
         #dataPageContent .quick-actions > :nth-child(2) {
             background: linear-gradient(135deg, #4b5563, #374151) !important;
         }
+        /* ইমেইল বাটন (লাল) */
         #dataPageContent .quick-action-grid > :nth-child(3),
         #dataPageContent .quick-actions > :nth-child(3) {
             background: linear-gradient(135deg, #ea4335, #c5221f) !important;
         }
 
-        /* শেয়ার কন্টাক্ট বাটন */
+        /* ৩. শেয়ার কন্টাক্ট — নিচে আলাদা পূর্ণ প্রস্থের (Full-width) স্বতন্ত্র ঘর ও আইকন */
         #dataPageContent .share-contact-card,
         #dataPageContent a[href*="share"],
         #dataPageContent button[id*="share"],
@@ -708,57 +659,59 @@
         #dataPageContent #btnShareContact,
         #dataPageContent .btn-share-round {
             grid-column: 1 / -1 !important;
-            background: linear-gradient(135deg, #3f3351 0%, #020624 100%) !important;
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
             color: #ffffff !important;
             border-radius: 14px !important;
-            height: 46px !important;
+            height: 48px !important;
             padding: 0 16px !important;
-            margin: 4px 0 6px 0 !important;
+            margin: 4px 16px 10px 16px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 8px !important;
-            font-size: 14px !important;
+            font-size: 14.5px !important;
             font-weight: 700 !important;
-            box-shadow: 0 4px 12px rgba(2, 6, 36, 0.25) !important;
+            box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
             border: none !important;
             text-decoration: none !important;
-            width: 100% !important;
+            position: static !important;
+            transform: none !important;
+            width: calc(100% - 32px) !important;
             box-sizing: border-box !important;
             cursor: pointer !important;
         }
 
-        /* =====================================================================
-           ৬. নিচের কার্ভড বটম লোগো ব্যাজ (স্ক্রিনশটের নিচের অংশের মতো)
-           ===================================================================== */
-        .bottom-emblem-footer {
-            position: relative;
+        /* যুক্ত করা নতুন নিচের নেভিগেশন বার স্টাইল */
+        .bottom-nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 52px;
             background: #020624;
-            height: 36px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
+            justify-content: space-around;
             align-items: center;
-            justify-content: center;
-            margin-top: -28px;
-            z-index: 6;
+            z-index: 9999;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
         }
-        .bottom-emblem-circle {
-            width: 56px;
-            height: 56px;
-            background: #ffffff;
-            border-radius: 50%;
-            border: 4px solid #020624;
+        .bottom-nav-item {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: -28px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
             cursor: pointer;
+            flex: 1;
+            height: 100%;
+            text-decoration: none;
         }
-        .bottom-emblem-circle img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
+        .bottom-nav-item:hover, .bottom-nav-item:active {
+            color: #ffffff;
         }
     </style>
 </head>
@@ -792,17 +745,17 @@
 
 <div id="appContainer">
 
-    <!-- ১. ইউনিফাইড ডার্ক হেডার (সব পেজেই থাকবে) -->
+    <!-- ডার্ক হেডার এবং স্লাইডার -->
     <div class="modern-top-wrapper">
         <header class="modern-header">
             <div class="header-left-group">
-                <button id="navToggleBtn" class="modern-menu-btn" type="button" title="মেনু / পেছনে যান">
+                <button id="navToggleBtn" class="modern-menu-btn" type="button" title="মেনু">
                     <span id="menuIcon">☰</span>
                     <span id="backIcon" class="hidden">←</span>
                 </button>
                 <div class="modern-title-area">
                     <div class="app-title" id="appTitle">
-                        <span class="app-title-text">Police Phonebook</span>
+                        <span class="app-title-text">RMP MT Contacts</span>
                         <span id="verifiedBadge" class="verified-badge hidden" title="Verified Device">✔</span>
                     </div>
                     <div id="liveDateTime" class="live-clock">লোড হচ্ছে...</div>
@@ -812,14 +765,9 @@
             <div class="header-right-group">
                 <button id="adminLoginBtn" class="primary-btn active-btn btn-admin-small hidden" type="button">🔑</button>
                 <button id="themeBtn" class="modern-icon-btn" title="নাইট/ডে মোড" type="button">🌙</button>
-                <img src="icons/icon-192.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1022/1022382.png'" alt="Logo" class="header-logo-img">
+                <img src="icons/icon-192.png" alt="Logo" class="header-logo-img">
             </div>
         </header>
-
-        <!-- সাব-পেজ টাইটেল ব্যাজ (ক্যাটাগরি বা কন্টাক্ট ডিটেইলস পেজে থাকলে দেখাবে) -->
-        <div id="subPageHeaderBanner" class="subpage-header-banner">
-            <h2 id="subPageBannerTitle">বিস্তারিত তথ্য</h2>
-        </div>
 
         <!-- হোম পেজের সার্চ বক্স -->
         <div id="searchBox" class="header-search-box hidden" style="margin: 4px 16px 8px;">
@@ -831,7 +779,7 @@
             <div class="subpage-search-field">
                 <span class="subpage-search-icon" aria-hidden="true">⌕</span>
                 <input type="search" id="subPageSearchInput"
-                       placeholder="নাম, পদবী বা নম্বর খুঁজুন..." autocomplete="off"
+                       placeholder="Search contacts..." autocomplete="off"
                        aria-label="Search contacts">
                 <button type="button" id="clearSubPageSearch"
                         class="subpage-search-clear" aria-label="Clear search"
@@ -867,14 +815,13 @@
         </div>
     </div>
 
-    <!-- ২. সাদা বাঁকানো মূল শিট (সবগুলো পেজের মূল কন্টেন্ট এরিয়া) -->
+    <!-- সাদা বাঁকানো মূল শিট -->
     <div class="curved-main-sheet">
         
         <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
-        <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 10px; border-radius: 10px;"></div>
+        <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 4px; border-radius: 8px;"></div>
 
         <main class="container">
-            <!-- পেজ ১: হোম ড্যাশবোর্ড ভিউ -->
             <div id="mainDashboardView">
                 <section class="dashboard-header">
                     <div id="adminActionContainer" class="admin-only hidden" style="display: flex; gap: 8px; width: 100%; margin-bottom: 10px;">
@@ -898,7 +845,7 @@
                 </section>
             </div>
 
-            <!-- পেজ ২: ক্যাটাগরি ডিটেইলস পেজ -->
+            <!-- ক্যাটাগরি ডিটেইলস পেজ -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
@@ -917,7 +864,7 @@
                 <div id="detailsContent"></div>
             </div>
 
-            <!-- পেজ ৩: কন্টাক্ট ডিটেইলস পেজ -->
+            <!-- কন্টাক্ট ডিটেইলস পেজ -->
             <div id="dataDetailsView" class="hidden">
                 <div class="details-container-card">
                     <div id="dataPageContent"></div>
@@ -926,14 +873,7 @@
         </main>
     </div>
 
-    <!-- ৩. নিচের কার্ভড লোগো ফুটার (স্ক্রিনশটের মতো) -->
-    <div class="bottom-emblem-footer">
-        <div class="bottom-emblem-circle" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="উপরে যান">
-            <img src="icons/icon-192.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1022/1022382.png'" alt="Emblem">
-        </div>
-    </div>
-
-    <!-- Modals (অপরিবর্তিত) -->
+    <!-- Modals -->
     <div id="loginModal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">
@@ -1085,7 +1025,7 @@
                 <select id="dataHeaderSelect"></select>
             </div>
             <div class="modal-actions">
-                <button class="secondary-btn" data-close="dataModal" type="button">বাতিল</button>
+                <button class="secondary-btn" data-close="modal" type="button">বাতিল</button>
                 <button id="saveDataBtn" class="primary-btn" type="button">সেভ করুন</button>
             </div>
         </div>
@@ -1141,6 +1081,13 @@
     <div id="toast" class="toast"></div>
 
 </div>
+
+<!-- যুক্ত করা একদম নিচের নেভিগেশন বার -->
+<nav class="bottom-nav-bar">
+    <button class="bottom-nav-item" type="button" onclick="history.back()" title="Back">‹</button>
+    <button class="bottom-nav-item" type="button" onclick="window.location.reload()" title="Home">○</button>
+    <button class="bottom-nav-item" type="button" onclick="window.close()" title="Menu">≡</button>
+</nav>
 
 <!-- জাভাস্ক্রিপ্ট ফাইলস এবং স্লাইডার/ঘড়ি স্ক্রিপ্ট -->
 <script type="module" src="js/app.js"></script>
@@ -1217,15 +1164,12 @@
         }, 3500);
     })();
 
-    // সবগুলো পেজের হেডার ও লেআউট সিঙ্ক করা (Home, Category Details, এবং Contact Details)
-    (function initUnifiedPageLayout() {
+    // Category details ও Data details page-এ ইমেজ স্লাইডার লুকানো এবং Home page-এ দেখানো
+    (function initSubPageHeaderSearch() {
         const categoryDetails = document.getElementById('categoryDetailsView');
         const dataDetails = document.getElementById('dataDetailsView');
         const heroSlider = document.getElementById('heroSlider');
         const subPageSearchWrapper = document.getElementById('subPageHeaderSearchWrapper');
-        const subPageBanner = document.getElementById('subPageHeaderBanner');
-        const subPageBannerTitle = document.getElementById('subPageBannerTitle');
-        const detailsTitle = document.getElementById('detailsTitle');
         const homeSearchBox = document.getElementById('searchBox');
         const subInput = document.getElementById('subPageSearchInput');
         const mainInput = document.getElementById('searchInput');
@@ -1234,28 +1178,16 @@
 
         if (!categoryDetails || !heroSlider || !subPageSearchWrapper) return;
 
-        function syncLayoutVisibility() {
+        function syncSearchVisibility() {
             const isSubPage = !categoryDetails.classList.contains('hidden');
             const isDataPage = dataDetails && !dataDetails.classList.contains('hidden');
 
-            // হোম পেজ ছাড়া অন্য পেজে স্লাইডার লুকানো থাকবে, কিন্তু ডার্ক নেভি হেডার ও সাদা বাঁকানো শিট সব পেজেই থাকবে
+            document.body.classList.toggle('is-data-details-mode', isDataPage);
+
+            // হোম পেজ ছাড়া Category বা Data Details কোনো পেজেই ইমেজ স্লাইডার থাকবে না
             heroSlider.style.display = (isSubPage || isDataPage) ? 'none' : '';
             if (homeSearchBox) homeSearchBox.style.display = (isSubPage || isDataPage) ? 'none' : '';
 
-            // সাব-পেজ টাইটেল ব্যাজ আপডেট
-            if (subPageBanner && subPageBannerTitle) {
-                if (isDataPage) {
-                    subPageBanner.classList.add('is-visible');
-                    subPageBannerTitle.textContent = 'কন্টাক্ট প্রোফাইল';
-                } else if (isSubPage) {
-                    subPageBanner.classList.add('is-visible');
-                    subPageBannerTitle.textContent = detailsTitle ? detailsTitle.textContent : 'তালিকা';
-                } else {
-                    subPageBanner.classList.remove('is-visible');
-                }
-            }
-
-            // ক্যাটাগরি লিস্ট পেজে হেডারের ভেতরে সার্চ বক্স দেখানো
             subPageSearchWrapper.classList.toggle('is-visible', isSubPage && !isDataPage);
             subPageSearchWrapper.classList.toggle('hidden', !isSubPage || isDataPage);
 
@@ -1296,15 +1228,18 @@
             subInput.focus();
         });
 
-        const observer = new MutationObserver(syncLayoutVisibility);
-        observer.observe(categoryDetails, { attributes: true, attributeFilter: ['class'] });
+        const observer = new MutationObserver(syncSearchVisibility);
+        observer.observe(categoryDetails, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
         if (dataDetails) {
-            observer.observe(dataDetails, { attributes: true, attributeFilter: ['class'] });
+            observer.observe(dataDetails, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
         }
-        if (detailsTitle) {
-            observer.observe(detailsTitle, { childList: true, characterData: true, subtree: true });
-        }
-        syncLayoutVisibility();
+        syncSearchVisibility();
     })();
 </script>
 
