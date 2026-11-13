@@ -1009,39 +1009,25 @@ html, body {
 
 
 
-/* ==========================================
-   FIXED BOTTOM NAVIGATION & BODY FIX
-========================================== */
-
-/* পেজের বডি যেন সবসময় পুরো স্ক্রিন জুড়ে থাকে এবং নেভিগেশনের নিচে ফাঁকা জায়গা রাখে */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    min-height: 100vh !important;
-    margin: 0 !important;
-    padding-bottom: 80px !important; /* কনটেন্ট যেন নেভিগেশনের নিচে ঢাকা না পড়ে */
-    box-sizing: border-box;
-}
-
-/* বটম নেভিগেশন বার সবসময় স্ক্রিনের নিচে ফিক্সড থাকবে */
+/* ===== FIXED BOTTOM NAVIGATION FIX ===== */
 .custom-bottom-nav {
     position: fixed !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-
     width: 100% !important;
     height: 62px !important;
-
     margin: 0 !important;
     padding: 0 !important;
-
-    z-index: 99999 !important; /* জ-ইনডেক্স বাড়িয়ে দেওয়া হয়েছে যাতে সবার উপরে থাকে */
+    z-index: 99999 !important;
     background: transparent !important;
+    transform: translateZ(0) !important; /* মোবাইল ব্রাউজারে পজিশন লক করার জন্য */
+    pointer-events: none !important; /* যেন পেজের অন্য ক্লিকে সমস্যা না করে */
+}
 
-    transform: none !important;
-    overflow: visible !important;
+/* নেভিগেশনের ভেতরের এলিমেন্টগুলোতে আবার ক্লিক সচল করার জন্য */
+.custom-bottom-nav * {
+    pointer-events: auto !important;
 }
 
 /* SVG ব্যাকগ্রাউন্ড */
