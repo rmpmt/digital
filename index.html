@@ -1114,59 +1114,15 @@
     </div>
 </div>
 
-/* ===== নিচের নেভিগেশন বার ===== */
-.custom-bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: calc(56px + env(safe-area-inset-bottom, 0px));
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-    display: flex;
-    align-items: stretch;
-    z-index: 1000;
-    pointer-events: none; /* দরকার হলে auto করুন */
-}
-
-/* দুই পাশের সমতল ডার্ক ব্লক */
-.nav-side {
-    flex: 1;
-    background: #020624;
-}
-
-/* মাঝের SVG: প্রস্থ কখনো বাড়বে না, তাই বাঁক বিকৃত হয় না */
-.bottom-nav-svg {
-    display: block;
-    width: 100px;   /* গর্তের ফিক্সড প্রস্থ */
-    height: 56px;
-    flex-shrink: 0; /* চওড়া স্ক্রিনেও স্ট্রেচ হবে না */
-}
-
-/* ===== সেন্টার লোগো সার্কেল ===== */
-.bottom-nav-logo-circle {
-    position: absolute;
-    bottom: calc(56px + env(safe-area-inset-bottom, 0px) - 32px);
-    /* ↑ সার্কেলের কেন্দ্র ঠিক বারের উপরের কিনারায় বসে */
-    left: 50%;
-    transform: translateX(-50%); /* যেকোনো প্রস্থে গর্তের একদম মাঝখানে */
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: #ffffff;          /* সাদা রিং/বর্ডার */
-    padding: 3px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); /* নরম ছায়া/গ্লো */
-}
-
-.bottom-nav-logo-circle img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: #020624; /* লোগোর ডার্ক নেভি ব্যাকগ্রাউন্ড */
-    object-fit: cover;
-}
-    
-
+<!-- বাটন ছাড়া শুধুমাত্র ছবির মতো বাঁকানো গর্ত ও লোগোসহ নিচের নেভিগেশন বার -->
+<div class="custom-bottom-nav">
+    <svg class="bottom-nav-svg" viewBox="0 0 360 48" preserveAspectRatio="none">
+        <path d="M0,0 L132,0 C145,0 148,32 180,32 C212,32 215,0 228,0 L360,0 L360,48 L0,48 Z" fill="#020624"></path>
+    </svg>
+    <div class="bottom-nav-logo-circle">
+        <img src="icons/icon-192.png" alt="Logo">
+    </div>
+</div>
     
 
 <!-- জাভাস্ক্রিপ্ট ফাইলস এবং স্লাইডার/ঘড়ি স্ক্রিপ্ট -->
