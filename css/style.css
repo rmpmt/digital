@@ -1011,7 +1011,7 @@ html, body {
 
 /* ===== PAGE SPACE ===== */
 html {
-    min-height: 100%;
+    min-height: 80%;
 }
 
 body {
