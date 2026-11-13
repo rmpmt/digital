@@ -1054,7 +1054,7 @@ body {
 /* LOGO */
 .bottom-nav-logo-circle {
     position: absolute !important;
-    top: -24px !important;
+    top: -20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
 
