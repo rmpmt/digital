@@ -1071,6 +1071,7 @@ body {
     border: none !important;
     box-shadow: none !important;
     overflow: hidden !important;
+    top: -56px !important;
 }
 
 /* ===== LOGO IMAGE ===== */
