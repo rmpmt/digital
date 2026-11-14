@@ -1067,44 +1067,21 @@ body {
 /* ===== CENTER LOGO ===== */
 
 .bottom-nav-logo-circle {
-    position: absolute !important;
-
-    left: 50% !important;
-    top: -46px !important;
-
-    transform: translateX(-50%) !important;
-
-    width: 80px !important;
-    height: 80px !important;
-
-    box-sizing: border-box !important;
-
-    border: 0px solid #020624 !important;
-    border-radius: 50% !important;
-
-    background: #ffffff !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     overflow: hidden !important;
-
-    z-index: 2 !important;
-
-    box-shadow: 0 -3px 8px rgba(0,0,0,0.15) !important;
-
-    pointer-events: auto !important;
 }
 
 /* ===== LOGO IMAGE ===== */
 
 .bottom-nav-logo-circle img {
-    width: 85% !important;
-    height: 85% !important;
-
-    object-fit: contain !important;
-    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border: none !important;
+    border-radius: 50% !important;
+    background: transparent !important;
 }
 
 /* ===== SHORT CONTENT FIX ===== */
