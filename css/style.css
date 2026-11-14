@@ -1008,99 +1008,54 @@ html, body {
 
 
 
-
-/* ===== PAGE SPACE ===== */
-html {
-    min-height: 100%;
-}
-
-body {
-    min-height: 100vh;
-    margin: 0;
-    padding-bottom: 100px !important;
-    box-sizing: border-box;
-}
-
 /* ===== FIXED BOTTOM NAVIGATION ===== */
 .custom-bottom-nav {
     position: fixed !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-
     width: 100% !important;
-    height: 50px !important;
-
+    height: 62px !important;
     margin: 0 !important;
     padding: 0 !important;
-
     z-index: 1000 !important;
     background: transparent !important;
-
-    transform: none !important;
     overflow: visible !important;
 }
 
-/* SVG */
-.bottom-nav-svg {
+/* ছবির মতো মসৃণ কার্ভ তৈরি করার SVG ব্যাকগ্রাউন্ড */
+.nav-svg-bg {
     position: absolute !important;
     left: 0 !important;
     bottom: 0 !important;
     width: 100% !important;
-    height: 50px !important;
+    height: 62px !important;
     display: block !important;
+    filter: drop-shadow(0px -2px 6px rgba(0, 0, 0, 0.08)) !important;
 }
 
-/* LOGO */
+/* LOGO CIRCLE */
 .bottom-nav-logo-circle {
     position: absolute !important;
-    top: -18px !important;
+    top: -28px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-
-    width: 56px !important;
-    height: 56px !important;
-
-    border: 1px solid #020624 !important;
+    width: 64px !important;
+    height: 64px !important;
     border-radius: 50% !important;
-    background: #fff !important;
-
+    background: #ffffff !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-
     overflow: hidden !important;
     z-index: 1001 !important;
+    box-shadow: 0 4px 12px rgba(2, 6, 36, 0.25) !important;
 }
 
 .bottom-nav-logo-circle img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 90% !important;
+    height: 90% !important;
     object-fit: contain !important;
-}
-
-/* ===== TOAST MESSAGE ===== */
-.toast,
-.toast-container,
-.toast-message,
-#toast,
-#toast-container {
-    z-index: 20000 !important;
-}
-
-/* ===== MODALS AND POPUPS ===== */
-.modal,
-.modal-backdrop,
-.popup,
-.popup-container,
-.swal2-container {
-    z-index: 30000 !important;
-}
-
-/* ===== NOTIFICATION ===== */
-.notification-panel,
-.notification-popup {
-    z-index: 25000 !important;
 }
 
 
