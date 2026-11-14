@@ -670,9 +670,7 @@ body:not(.dark-mode) .drawer-footer {
     box-shadow: var(--shadow-md);
 }
 
-/* ==========================================
-   FIXED BOTTOM NAVIGATION BAR
-========================================== */
+/* ===== FIXED BOTTOM NAVIGATION ===== */
 .custom-bottom-nav {
     position: fixed !important;
     left: 0 !important;
@@ -686,8 +684,14 @@ body:not(.dark-mode) .drawer-footer {
     background: transparent !important;
     transform: translateZ(0) !important;
     overflow: visible !important;
+    pointer-events: none !important;
 }
 
+.custom-bottom-nav * {
+    pointer-events: auto !important;
+}
+
+/* SVG ব্যাকগ্রাউন্ড */
 .bottom-nav-svg {
     position: absolute !important;
     left: 0 !important;
@@ -697,19 +701,24 @@ body:not(.dark-mode) .drawer-footer {
     display: block !important;
 }
 
+/* LOGO CIRCLE - লোগো এবং নচ নিখুঁতভাবে বাঁধার জন্য */
 .bottom-nav-logo-circle {
     position: absolute !important;
     top: -26px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 64px !important;
-    height: 64px !important;
+
+    width: 60px !important;
+    height: 60px !important;
+
     border: 2px solid #020624 !important;
     border-radius: 50% !important;
     background: #fff !important;
+
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+
     overflow: hidden !important;
     z-index: 100000 !important;
     box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.15);
