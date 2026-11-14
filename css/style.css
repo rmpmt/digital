@@ -1009,11 +1009,9 @@ html, body {
 
 
 
-/* ==========================================
-   FIXED BOTTOM NAVIGATION & LOGO NOTCH FIX
-   ========================================== */
 
-/* পেজের উচ্চতা স্থিতিশীল রাখা */
+/* ===== PAGE HEIGHT FIX ===== */
+
 html {
     min-height: 100%;
 }
@@ -1021,16 +1019,17 @@ html {
 body {
     min-height: 100vh;
     min-height: 100dvh;
-    margin: 0;
+    padding-bottom: 62px !important;
+    box-sizing: border-box;
 }
 
-/* Bottom Navigation */
+/* ===== FIXED BOTTOM NAVIGATION ===== */
+
 .custom-bottom-nav {
     position: fixed !important;
-
     left: 0 !important;
-    right: 0 !important;
     bottom: 0 !important;
+    right: 0 !important;
 
     width: 100% !important;
     height: 62px !important;
@@ -1044,27 +1043,15 @@ body {
 
     overflow: visible !important;
 
-    /* Content-এর উচ্চতার ওপর নির্ভর করবে না */
-    flex-shrink: 0 !important;
-
-    /* Fixed position স্থিতিশীল রাখা */
-    transform: none !important;
-    isolation: isolate !important;
-
     pointer-events: none !important;
 }
 
-/* Navigation-এর ভেতরের বাটন */
-.custom-bottom-nav * {
-    pointer-events: auto !important;
-}
+/* ===== SVG NOTCH ===== */
 
-/* SVG Notch Background */
 .bottom-nav-svg {
     position: absolute !important;
 
     left: 0 !important;
-    right: 0 !important;
     bottom: 0 !important;
 
     width: 100% !important;
@@ -1072,28 +1059,27 @@ body {
 
     display: block !important;
 
-    z-index: 1 !important;
+    overflow: visible !important;
+
     pointer-events: none !important;
 }
 
-/* Center Logo Notch */
+/* ===== CENTER LOGO ===== */
+
 .bottom-nav-logo-circle {
     position: absolute !important;
 
-    top: -26px !important;
     left: 50% !important;
+    top: -46px !important;
 
     transform: translateX(-50%) !important;
 
-    width: 64px !important;
-    height: 64px !important;
-
-    min-width: 64px !important;
-    min-height: 64px !important;
+    width: 80px !important;
+    height: 80px !important;
 
     box-sizing: border-box !important;
 
-    border: 2px solid #020624 !important;
+    border: 3px solid #020624 !important;
     border-radius: 50% !important;
 
     background: #ffffff !important;
@@ -1107,38 +1093,39 @@ body {
     z-index: 2 !important;
 
     box-shadow: 0 -3px 8px rgba(0,0,0,0.15) !important;
+
+    pointer-events: auto !important;
 }
 
-/* Logo Image */
+/* ===== LOGO IMAGE ===== */
+
 .bottom-nav-logo-circle img {
     width: 85% !important;
     height: 85% !important;
 
     object-fit: contain !important;
-
     display: block !important;
 }
 
-/* Short Content হলেও Main Area পূর্ণ উচ্চতা রাখবে */
+/* ===== SHORT CONTENT FIX ===== */
+
 #mainDashboardView,
 #categoryDetailsView,
 #dataDetailsView {
+    min-height: calc(100vh - 220px);
     min-height: calc(100dvh - 220px);
+
     box-sizing: border-box;
 }
 
-/* Mobile Browser Compatibility */
+/* ===== OLD MOBILE BROWSER SUPPORT ===== */
+
 @supports not (height: 100dvh) {
     body {
         min-height: 100vh;
     }
-
-    #mainDashboardView,
-    #categoryDetailsView,
-    #dataDetailsView {
-        min-height: calc(100vh - 220px);
-    }
 }
+
 
 
 
