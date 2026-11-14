@@ -1077,8 +1077,8 @@ body {
 /* ===== LOGO IMAGE ===== */
 
 .bottom-nav-logo-circle img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 110% !important;
+    height: 110% !important;
     object-fit: cover !important;
     border: none !important;
     border-radius: 50% !important;
