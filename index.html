@@ -11,9 +11,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Police Phonebook">
     <meta name="google" content="notranslate">
+    
 
     <title>RMP MT Contacts</title>
 
+    <!-- অ্যাপ আনলক করা না থাকলে সরাসরি splash.html এ পাঠিয়ে দেবে -->
     <script>
         if (localStorage.getItem("police_phonebook_is_unlocked") !== "true") {
             window.location.replace("splash.html");
@@ -26,27 +28,42 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css?v=6">
 
     <style>
-        .goog-te-banner-frame.skiptranslate { display: none !important; }
-        body { top: 0px !important; }
-        .goog-tooltip { display: none !important; }
-        .goog-tooltip:hover { display: none !important; }
-        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+        /* Google Translate Banner & Top Shift Fix */
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+        .goog-tooltip {
+            display: none !important;
+        }
+        .goog-tooltip:hover {
+            display: none !important;
+        }
+        .goog-text-highlight {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
 
+        /* আধুনিক ডার্ক হেডার এবং গ্রিড স্টাইল */
         body {
             background-color: #020624 !important;
+            padding-bottom: 0 !important;
             margin: 0 !important;
             padding: 0 !important;
-            min-height: 100vh !important;
-            padding-bottom: 75px !important;
-            position: relative !important;
         }
-        html { margin: 0 !important; padding: 0 !important; }
-
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
         .modern-top-wrapper {
             background: linear-gradient(180deg, #020624 0%, #060d3d 100%);
             color: #ffffff;
@@ -58,7 +75,11 @@
             justify-content: space-between;
             padding: 14px 16px 8px 16px;
         }
-        .header-left-group { display: flex; align-items: center; gap: 10px; }
+        .header-left-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         .modern-menu-btn, .modern-icon-btn {
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.18);
@@ -99,7 +120,11 @@
             letter-spacing: 0.4px;
             font-family: monospace;
         }
-        .header-right-group { display: flex; align-items: center; gap: 6px; }
+        .header-right-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
         .header-logo-img {
             width: 42px;
             height: 42px;
@@ -109,6 +134,7 @@
             margin-left: 4px;
         }
 
+        /* ডেট এবং টাইমের ঠিক নিচে হেডারের ভেতরে সার্চ ফিল্ড */
         .header-search-inline {
             display: none;
             padding: 2px 16px 10px;
@@ -116,7 +142,9 @@
             box-sizing: border-box;
             margin: 0 auto;
         }
-        .header-search-inline.is-visible { display: block !important; }
+        .header-search-inline.is-visible {
+            display: block !important;
+        }
         .subpage-search-field {
             width: 100%;
             height: 40px;
@@ -131,7 +159,12 @@
             background: rgba(255,255,255,0.11);
             margin: 0 auto;
         }
-        .subpage-search-icon { flex: 0 0 auto; color: #cbd5e1; font-size: 23px; line-height: 1; }
+        .subpage-search-icon {
+            flex: 0 0 auto;
+            color: #cbd5e1;
+            font-size: 23px;
+            line-height: 1;
+        }
         .header-search-inline input[type="search"] {
             flex: 1 1 auto;
             min-width: 0;
@@ -145,7 +178,10 @@
             box-shadow: none !important;
             text-align: left;
         }
-        .header-search-inline input[type="search"]::placeholder { color: #cbd5e1 !important; opacity: 1; }
+        .header-search-inline input[type="search"]::placeholder {
+            color: #cbd5e1 !important;
+            opacity: 1;
+        }
         .subpage-search-clear {
             display: none;
             flex: 0 0 25px;
@@ -160,8 +196,11 @@
             line-height: 22px;
             cursor: pointer;
         }
-        .subpage-search-field.has-value .subpage-search-clear { display: block; }
+        .subpage-search-field.has-value .subpage-search-clear {
+            display: block;
+        }
 
+        /* ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) */
         .hero-slider-container {
             position: relative;
             margin: 4px 16px 0;
@@ -171,9 +210,21 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
-        .slider-track { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
-        .slide-item { min-width: 100%; height: 100%; position: relative; }
-        .slide-item img { width: 100%; height: 100%; object-fit: cover; }
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide-item {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .slide-overlay {
             position: absolute;
             inset: 0;
@@ -183,20 +234,65 @@
             justify-content: space-between;
             padding: 12px 14px;
         }
-        .slide-info { display: flex; align-items: center; gap: 8px; }
-        .slide-badge { background: #ffffff; width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
-        .slide-info h4 { color: #ffffff; font-size: 13px; font-weight: 600; margin: 0; }
-        .slide-btn { background: #0ea5e9; color: #ffffff !important; border: none; padding: 5px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; cursor: pointer; }
-        .slider-dots { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
-        .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); }
-        .slider-dot.active { background: #ffffff; width: 14px; border-radius: 4px; }
+        .slide-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .slide-badge {
+            background: #ffffff;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .slide-info h4 {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .slide-btn {
+            background: #0ea5e9;
+            color: #ffffff !important;
+            border: none;
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+        .slider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .slider-dot.active {
+            background: #ffffff;
+            width: 14px;
+            border-radius: 4px;
+        }
 
+        /* সাদা বাঁকানো মূল শিট */
         .curved-main-sheet {
             background-color: var(--bg-color, #f8fafc);
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
             min-height: calc(100vh - 200px);
-            padding: 16px 14px 20px 14px;
+            padding: 16px 14px 70px 14px;
             margin-top: -10px;
             position: relative;
             z-index: 5;
@@ -204,7 +300,12 @@
             overflow: hidden;
         }
 
-        #categoryList.category-list { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 12px !important; }
+        /* ৩-কলাম গ্রিড ক্যাটাগরি লিস্ট */
+        #categoryList.category-list {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 12px !important;
+        }
         #categoryList .category-card {
             background: #3f3351 !important;
             border: none !important;
@@ -220,8 +321,21 @@
             position: relative;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
         }
-        #categoryList .cat-click { flex-direction: column !important; justify-content: center !important; align-items: center !important; width: 100%; height: 100%; }
-        #categoryList .cat-card-img { width: 38px !important; height: 38px !important; margin: 0 0 8px 0 !important; border: none !important; border-radius: 8px !important; object-fit: contain !important; }
+        #categoryList .cat-click {
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100%;
+            height: 100%;
+        }
+        #categoryList .cat-card-img {
+            width: 38px !important;
+            height: 38px !important;
+            margin: 0 0 8px 0 !important;
+            border: none !important;
+            border-radius: 8px !important;
+            object-fit: contain !important;
+        }
         #categoryList .category-card h3 {
             color: #ffffff !important;
             font-size: 12px !important;
@@ -232,9 +346,24 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+        #categoryList .category-card > div:last-child {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            display: flex;
+            gap: 2px;
+            transform: scale(0.75);
+        }
 
-        #categoryDetailsView { background-color: transparent !important; padding: 0; min-height: auto; }
-        #categoryDetailsView .dashboard-header { display: none !important; }
+        /* দ্বিতীয় পেজ বা ক্যাটাগরি ডিটেইলস স্টাইল */
+        #categoryDetailsView {
+            background-color: transparent !important;
+            padding: 0;
+            min-height: auto;
+        }
+        #categoryDetailsView .dashboard-header {
+            display: none !important;
+        }
         #categoryDetailsView .data-card-item {
             background-color: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
@@ -251,6 +380,8 @@
             width: 65px !important;
             height: 65px !important;
             min-width: 65px !important;
+            max-width: 65px !important;
+            max-height: 65px !important;
             border-radius: 50% !important;
             background: #e2e8f0;
             margin-right: 14px !important;
@@ -261,34 +392,80 @@
             align-items: center;
             justify-content: center;
         }
-        #categoryDetailsView .data-card-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        #categoryDetailsView .data-card-info { flex-grow: 1; overflow: hidden; }
-        #categoryDetailsView .data-card-name { font-size: 16px !important; font-weight: 700 !important; color: #0f172a !important; margin-bottom: 2px; }
-        #categoryDetailsView .data-card-detail { font-size: 12.5px !important; color: #64748b !important; line-height: 1.4; }
+        #categoryDetailsView .data-card-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #categoryDetailsView .data-card-info {
+            flex-grow: 1;
+            overflow: hidden;
+        }
+        #categoryDetailsView .data-card-name {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #0f172a !important;
+            margin-bottom: 2px;
+        }
+        #categoryDetailsView .data-card-detail {
+            font-size: 12.5px !important;
+            color: #64748b !important;
+            line-height: 1.4;
+        }
 
-        body.is-data-details-mode { background-color: #020624 !important; margin: 0 !important; padding: 0 !important; }
+        /* =====================================================================
+           কন্টাক্ট ডিটেইলস পেজ (#dataDetailsView) — সুনির্দিষ্ট নতুন ডিজাইন
+           ===================================================================== */
+        body.is-data-details-mode {
+            background-color: #020624 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
         body.is-data-details-mode .modern-top-wrapper,
         body.is-data-details-mode #heroSlider,
         body.is-data-details-mode #searchBox,
         body.is-data-details-mode #subPageHeaderSearchWrapper,
         body.is-data-details-mode #slidingNoticeContainer,
-        body.is-data-details-mode .modern-header { display: none !important; }
+        body.is-data-details-mode .modern-header {
+            display: none !important;
+        }
         
         body.is-data-details-mode .curved-main-sheet {
             background-color: #ffffff !important;
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
-            padding: 0 !important;
+            padding: 0 0 70px 0 !important;
             margin-top: 0 !important;
             box-shadow: none !important;
             min-height: 100vh !important;
         }
-        body.dark-mode.is-data-details-mode .curved-main-sheet { background-color: #020624 !important; }
-        body.is-data-details-mode .container { padding: 0 !important; max-width: 100% !important; margin: 0 !important; }
+        body.dark-mode.is-data-details-mode .curved-main-sheet {
+            background-color: #020624 !important;
+        }
+        body.is-data-details-mode .container {
+            padding: 0 !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+        }
 
-        #dataDetailsView .details-container-card { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important; }
-        #dataPageContent { display: flex; flex-direction: column; gap: 10px; margin: 0 !important; padding: 0 !important; }
+        #dataDetailsView .details-container-card {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+        }
 
+        #dataPageContent {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        /* ১. একদম ওপরের প্রোফাইল অংশ (সাদা অংশ বাদ দিয়ে ডার্ক ব্যাকগ্রাউন্ড ফিক্সড) */
         #dataPageContent > div:first-child {
             background: #020624 !important;
             color: #ffffff !important;
@@ -311,8 +488,11 @@
             margin: 0 auto 10px auto !important;
             display: block !important;
         }
-        #dataPageContent h1, #dataPageContent h2, #dataPageContent h3,
-        #dataPageContent .detail-name, #dataPageContent .profile-name {
+        #dataPageContent h1,
+        #dataPageContent h2,
+        #dataPageContent h3,
+        #dataPageContent .detail-name,
+        #dataPageContent .profile-name {
             color: #ffffff !important;
             font-size: 18px !important;
             font-weight: 700 !important;
@@ -324,7 +504,9 @@
             max-width: 90% !important;
             border: 1px solid rgba(255,255,255,0.08) !important;
         }
-        #dataPageContent .detail-designation, #dataPageContent .designation, #dataPageContent .subtitle {
+        #dataPageContent .detail-designation,
+        #dataPageContent .designation,
+        #dataPageContent .subtitle {
             color: #cbd5e1 !important;
             font-size: 13.5px !important;
             font-weight: 500 !important;
@@ -332,8 +514,13 @@
             text-align: center !important;
         }
 
-        #dataPageContent .info-row, #dataPageContent .detail-row, #dataPageContent .data-field,
-        #dataPageContent .detail-box, #dataPageContent .info-card, #dataPageContent .contact-detail-item,
+        /* ইনফো কার্ডগুলোর পারফেক্ট মার্জিন ও প্যাডিং */
+        #dataPageContent .info-row,
+        #dataPageContent .detail-row,
+        #dataPageContent .data-field,
+        #dataPageContent .detail-box,
+        #dataPageContent .info-card,
+        #dataPageContent .contact-detail-item,
         #dataPageContent .details-info-box {
             background: #ffffff !important;
             border: 1px solid #e2e8f0 !important;
@@ -358,8 +545,14 @@
             border-color: #334155 !important;
         }
 
-        #dataPageContent .info-row .label, #dataPageContent .detail-row .label,
-        #dataPageContent .field-label, #dataPageContent .detail-label, #dataPageContent .info-label {
+        /* লেবেল ও মান */
+        #dataPageContent .info-row .label,
+        #dataPageContent .detail-row .label,
+        #dataPageContent .field-label,
+        #dataPageContent .detail-label,
+        #dataPageContent .info-card > span:first-child,
+        #dataPageContent .detail-box > span:first-child,
+        #dataPageContent .info-label {
             font-size: 12px !important;
             font-weight: 600 !important;
             color: #64748b !important;
@@ -368,10 +561,21 @@
         }
         body.dark-mode #dataPageContent .info-row .label,
         body.dark-mode #dataPageContent .detail-row .label,
-        body.dark-mode #dataPageContent .info-label { color: #94a3b8 !important; }
+        body.dark-mode #dataPageContent .field-label,
+        body.dark-mode #dataPageContent .detail-label,
+        body.dark-mode #dataPageContent .info-label {
+            color: #94a3b8 !important;
+        }
 
-        #dataPageContent .info-row .value, #dataPageContent .detail-row .value,
-        #dataPageContent .field-value, #dataPageContent .detail-value, #dataPageContent .info-value {
+        #dataPageContent .info-row .value,
+        #dataPageContent .detail-row .value,
+        #dataPageContent .field-value,
+        #dataPageContent .detail-value,
+        #dataPageContent .info-card > div,
+        #dataPageContent .info-card > p,
+        #dataPageContent .detail-box > div,
+        #dataPageContent .detail-box > p,
+        #dataPageContent .info-value {
             font-size: 15.5px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
@@ -380,10 +584,18 @@
         }
         body.dark-mode #dataPageContent .info-row .value,
         body.dark-mode #dataPageContent .detail-row .value,
-        body.dark-mode #dataPageContent .info-value { color: #f1f5f9 !important; }
+        body.dark-mode #dataPageContent .field-value,
+        body.dark-mode #dataPageContent .detail-value,
+        body.dark-mode #dataPageContent .info-value {
+            color: #f1f5f9 !important;
+        }
 
-        #dataPageContent .action-buttons, #dataPageContent .detail-actions,
-        #dataPageContent .btn-group, #dataPageContent .quick-actions, #dataPageContent .quick-action-grid {
+        /* ২. মোবাইল, টেলিফোন ও ইমেইল বাটন — ৩ কলাম গ্রিড আকারে এক সারিতে সুবিন্যস্ত */
+        #dataPageContent .action-buttons,
+        #dataPageContent .detail-actions,
+        #dataPageContent .btn-group,
+        #dataPageContent .quick-actions,
+        #dataPageContent .quick-action-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 8px !important;
@@ -391,10 +603,16 @@
             padding: 0 !important;
             width: auto !important;
         }
-        #dataPageContent .action-buttons a, #dataPageContent .detail-actions a,
-        #dataPageContent .btn-group a, #dataPageContent .quick-actions a, #dataPageContent .quick-action-grid a,
-        #dataPageContent .action-buttons button, #dataPageContent .detail-actions button,
-        #dataPageContent .btn-group button, #dataPageContent .quick-actions button, #dataPageContent .quick-action-grid button {
+        #dataPageContent .action-buttons a,
+        #dataPageContent .detail-actions a,
+        #dataPageContent .btn-group a,
+        #dataPageContent .quick-actions a,
+        #dataPageContent .quick-action-grid a,
+        #dataPageContent .action-buttons button,
+        #dataPageContent .detail-actions button,
+        #dataPageContent .btn-group button,
+        #dataPageContent .quick-actions button,
+        #dataPageContent .quick-action-grid button {
             position: static !important;
             transform: none !important;
             width: 100% !important;
@@ -413,14 +631,33 @@
             text-decoration: none !important;
             cursor: pointer !important;
             box-sizing: border-box !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
         }
-        #dataPageContent .quick-action-grid > :nth-child(1), #dataPageContent .quick-actions > :nth-child(1) { background: linear-gradient(135deg, #2563eb, #1d4ed8) !important; }
-        #dataPageContent .quick-action-grid > :nth-child(2), #dataPageContent .quick-actions > :nth-child(2) { background: linear-gradient(135deg, #4b5563, #374151) !important; }
-        #dataPageContent .quick-action-grid > :nth-child(3), #dataPageContent .quick-actions > :nth-child(3) { background: linear-gradient(135deg, #ea4335, #c5221f) !important; }
+        /* মোবাইল বাটন (নীল) */
+        #dataPageContent .quick-action-grid > :nth-child(1),
+        #dataPageContent .quick-actions > :nth-child(1) {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+        }
+        /* টেলিফোন বাটন (স্লেট) */
+        #dataPageContent .quick-action-grid > :nth-child(2),
+        #dataPageContent .quick-actions > :nth-child(2) {
+            background: linear-gradient(135deg, #4b5563, #374151) !important;
+        }
+        /* ইমেইল বাটন (লাল) */
+        #dataPageContent .quick-action-grid > :nth-child(3),
+        #dataPageContent .quick-actions > :nth-child(3) {
+            background: linear-gradient(135deg, #ea4335, #c5221f) !important;
+        }
 
-        #dataPageContent .share-contact-card, #dataPageContent a[href*="share"],
-        #dataPageContent button[id*="share"], #dataPageContent .share-btn-wrapper,
-        #dataPageContent #btnShareContact, #dataPageContent .btn-share-round {
+        /* ৩. শেয়ার কন্টাক্ট — নিচে আলাদা পূর্ণ প্রস্থের (Full-width) স্বতন্ত্র ঘর ও আইকন */
+        #dataPageContent .share-contact-card,
+        #dataPageContent a[href*="share"],
+        #dataPageContent button[id*="share"],
+        #dataPageContent .share-btn-wrapper,
+        #dataPageContent #btnShareContact,
+        #dataPageContent .btn-share-round {
             grid-column: 1 / -1 !important;
             background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%) !important;
             color: #ffffff !important;
@@ -437,61 +674,60 @@
             box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
             border: none !important;
             text-decoration: none !important;
+            position: static !important;
+            transform: none !important;
             width: calc(100% - 32px) !important;
             box-sizing: border-box !important;
             cursor: pointer !important;
         }
 
-        /* বটম নেভিগেশন বার */
+        /* একদম ছবির মতো বাঁকানো গর্ত ও মাঝখানের লোগোসহ নিচের নেভিগেশন বার */
         .custom-bottom-nav {
-            position: fixed !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            width: 100% !important;
-            height: 62px !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            z-index: 99999 !important;
-            background: transparent !important;
-            transform: translateZ(0) !important;
-            overflow: visible !important;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            z-index: 9999;
+            pointer-events: none;
         }
         .bottom-nav-svg {
-            position: absolute !important;
-            left: 0 !important;
-            bottom: 0 !important;
-            width: 100% !important;
-            height: 62px !important;
-            display: block !important;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            display: block;
+            filter: drop-shadow(0 -3px 8px rgba(0, 0, 0, 0.25));
         }
         .bottom-nav-logo-circle {
-            position: absolute !important;
-            top: -26px !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            width: 64px !important;
-            height: 64px !important;
-            border: 2px solid #020624 !important;
-            border-radius: 50% !important;
-            background: #fff !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            overflow: hidden !important;
-            z-index: 100000 !important;
-            box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.15);
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 3px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
         }
         .bottom-nav-logo-circle img {
-            width: 85% !important;
-            height: 85% !important;
-            object-fit: contain !important;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
         }
     </style>
 </head>
 
 <body>
 
+<!-- Google Translate Hidden Element & Script -->
 <div id="google_translate_element" style="display:none;"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
@@ -517,6 +753,8 @@
 </script>
 
 <div id="appContainer">
+
+    <!-- ডার্ক হেডার এবং স্লাইডার -->
     <div class="modern-top-wrapper">
         <header class="modern-header">
             <div class="header-left-group">
@@ -540,18 +778,25 @@
             </div>
         </header>
 
+        <!-- হোম পেজের সার্চ বক্স -->
         <div id="searchBox" class="header-search-box hidden" style="margin: 4px 16px 8px;">
             <input type="search" id="searchInput" placeholder="Category, Header অথবা Data খুঁজুন..." autocomplete="off">
         </div>
 
+        <!-- ক্যাটাগরি বা সাব-পেজের সার্চ বক্স -->
         <div id="subPageHeaderSearchWrapper" class="header-search-inline hidden">
             <div class="subpage-search-field">
                 <span class="subpage-search-icon" aria-hidden="true">⌕</span>
-                <input type="search" id="subPageSearchInput" placeholder="Search contacts..." autocomplete="off" aria-label="Search contacts">
-                <button type="button" id="clearSubPageSearch" class="subpage-search-clear" aria-label="Clear search" title="Clear search">×</button>
+                <input type="search" id="subPageSearchInput"
+                       placeholder="Search contacts..." autocomplete="off"
+                       aria-label="Search contacts">
+                <button type="button" id="clearSubPageSearch"
+                        class="subpage-search-clear" aria-label="Clear search"
+                        title="Clear search">×</button>
             </div>
         </div>
 
+        <!-- ইমেজ স্লাইডার (শুধুমাত্র প্রথম পেজে থাকবে) -->
         <div class="hero-slider-container" id="heroSlider">
             <div class="slider-track" id="sliderTrack">
                 <div class="slide-item">
@@ -579,7 +824,10 @@
         </div>
     </div>
 
+    <!-- সাদা বাঁকানো মূল শিট -->
     <div class="curved-main-sheet">
+        
+        <!-- টেক্সট স্ক্রোলিং বা নোটিশ বোর্ড -->
         <div id="slidingNoticeContainer" style="background: transparent; border-bottom: 1px solid var(--border-color); overflow: hidden; display: none; margin-bottom: 4px; border-radius: 8px;"></div>
 
         <main class="container">
@@ -594,6 +842,7 @@
                     </div>
                 </section>
                 
+                <!-- ৩-কলাম ক্যাটাগরি লিস্ট -->
                 <section id="categoryList" class="category-list grid-3-col"></section>
                 <div id="allSearchContainer" class="hidden" style="margin-top: 15px;"></div>
                 
@@ -605,6 +854,7 @@
                 </section>
             </div>
 
+            <!-- ক্যাটাগরি ডিটেইলস পেজ -->
             <div id="categoryDetailsView" class="hidden">
                 <section class="dashboard-header">
                     <div class="header-left">
@@ -623,6 +873,7 @@
                 <div id="detailsContent"></div>
             </div>
 
+            <!-- কন্টাক্ট ডিটেইলস পেজ -->
             <div id="dataDetailsView" class="hidden">
                 <div class="details-container-card">
                     <div id="dataPageContent"></div>
@@ -631,7 +882,7 @@
         </main>
     </div>
 
-    <!-- Modals & Popups -->
+    <!-- Modals -->
     <div id="loginModal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">
@@ -837,15 +1088,15 @@
     </div>
 
     <div id="toast" class="toast"></div>
+
 </div>
 
-<!-- সঠিক ফিক্সড বটম নেভিগেশন বার -->
+
 <div class="custom-bottom-nav">
     <svg class="bottom-nav-svg"
-         viewBox="0 0 360 62"
+         viewBox="0 0 360 48"
          preserveAspectRatio="none">
-        <!-- এখানে কার্ভের নিখুঁত পয়েন্ট ঠিক করে দেওয়া হয়েছে -->
-        <path d="M0,0 L120,0 C140,0 150,42 180,42 C210,42 220,0 240,0 L360,0 L360,62 L0,62 Z"
+        <path d="M0,0 L115,0 C150,0 148,46 180,46 C212,46 210,0 240,0 L360,0 L360,62 L0,62 Z"
               fill="#020624"></path>
     </svg>
 
@@ -855,6 +1106,9 @@
 </div>
 
 
+    
+
+<!-- জাভাস্ক্রিপ্ট ফাইলস এবং স্লাইডার/ঘড়ি স্ক্রিপ্ট -->
 <script type="module" src="js/app.js"></script>
 
 <script type="module">
@@ -883,6 +1137,7 @@
 <script type="module" src="js/custom-settings.js"></script>
 
 <script>
+    // লাইভ ঘড়ি
     function updateLiveClock() {
         const clockEl = document.getElementById('liveDateTime');
         if (!clockEl) return;
@@ -894,6 +1149,7 @@
     setInterval(updateLiveClock, 1000);
     updateLiveClock();
 
+    // অটো ইমেজ স্লাইডার (হোম পেজের জন্য)
     (function initHeroSlider() {
         const track = document.getElementById('sliderTrack');
         const dotsContainer = document.getElementById('sliderDots');
@@ -927,6 +1183,7 @@
         }, 3500);
     })();
 
+    // Category details ও Data details page-এ ইমেজ স্লাইডার লুকানো এবং Home page-এ দেখানো
     (function initSubPageHeaderSearch() {
         const categoryDetails = document.getElementById('categoryDetailsView');
         const dataDetails = document.getElementById('dataDetailsView');
@@ -946,6 +1203,7 @@
 
             document.body.classList.toggle('is-data-details-mode', isDataPage);
 
+            // হোম পেজ ছাড়া Category বা Data Details কোনো পেজেই ইমেজ স্লাইডার থাকবে না
             heroSlider.style.display = (isSubPage || isDataPage) ? 'none' : '';
             if (homeSearchBox) homeSearchBox.style.display = (isSubPage || isDataPage) ? 'none' : '';
 
@@ -990,9 +1248,15 @@
         });
 
         const observer = new MutationObserver(syncSearchVisibility);
-        observer.observe(categoryDetails, { attributes: true, attributeFilter: ['class'] });
+        observer.observe(categoryDetails, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
         if (dataDetails) {
-            observer.observe(dataDetails, { attributes: true, attributeFilter: ['class'] });
+            observer.observe(dataDetails, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
         }
         syncSearchVisibility();
     })();
